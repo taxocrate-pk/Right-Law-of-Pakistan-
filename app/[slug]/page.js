@@ -1,14 +1,43 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { getNavRoute, navRouteContent } from '../../lib/nav-route-content'
+import { humanizeSlug, isLegacySlug, legacySlugs } from '../../lib/legacy-route-registry'
+
+function inferCategory(slug) {
+  if (/divorce|family|custody|guardian|adoption|maintenance|dowry|mahr|mehar|conjugal/.test(slug)) return 'Family Law'
+  if (/court-marriage|online-marriage|online-nikah|nikah|marriage/.test(slug)) return 'Marriage Law'
+  if (/succession|letter-of-administration/.test(slug)) return 'Succession Law'
+  if (/property|rental|tenancy|real-estate/.test(slug)) return 'Property Law'
+  if (/tax|fbr|ntn|filer|corporate|business|company/.test(slug)) return 'Tax Law'
+  if (/criminal/.test(slug)) return 'Civil Law'
+  if (/intellectual-property/.test(slug)) return 'Intellectual Property'
+  if (/certificate|nadra|b-form|birth|death/.test(slug)) return 'Civil Certificates'
+  return 'Firm'
+}
+
+function fallbackRoute(slug) {
+  if (!isLegacySlug(slug)) return null
+  const title = humanizeSlug(slug)
+  return {
+    title,
+    description: `${title}: legal information, procedure, documentation and practical guidance from Right Law Associates in Pakistan.`,
+    category: inferCategory(slug),
+    image: '/images/legal-consultation.png',
+    topics: ['Legal Framework', 'Required Documents', 'Procedure', 'Jurisdiction', 'Practical Considerations', 'Legal Assistance'],
+  }
+}
+
+function resolveRoute(slug) {
+  return getNavRoute(slug) || fallbackRoute(slug)
+}
 
 export function generateStaticParams() {
-  return Object.keys(navRouteContent).map((slug) => ({ slug }))
+  return [...new Set([...Object.keys(navRouteContent), ...legacySlugs])].map((slug) => ({ slug }))
 }
 
 export async function generateMetadata({ params }) {
   const { slug } = await params
-  const page = getNavRoute(slug)
+  const page = resolveRoute(slug)
   if (!page) return {}
   return {
     title: page.title,
@@ -38,7 +67,7 @@ const lawText = {
 
 export default async function RoutePage({ params }) {
   const { slug } = await params
-  const page = getNavRoute(slug)
+  const page = resolveRoute(slug)
   if (!page) notFound()
   const base = lawText[page.category] || lawText.Firm
   const schema = {
