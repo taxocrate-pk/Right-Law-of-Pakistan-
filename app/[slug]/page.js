@@ -36,11 +36,55 @@ const lawText = {
   'Firm': 'Right Law Associates provides legal assistance through specialist teams handling family, property, civil, corporate, taxation and related matters. The appropriate lawyer and office depend on the nature and jurisdiction of the case.',
 }
 
+const categoryDepth = {
+  'Family Law': {
+    planning: 'Family cases should be approached as a connected set of rights rather than as isolated applications. A divorce or khula matter may also raise questions of maintenance, dower, dowry articles, child custody, visitation, guardianship or enforcement of an earlier order. Identifying these connected issues at the beginning helps avoid unnecessary parallel proceedings and inconsistent positions later.',
+    evidence: 'Family proceedings may depend on marriage records, CNICs, birth certificates, prior notices, financial records, school documents, medical records and earlier court orders. Where children are involved, the practical arrangements for residence, education, health and access can be as important as the formal pleadings.',
+    links: [['Family Law in Pakistan','/family-law-in-pakistan/'],['Divorce Law','/divorce-law/'],['Child Custody','/child-custody/'],['Guardianship Laws','/legal-guardianship-laws-of-pakistan/'],['Maintenance','/maintenance-in-pakistan/']],
+  },
+  'Marriage Law': {
+    planning: 'Marriage-related work should distinguish the ceremony itself from registration, documentary proof and later certificate requirements. Consent, identity, authority of any attorney or proxy, witnesses, Nikah Nama entries and registration records should be consistent with one another so that the marriage can be proved when required for immigration, succession, banking or family proceedings.',
+    evidence: 'Useful records may include CNIC or passport copies, photographs, power of attorney or proxy documents where relevant, Nikah Nama, registrar details, witnesses, registration receipts and any computerized certificate later issued by the competent authority.',
+    links: [['Court Marriage Procedure','/court-marriage-procedure-in-pakistan/'],['Online Marriage','/online-marriage/'],['Nikah Nama','/nikah-nama/'],['Marriage Registration Certificate','/marriage-registration-certificate/']],
+  },
+  'Civil Certificates': {
+    planning: 'Certificate work should begin by checking the underlying civil record rather than only the printed certificate. Names, dates, CNIC numbers, parentage, marital status and registration details should match the supporting record before the document is used for a court case, embassy requirement, inheritance matter or other official purpose.',
+    evidence: 'Depending on the certificate, supporting material can include identity documents, manual records, Union Council entries, hospital or burial records, Nikah Nama, divorce notices, court decrees, family registration information and affidavits explaining discrepancies.',
+    links: [['Marriage Registration Certificate','/marriage-registration-certificate/'],['Divorce Registration Certificate','/divorce-registration-certificate/'],['Succession Certificate','/succession-certificate-letter-of-administration/']],
+  },
+  'Civil Law': {
+    planning: 'Civil disputes are usually shaped by the relief claimed. A party seeking declaration, recovery, injunction, cancellation, possession or enforcement should ensure that the pleadings, documents and forum all support that specific relief. Limitation and interim protection should also be considered before filing.',
+    evidence: 'Agreements, receipts, title or registration papers, notices, correspondence, account records, photographs and earlier proceedings may all affect a civil claim. A clear chronology is often useful because civil disputes can develop over a long period of time.',
+    links: [['Civil Law','/civil-law/'],['Court Litigation','/lawyers-for-litigation-in-the-court/'],['Property Disputes','/property-disputes/']],
+  },
+  'Property Law': {
+    planning: 'Property advice should separate ownership, possession, inheritance, contractual rights and registration issues. A person may possess a property without having clear title, or may have an inheritance share that has not yet been reflected in revenue or registration records. Those distinctions affect both litigation and transfer strategy.',
+    evidence: 'Relevant material can include title documents, sale agreements, mutation or revenue entries, allotment records, leases, rent agreements, tax records, utility bills, inheritance documents and prior court orders. The chain of title should be reviewed rather than relying only on the latest document.',
+    links: [['Property Law in Pakistan','/property-law-in-pakistan/'],['Property Disputes','/property-disputes/'],['Rental and Tenancy Law','/rental-and-tenancy-law-of-pakistan/'],['Succession Certificate','/succession-certificate-letter-of-administration/']],
+  },
+  'Intellectual Property': {
+    planning: 'Intellectual property matters should first identify what is actually being protected: a brand, artistic work, software, invention, design or confidential business material. Ownership, registration status, first use and the nature of the alleged infringement can lead to different remedies.',
+    evidence: 'Applications, registration certificates, invoices, packaging, advertising records, screenshots, publication dates, licensing agreements and examples of the allegedly infringing use can all be important when assessing an intellectual property dispute.',
+    links: [['Intellectual Property Law','/intellectual-property-in-pakistan/'],['Corporate and Tax Law','/corporate-tax-law-services/']],
+  },
+  'Tax Law': {
+    planning: 'Tax and corporate work should be planned around filing status, statutory deadlines, notices, transaction records and the legal form of the business. A filing decision may affect later assessments, banking, contracts or regulatory compliance, so the supporting figures and documents should be internally consistent.',
+    evidence: 'Returns, wealth statements, bank records, invoices, withholding records, registration documents, notices, orders and correspondence with the relevant authority should be reviewed together where a matter involves compliance or dispute resolution.',
+    links: [['Income Tax Return Filing','/fbr-income-tax-return-filing-lawyers-pakistan/'],['NTN Verification','/ntn-verification-from-the-fbr-in-pakistan/'],['Corporate and Tax Law','/corporate-tax-law-services/']],
+  },
+  'Succession Law': {
+    planning: 'Succession matters should identify every legal heir and classify the assets before choosing the procedure. Bank balances, shares, vehicles, immovable property and other assets may not all move through the same administrative or court process. Any dispute about heirship, ownership or a previous transfer should be identified early.',
+    evidence: 'Death records, CNICs of legal heirs, family registration information, asset documents, bank or share records, title papers, powers of attorney and earlier succession or court proceedings may be required depending on the estate.',
+    links: [['Succession Certificate for Legal Heirs','/succession-certificate-in-pakistan-for-legal-heirs/'],['Succession Certificate and Letter of Administration','/succession-certificate-letter-of-administration/'],['Property Law','/property-law-in-pakistan/']],
+  },
+}
+
 export default async function RoutePage({ params }) {
   const { slug } = await params
   const page = getNavRoute(slug)
   if (!page) notFound()
   const base = lawText[page.category] || lawText.Firm
+  const depth = categoryDepth[page.category]
   const schema = {
     '@context': 'https://schema.org',
     '@graph': [
@@ -84,20 +128,37 @@ export default async function RoutePage({ params }) {
             <p>{page.description} Right Law Associates approaches these matters by first identifying the applicable law, jurisdiction, documents and practical objective. Legal advice should be based on the actual facts rather than a general assumption about how a similar matter was handled elsewhere.</p>
 
             <h2><b>Key Issues in {page.title}</b></h2>
-            <p>The following subjects are central to this page and will be treated as separate legal questions where necessary:</p>
+            <p>The following subjects are central to this page and should be treated as separate legal questions where necessary:</p>
             <ul>{page.topics.map((topic) => <li key={topic}><strong>{topic}:</strong> the relevant documents, legal procedure, available remedies and possible risks should be reviewed before action is taken.</li>)}</ul>
+
+            {depth && <>
+              <h2><b>Planning the Matter Before Filing or Registration</b></h2>
+              <p>{depth.planning}</p>
+              <p>Before taking a formal step, it is useful to prepare a concise chronology, identify the desired legal outcome and separate confirmed facts from assumptions. This makes it easier to determine whether the matter requires a court case, an administrative application, registration work, a legal notice or a combination of steps.</p>
+            </>}
 
             <h2><b>Documents and Evidence</b></h2>
             <p>Documents are often decisive in Pakistani legal proceedings. Depending on the matter, relevant records may include CNIC copies, certificates, agreements, notices, court orders, registration records, correspondence, financial documents and other evidence. A lawyer should review originals or reliable copies before preparing pleadings, applications or formal advice.</p>
+            {depth && <p>{depth.evidence}</p>}
             <p>Where a record contains an error, inconsistency or outdated entry, that issue should be identified before filing. Correcting the underlying record can sometimes be as important as the main legal proceeding itself.</p>
 
-            <h2><b>Procedure and Jurisdiction</b></h2>
+            <h2><b>Procedure, Jurisdiction and Timing</b></h2>
             <p>The correct court, tribunal, authority or registration office depends on the subject matter and the facts connecting the dispute to a place. Filing in the wrong forum can cause delay, additional expense or dismissal. The first procedural step should therefore be selected only after checking jurisdiction, limitation and the relief required.</p>
-            <p>Urgent cases may also require interim relief. This can include temporary protection, injunctions, interim custody, stay orders or directions to preserve records, depending on the legal category and facts.</p>
+            <p>Urgent cases may also require interim relief. This can include temporary protection, injunctions, interim custody, stay orders or directions to preserve records, depending on the legal category and facts. Even where no urgent relief is required, deadlines, notice periods and the sequence of applications can affect the result.</p>
+
+            <h2><b>Common Problems That Should Be Checked Early</b></h2>
+            <p>Many legal matters become more difficult because an earlier document was incomplete, a notice was not properly served, an address or identity detail was inconsistent, the wrong forum was approached or important evidence was not preserved. Reviewing these issues at the beginning can prevent avoidable objections later.</p>
+            <p>Where another case, registration, certificate, contract or prior order is connected with the matter, it should be disclosed during the initial review. Connected proceedings can affect jurisdiction, strategy, available remedies and the wording of any new application.</p>
 
             <h2><b>How Right Law Associates Handles These Matters</b></h2>
             <p>Our process begins with a factual review. We identify the legal issue, check the available record, explain the procedural route and then prepare the required documents or representation strategy. Where a negotiated or administrative solution is legally appropriate, it may be considered before contested proceedings.</p>
             <p>Right Law Associates works with clients in Karachi, Islamabad, Rawalpindi, Lahore and other parts of Pakistan through the relevant legal team. Overseas Pakistanis can also provide initial documents electronically where the matter permits remote coordination.</p>
+
+            {depth && <section style={{margin:'34px 0',padding:'24px 26px',background:'#f7f3eb'}}>
+              <h2 style={{marginTop:0}}><b>Related RightLaw.pk Legal Guides</b></h2>
+              <p>These related pages provide more specific guidance on connected issues:</p>
+              <ul>{depth.links.map(([label, href]) => <li key={href}><Link href={href}>{label}</Link></li>)}</ul>
+            </section>}
 
             <h2><b>Important Legal Considerations</b></h2>
             <p>No two matters are identical. Dates, notices, signatures, registrations, prior orders and the conduct of the parties may change the legal position. A webpage can explain the general framework, but it cannot replace review of the actual documents and facts.</p>
@@ -112,6 +173,10 @@ export default async function RoutePage({ params }) {
             <p>Time varies with the forum, complexity, service of notices, evidence, objections and whether the matter is contested. A responsible estimate can only be given after reviewing the specific file.</p>
             <h3>What should I send for an initial review?</h3>
             <p>Send a concise chronology and clear copies of the most important documents. Avoid sending unnecessary material before the lawyer identifies what is relevant.</p>
+            <h3>What if my documents contain different names, dates or addresses?</h3>
+            <p>Do not ignore the discrepancy. Identify which record is authoritative, collect the supporting documents and obtain advice on whether correction, clarification or an affidavit is required before the main matter proceeds.</p>
+            <h3>Can connected legal issues be handled together?</h3>
+            <p>Sometimes they can be coordinated, but the correct approach depends on jurisdiction and the relief involved. A connected issue may require a separate application or forum even when it arises from the same facts.</p>
 
             <div style={{marginTop:40,padding:28,background:'#f7f3eb',borderLeft:'3px solid #c49a5a'}}>
               <h2 style={{marginTop:0}}><b>Discuss {page.title} With a Lawyer</b></h2>
