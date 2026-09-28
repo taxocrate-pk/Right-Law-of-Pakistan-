@@ -1,4 +1,5 @@
 import LegalSite from '../components/legal-site'
+import RightLawHeader from '../components/rightlaw-header'
 
 export const metadata = {
   title: 'RightLaw.pk | Experienced Lawyers in Pakistan',
@@ -9,5 +10,5 @@ export const metadata = {
 
 export default function Page() {
   const schema = { '@context': 'https://schema.org', '@graph': [{ '@type': 'LegalService', '@id': 'https://rightlaw.pk/#legalservice', name: 'Right Law Associates', url: 'https://rightlaw.pk', areaServed: 'Pakistan', telephone: '+92 333 1127830', provider: { '@type': 'Organization', name: 'Right Law Associates (Pvt) Limited' } }, { '@type': 'Attorney', name: 'Right Law Associates', url: 'https://rightlaw.pk' }] }
-  return <><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} /><LegalSite /></>
+  return <><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} /><RightLawHeader /><LegalSite /></>
 }
