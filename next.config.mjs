@@ -43,6 +43,16 @@ const nextConfig = {
         destination: '/succession-certificate-letter-of-administration/',
         permanent: true,
       },
+      {
+        source: '/nadra-b-form-in-pakistan/',
+        destination: '/b-form-nadra-importance-of-b-form-in-pakistan/',
+        permanent: true,
+      },
+      {
+        source: '/death-certificate/',
+        destination: '/nadra-computerized-death-certificate-online-verification-check/',
+        permanent: true,
+      },
     ]
   },
 }
