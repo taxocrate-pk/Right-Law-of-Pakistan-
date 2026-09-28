@@ -3,6 +3,8 @@ import Link from 'next/link'
 import { getNavRoute, navRouteContent } from '../../lib/nav-route-content'
 import { humanizeSlug, isLegacySlug, legacySlugs } from '../../lib/legacy-route-registry'
 
+const explicitRoutes = new Set(['blog', 'family-law'])
+
 function inferCategory(slug) {
   if (/divorce|family|custody|guardian|adoption|maintenance|dowry|mahr|mehar|conjugal/.test(slug)) return 'Family Law'
   if (/court-marriage|online-marriage|online-nikah|nikah|marriage/.test(slug)) return 'Marriage Law'
@@ -32,7 +34,9 @@ function resolveRoute(slug) {
 }
 
 export function generateStaticParams() {
-  return [...new Set([...Object.keys(navRouteContent), ...legacySlugs])].map((slug) => ({ slug }))
+  return [...new Set([...Object.keys(navRouteContent), ...legacySlugs])]
+    .filter((slug) => !explicitRoutes.has(slug))
+    .map((slug) => ({ slug }))
 }
 
 export async function generateMetadata({ params }) {
