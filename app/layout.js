@@ -1,4 +1,5 @@
 import { Analytics } from '@vercel/analytics/next'
+import RightLawHeader from '../components/rightlaw-header'
 import './globals.css'
 
 export const metadata = {
@@ -12,5 +13,5 @@ export const metadata = {
 export const viewport = { colorScheme: 'light', themeColor: '#f7f7f5', width: 'device-width', initialScale: 1 }
 
 export default function RootLayout({ children }) {
-  return <html lang="en-GB"><body>{children}{process.env.NODE_ENV === 'production' && <Analytics />}</body></html>
+  return <html lang="en-GB"><body><RightLawHeader />{children}{process.env.NODE_ENV === 'production' && <Analytics />}</body></html>
 }
