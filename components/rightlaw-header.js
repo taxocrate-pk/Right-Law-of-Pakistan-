@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { ArrowUpRight, ChevronDown, Menu, Phone, ShieldCheck, X } from 'lucide-react'
 import { firm } from '../lib/legal-data'
 
@@ -82,7 +83,15 @@ const navItems = [
 ]
 
 function Logo() {
-  return <Link href="/" className="flex shrink-0 items-center gap-3 no-underline" aria-label="Right Law Associates home"><span className="grid h-11 w-10 place-items-center bg-[#c49a5a] font-serif text-2xl font-bold text-white [clip-path:polygon(0_0,100%_0,100%_100%,50%_82%,0_100%)]">R</span><span className="leading-none"><strong className="block text-[18px] font-extrabold tracking-[0.16em] text-[#173b35]">RIGHT LAW</strong><small className="mt-1 block text-[9px] font-bold tracking-[0.28em] text-[#c49a5a]">ASSOCIATES</small></span></Link>
+  return (
+    <Link href="/" className="flex shrink-0 items-center gap-2 no-underline" aria-label="Right Law Associates home">
+      <Image src="/images/right-law-logo.webp" alt="Right Law Associates logo" width={56} height={56} priority unoptimized className="h-11 w-11 shrink-0 object-contain sm:h-14 sm:w-14" />
+      <span className="leading-none">
+        <strong className="block whitespace-nowrap font-serif text-[18px] font-bold tracking-[0.015em] text-[#050505] sm:text-[21px]">RIGHT LAW</strong>
+        <small className="mt-1 block whitespace-nowrap text-[8px] font-bold tracking-[0.24em] text-[#c49a5a] sm:text-[9px]">ASSOCIATES</small>
+      </span>
+    </Link>
+  )
 }
 
 function MegaMenu({ item, index }) {
