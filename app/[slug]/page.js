@@ -111,7 +111,7 @@ export default async function RoutePage({ params }) {
       <section style={{background:'#173b35',color:'#fff',padding:'72px 0'}}>
         <div className="container">
           <p className="eyebrow gold">{page.category}</p>
-          <h1 style={{fontFamily:'Georgia, serif',fontSize:'clamp(38px,5vw,62px)',lineHeight:1.05,maxWidth:900,margin:'0 0 22px'}}>{page.title}</h1>
+          <h1 style={{fontFamily:'Arial, Helvetica, sans-serif',fontSize:'clamp(38px,5vw,62px)',lineHeight:1.05,maxWidth:900,margin:'0 0 22px'}}>{page.title}</h1>
           <p style={{maxWidth:760,lineHeight:1.75,color:'#d2ddda',fontSize:17}}>{page.description}</p>
           <div style={{display:'flex',gap:12,flexWrap:'wrap',marginTop:28}}>
             <Link href="/contact/" className="button button-gold">Consult a Lawyer</Link>

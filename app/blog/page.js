@@ -71,7 +71,7 @@ export default function BlogPage() {
     <section style={{background:'#173b35',color:'#fff',padding:'76px 0'}}>
       <div className="container">
         <p className="eyebrow gold">Pakistani legal information</p>
-        <h1 style={{fontFamily:'Georgia,serif',fontSize:'clamp(40px,5vw,64px)',lineHeight:1.05,margin:'0 0 22px',maxWidth:900}}>Right Law Associates Legal Blog and Pakistani Law Guides</h1>
+        <h1 style={{fontFamily:'Arial, Helvetica, sans-serif',fontSize:'clamp(40px,5vw,64px)',lineHeight:1.05,margin:'0 0 22px',maxWidth:900}}>Right Law Associates Legal Blog and Pakistani Law Guides</h1>
         <p style={{maxWidth:800,color:'#d2ddda',lineHeight:1.75,fontSize:17}}>Our legal blog explains Pakistani law in practical language for individuals, families, businesses and overseas Pakistanis. The purpose is to help readers understand the legal framework, identify the documents that may matter and find the correct specialist page before seeking case-specific advice.</p>
       </div>
     </section>
@@ -86,7 +86,7 @@ export default function BlogPage() {
 
         <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(260px,1fr))',gap:18,marginTop:42}}>
           {categories.map((category) => <section key={category.title} style={{border:'1px solid #dce5e1',background:'#fdfcf9',padding:26}}>
-            <h2 style={{fontFamily:'Georgia,serif',fontSize:27,color:'#173b35',margin:'0 0 12px'}}><b>{category.title}</b></h2>
+            <h2 style={{fontFamily:'Arial, Helvetica, sans-serif',fontSize:27,color:'#173b35',margin:'0 0 12px'}}><b>{category.title}</b></h2>
             <p style={{lineHeight:1.7,color:'#687874'}}>{category.copy}</p>
             <div style={{marginTop:18}}>
               {category.links.map(([label, href]) => <p key={href} style={{margin:'10px 0',paddingBottom:10,borderBottom:'1px solid #e4e8e6'}}><Link href={href} className="text-link">{label} →</Link></p>)}
