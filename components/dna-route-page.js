@@ -87,6 +87,7 @@ function buildFaqs(page) {
 
 export default function DnaRoutePage({ page, slug }) {
   page = { ...page, title: page.title.replace(/\b[a-z]/g, letter => letter.toUpperCase()) }
+  const isServicePage = page.category !== 'Firm'
   const context = contextByCategory[page.category] || 'The correct legal route depends on the facts, jurisdiction, documents and relief required. A structured review should take place before filing, registration or settlement.'
   const related = relatedByCategory[page.category] || []
   const resources = specialResources[slug] || []
@@ -113,7 +114,8 @@ export default function DnaRoutePage({ page, slug }) {
           <h1 style={{fontFamily:'Arial, Helvetica, sans-serif',fontSize:'clamp(38px,5vw,62px)',lineHeight:1.05,maxWidth:900,margin:'0 0 18px'}}>{page.title}</h1>
           <h2 style={{fontFamily:'Arial, Helvetica, sans-serif',fontSize:'clamp(24px,3vw,34px)',lineHeight:1.2,maxWidth:900,margin:'0 0 10px',color:'#fff'}}>Legal Guidance, Procedure, Documents And Representation</h2>
           <h3 style={{fontFamily:'Arial, Helvetica, sans-serif',fontSize:'clamp(18px,2.2vw,24px)',lineHeight:1.3,maxWidth:900,margin:'0 0 18px',color:'#e7efec'}}>Right Law Associates — Practical Legal Support Across Pakistan</h3>
-          <p style={{maxWidth:820,lineHeight:1.75,color:'#d2ddda',fontSize:17}}>{page.description}</p>
+          <p style={{maxWidth:820,lineHeight:1.75,color:'#d2ddda',fontSize:17}}>{isServicePage ? `Right Law Associates offers consultation, document review, drafting and legal representation for ${page.title.toLowerCase()}. Discuss your circumstances with our lawyers so we can assess the appropriate legal work, documents and forum for your matter.` : page.description}</p>
+          {isServicePage && <p style={{maxWidth:820,lineHeight:1.75,color:'#fff',fontSize:16}}><strong>More Than Four Decades Of Experience.</strong> Advocate High Court Mohsin Ali Shah has practised since 1985, bringing 40+ years of legal experience to our team.</p>}
           <p style={{maxWidth:820,lineHeight:1.75,color:'#d2ddda',fontSize:16}}>Head Office: G-9 Markaz, Islamabad. Karachi branches: DHA Phase 7 and Gulistan-e-Jauhar. Lahore branch: Chauburji. Call {firm.phone} for an initial case assessment and document review.</p>
           <div style={{display:'flex',gap:12,flexWrap:'wrap',marginTop:28}}><Link href="/contact/" className="button button-gold">Consult A Lawyer</Link><a href="tel:+923331127830" className="button button-outline-light">Call +92 333 1127830</a></div>
         </div>
@@ -128,12 +130,12 @@ export default function DnaRoutePage({ page, slug }) {
             <p>{context}</p>
             <p>{page.description} Right Law Associates begins by identifying the applicable law, jurisdiction, documents and practical objective. Advice should be based on the actual record rather than a general assumption about similar matters.</p>
 
-            {['succession-certificate-in-pakistan-for-legal-heirs', 'succession-certificate-letter-of-administration', 'fbr-income-tax-return-filing-lawyers-pakistan', 'corporate-tax-law-services', 'company-registration-service-karachi', 'property-disputes'].includes(slug) && <section aria-labelledby="succession-lawyers-heading" style={{margin:'28px 0'}}>
+            {isServicePage && <section aria-labelledby="succession-lawyers-heading" style={{margin:'28px 0'}}>
               <h2 id="succession-lawyers-heading">Senior Lawyers For Your Legal Matter</h2>
               <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(240px,1fr))',gap:20}}>
                 {[
                   {name:'S. M. Akhtar Rizvi',designation:'Advocate Supreme Court',image:'/images/syed-akhtar-rizvi.webp',copy:'Senior Supreme Court advocate associated with our legal team. Provides senior legal guidance and representation in matters requiring experienced appellate counsel.',profile:'https://scbap.com/wp-content/uploads/2025/11/Directory-2025-26.pdf',label:'SCBAP Directory (PDF)'},
-                  {name:'Syed Mohsin Ali Shah',designation:'Advocate High Court',image:'https://www.advocates.com.pk/Mohsin-Ali-Shah.png',copy:'Senior lawyer with legal practice since 1985. Advises on property, inheritance, corporate and taxation matters and coordinates case-specific legal support.',profile:'https://lawzana.com/lawyer/right-law-associates/karachi/m-mohsin-ali-shah-26902',label:'Lawzana Profile'}
+                  {name:'Syed Mohsin Ali Shah',designation:'Advocate High Court',image:'https://www.advocates.com.pk/Mohsin-Ali-Shah.png',copy:'Senior lawyer with legal practice since 1985. Advises on family, property, inheritance, corporate and taxation matters and coordinates case-specific legal support.',profile:'https://lawzana.com/lawyer/right-law-associates/karachi/m-mohsin-ali-shah-26902',label:'Lawzana Profile'}
                 ].map(lawyer=><article key={lawyer.name} style={{background:'#fff',border:'1px solid #d9e1de',borderRadius:16,padding:20}}>
                   <img src={lawyer.image} alt={lawyer.name + ', ' + lawyer.designation} loading="lazy" width="128" height="160" style={{width:128,height:160,objectFit:'contain',display:'block',marginBottom:16}} />
                   <h3 style={{marginBottom:8}}>{lawyer.name}</h3>
