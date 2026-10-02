@@ -1,4 +1,6 @@
 import Link from 'next/link'
+import { Footer } from './legal-site'
+import { firm } from '../lib/legal-data'
 
 const contextByCategory = {
   'Family Law': 'Family matters can involve personal status, children, maintenance, dower, dowry, guardianship, visitation and court procedure at the same time. The legal route should be selected after reviewing the family record, current proceedings and immediate risks.',
@@ -51,6 +53,7 @@ function buildFaqs(page) {
 }
 
 export default function DnaRoutePage({ page, slug }) {
+  page = { ...page, title: page.title.replace(/\b[a-z]/g, letter => letter.toUpperCase()) }
   const context = contextByCategory[page.category] || 'The correct legal route depends on the facts, jurisdiction, documents and relief required. A structured review should take place before filing, registration or settlement.'
   const related = relatedByCategory[page.category] || []
   const reviewer = reviewers[page.category] || 'Advocate Mohsin Ali Shah'
@@ -69,7 +72,7 @@ export default function DnaRoutePage({ page, slug }) {
 
   return <>
     <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(schema)}} />
-    <main>
+    <main className="dna-route-page">
       <section style={{background:'#173b35',color:'#fff',padding:'72px 0 54px'}}>
         <div className="container">
           <p className="eyebrow gold">{page.category}</p>
@@ -77,7 +80,7 @@ export default function DnaRoutePage({ page, slug }) {
           <h2 style={{fontFamily:'Arial, Helvetica, sans-serif',fontSize:'clamp(24px,3vw,34px)',lineHeight:1.2,maxWidth:900,margin:'0 0 10px',color:'#fff'}}>Legal Guidance, Procedure, Documents And Representation</h2>
           <h3 style={{fontFamily:'Arial, Helvetica, sans-serif',fontSize:'clamp(18px,2.2vw,24px)',lineHeight:1.3,maxWidth:900,margin:'0 0 18px',color:'#e7efec'}}>Right Law Associates — Practical Legal Support Across Pakistan</h3>
           <p style={{maxWidth:820,lineHeight:1.75,color:'#d2ddda',fontSize:17}}>{page.description}</p>
-          <p style={{maxWidth:820,lineHeight:1.75,color:'#d2ddda',fontSize:16}}>Karachi Head Office with coordinated legal support for Islamabad, Rawalpindi, Lahore and other jurisdictions. Call or WhatsApp for an initial case assessment and document review.</p>
+          <p style={{maxWidth:820,lineHeight:1.75,color:'#d2ddda',fontSize:16}}>Head Office: G-9 Markaz, Islamabad. Karachi branches: DHA Phase 7 and Gulistan-e-Jauhar. Lahore branch: Chauburji. Call {firm.phone} for an initial case assessment and document review.</p>
           <div style={{display:'flex',gap:12,flexWrap:'wrap',marginTop:28}}><Link href="/contact/" className="button button-gold">Consult A Lawyer</Link><a href="tel:+923331127830" className="button button-outline-light">Call +92 333 1127830</a></div>
         </div>
       </section>
@@ -85,7 +88,7 @@ export default function DnaRoutePage({ page, slug }) {
       <section style={{background:'#fff'}}><div className="container" style={{paddingTop:26}}><img src={page.image} alt={`${page.title} legal services by Right Law Associates`} loading="eager" fetchPriority="high" style={{width:'100%',maxHeight:520,objectFit:'cover',display:'block',borderRadius:4}} /></div></section>
 
       <section className="section" style={{background:'#fff'}}>
-        <div className="container" style={{display:'grid',gridTemplateColumns:'minmax(0,1.2fr) minmax(300px,.8fr)',gap:48,alignItems:'start'}}>
+        <div className="container dna-content-grid">
           <article className="route-article">
             <h2><b>{page.title}: Legal Overview</b></h2>
             <p>{context}</p>
@@ -141,5 +144,6 @@ export default function DnaRoutePage({ page, slug }) {
         </div>
       </section>
     </main>
+    <Footer />
   </>
 }
