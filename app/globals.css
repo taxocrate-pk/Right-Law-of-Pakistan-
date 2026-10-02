@@ -231,16 +231,13 @@ footer { background: #fff; color: var(--muted); padding: 55px 0 0; border-top: 1
   padding: 24px;
   margin: 24px 0 36px;
 }
-.family-law-page .senior-counsel-initials {
+.family-law-page .senior-counsel-photo {
   width: 92px;
   height: 108px;
-  display: grid;
-  place-items: center;
-  background: var(--navy);
-  color: white;
-  font-size: 28px;
-  font-weight: 700;
-  letter-spacing: .08em;
+  display: block;
+  object-fit: cover;
+  object-position: top center;
+  border: 1px solid #d9d5cc;
 }
 .family-law-page .senior-counsel-card .eyebrow { margin-bottom: 8px; }
 .family-law-page .senior-counsel-card h3 { margin: 0 0 10px; }
@@ -334,10 +331,9 @@ footer { background: #fff; color: var(--muted); padding: 55px 0 0; border-top: 1
     padding: 18px;
     margin: 20px 0 30px;
   }
-  .family-law-page .senior-counsel-initials {
+  .family-law-page .senior-counsel-photo {
     width: 68px;
     height: 82px;
-    font-size: 22px;
   }
   .family-law-page .senior-counsel-card h3 {
     font-size: 18px;
@@ -363,7 +359,7 @@ footer { background: #fff; color: var(--muted); padding: 55px 0 0; border-top: 1
   .family-law-page .senior-counsel-card {
     grid-template-columns: 1fr;
   }
-  .family-law-page .senior-counsel-initials {
+  .family-law-page .senior-counsel-photo {
     width: 76px;
     height: 88px;
   }
