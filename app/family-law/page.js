@@ -163,19 +163,19 @@ export default function FamilyLawPage() {
           <h3>Remote Case Management, Children And Cross-Border Issues</h3>
           <p>Time zones and remote communication can be managed by maintaining a clear file chronology, scanning documents in advance and scheduling conferences before important hearings. Where children are located in a different country, additional jurisdictional and immigration considerations may arise and should be assessed separately.</p>
 
-          <h2>Choosing the Correct Family Lawyer and Legal Strategy</h2>
+          <h2>Choosing The Correct Family Lawyer And Legal Strategy</h2>
           <p>A family-law matter should be evaluated on substance, not advertising claims. The lawyer should be able to identify the relevant forum, explain the available remedies, point out weaknesses in the evidence and give a realistic account of procedure. No responsible lawyer can guarantee a court result. What counsel can do is prepare the case carefully, present admissible material, comply with procedural requirements and advise the client about lawful settlement where settlement is appropriate.</p>
           <h3>Prepare A Clear Family Law Chronology And Documents</h3>
           <p>Clients can also improve the quality of legal advice by preparing a concise chronology before consultation. Record the date of marriage, separation, important notices, previous cases, children’s dates of birth, significant payments and any existing orders. Bring the Nikah Nama, identity documents and relevant correspondence. A structured initial file allows the lawyer to spend more time analysing the case and less time reconstructing basic facts.</p>
           <h3>Family Lawyers For Connected Property, Inheritance And Criminal Issues</h3>
           <p>Right Law Associates handles family law matters through consultation, drafting and litigation support across Karachi, Lahore, Islamabad, Rawalpindi and other parts of Pakistan through professional arrangements. Where a matter overlaps with property, inheritance, taxation, corporate ownership or criminal allegations, the firm can coordinate with the appropriate practice team so that one legal step does not unintentionally prejudice another.</p>
 
-          <h2>Frequently Asked Questions About Family Law in Pakistan</h2>
+          <h2>Frequently Asked Questions About Family Law In Pakistan</h2>
           <div className="faq-list" style={{ marginTop: 24 }}>
             {faqs.map(([question, answer]) => <div className="faq-item active" key={question}><h3 style={{ marginBottom: 10 }}>{question}</h3><p>{answer}</p></div>)}
           </div>
 
-          <h2>Speak With a Family Lawyer at Right Law Associates</h2>
+          <h2>Speak With A Family Lawyer At Right Law Associates</h2>
           <p>If you are considering divorce or khula, responding to a family case, seeking custody or guardianship, claiming maintenance, recovering dower or dowry articles, or managing a family-law matter from overseas, obtain advice before taking a step that may affect jurisdiction or evidence. Bring the available documents and a short chronology of the dispute so the legal team can identify the appropriate route.</p>
           <p>This page provides general legal information and does not replace advice on the facts of an individual case. Family law outcomes depend on the law, evidence, jurisdiction and circumstances before the relevant court or authority.</p>
           <div className="hero-actions" style={{ marginTop: 30 }}>
