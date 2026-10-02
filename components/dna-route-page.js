@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { Footer } from './legal-site'
 import { firm } from '../lib/legal-data'
+import { mainServiceSections } from '../lib/main-service-sections'
 
 const contextByCategory = {
   'Family Law': 'Family matters can involve personal status, children, maintenance, dower, dowry, guardianship, visitation and court procedure at the same time. The legal route should be selected after reviewing the family record, current proceedings and immediate risks.',
@@ -93,6 +94,8 @@ export default function DnaRoutePage({ page, slug }) {
             <h2><b>{page.title}: Legal Overview</b></h2>
             <p>{context}</p>
             <p>{page.description} Right Law Associates begins by identifying the applicable law, jurisdiction, documents and practical objective. Advice should be based on the actual record rather than a general assumption about similar matters.</p>
+
+            {(mainServiceSections[slug] || []).map(([title, subtitle, copy]) => <section key={title}><h2>{title}</h2><h3>{subtitle}</h3><p>{copy}</p></section>)}
 
             <h2><b>Key Issues In {page.title}</b></h2>
             <p>The following issues should be reviewed separately where necessary:</p>
