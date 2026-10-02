@@ -364,3 +364,27 @@ footer { background: #fff; color: var(--muted); padding: 55px 0 0; border-top: 1
     height: 88px;
   }
 }
+
+/* Responsive shared service layout and property guide. */
+.dna-content-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(260px, .8fr); gap: 48px; align-items: start; }
+.dna-content-grid > * { min-width: 0; }
+.dna-route-page .route-article h2 { font-size: clamp(26px, 3vw, 36px); line-height: 1.2; }
+.dna-route-page .route-article h3 { font-size: clamp(19px, 2vw, 24px); line-height: 1.3; }
+.property-hero { padding-top: 48px; padding-bottom: 40px; max-width: 1000px; }
+.property-hero h1 { font-size: clamp(34px, 4.5vw, 56px); line-height: 1.1; max-width: 900px; }
+.property-office-line { color: #d2ddda; font-size: 14px; line-height: 1.6; }
+.property-content-image { display: block; width: 100%; height: auto; max-height: 420px; object-fit: cover; border-radius: 4px; margin: 24px 0; }
+.property-law-page .family-article section > p { color: #485d58; font-size: 16px; line-height: 1.78; }
+.property-table-wrap { overflow-x: auto; }
+.property-table-wrap table { width: 100%; border-collapse: collapse; }
+.property-table-wrap th, .property-table-wrap td { text-align: left; border: 1px solid #d9e1de; padding: 14px; vertical-align: top; }
+.property-table-wrap th { background: #eef4f1; }
+@media (max-width: 800px) {
+  .dna-content-grid { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .dna-content-grid > aside { position: static !important; }
+  .dna-route-page > section:first-child { padding: 36px 0 30px !important; }
+  .dna-route-page .section { padding: 40px 0; }
+  .property-hero { padding-top: 32px; padding-bottom: 30px; }
+  .property-law-page .family-article section > p { font-size: 15px; line-height: 1.72; }
+  .property-law-page .faq-item h3 { font-size: 18px; }
+}
