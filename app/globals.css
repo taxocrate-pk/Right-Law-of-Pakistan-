@@ -394,3 +394,8 @@ footer { background: #fff; color: var(--muted); padding: 55px 0 0; border-top: 1
 @media (max-width: 520px) {
   .family-law-page .senior-counsel-photo { width: 160px; height: 190px; object-position: center 45%; }
 }
+
+/* Keep the dissolution comparison usable at narrow widths. */
+.dissolution-table { overflow-x: auto; margin: 20px 0 30px; }
+.dissolution-table table { min-width: 520px; }
+.dna-route-page h1, .dna-route-page h2, .dna-route-page h3 { overflow-wrap: break-word; }

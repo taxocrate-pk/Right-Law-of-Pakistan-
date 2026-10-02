@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { Footer } from './legal-site'
 import { firm } from '../lib/legal-data'
 import { mainServiceSections } from '../lib/main-service-sections'
+import { dissolutionPage } from '../lib/dissolution-page'
 
 const contextByCategory = {
   'Family Law': 'Family matters can involve personal status, children, maintenance, dower, dowry, guardianship, visitation and court procedure at the same time. The legal route should be selected after reviewing the family record, current proceedings and immediate risks.',
@@ -87,20 +88,28 @@ function buildFaqs(page) {
 
 export default function DnaRoutePage({ page, slug }) {
   page = { ...page, title: page.title.replace(/\b[a-z]/g, letter => letter.toUpperCase()) }
+  const dissolution = slug === 'dissolution-of-marriage-in-pakistan' ? dissolutionPage : null
   const isServicePage = page.category !== 'Firm'
   const context = contextByCategory[page.category] || 'The correct legal route depends on the facts, jurisdiction, documents and relief required. A structured review should take place before filing, registration or settlement.'
   const related = relatedByCategory[page.category] || []
   const resources = specialResources[slug] || []
   const reviewer = reviewers[page.category] || 'Advocate Mohsin Ali Shah'
-  const faqs = buildFaqs(page)
+  const faqs = dissolution?.faqs || buildFaqs(page)
   const schema = {
     '@context':'https://schema.org',
     '@graph':[
-      {'@type':'LegalService',name:page.title,url:`https://rightlaw.pk/${slug}/`,areaServed:'Pakistan',provider:{'@type':'Organization',name:'Right Law Associates (Pvt) Limited',url:'https://rightlaw.pk/'}},
+      {'@type':'LegalService','@id':`https://rightlaw.pk/${slug}/#legalservice`,name:page.title,url:`https://rightlaw.pk/${slug}/`,areaServed:'Pakistan',provider:{'@type':'Organization',name:'Right Law Associates (Pvt) Limited',url:'https://rightlaw.pk/'}},
       {'@type':'FAQPage',mainEntity:faqs.map(([question,answer])=>({'@type':'Question',name:question,acceptedAnswer:{'@type':'Answer',text:answer}}))},
       {'@type':'BreadcrumbList',itemListElement:[{'@type':'ListItem',position:1,name:'Home',item:'https://rightlaw.pk/'},{'@type':'ListItem',position:2,name:page.title,item:`https://rightlaw.pk/${slug}/`}]},
     ],
   }
+
+  if (dissolution) schema['@graph'].push({
+    '@type':['LegalService','LocalBusiness'], '@id':'https://rightlaw.pk/#dha-office',
+    name:'Right Law Associates — DHA Karachi Office', url:'https://rightlaw.pk/contact',
+    telephone:'+923316644789', address:{'@type':'PostalAddress',streetAddress:firm.dhaBranchAddress,addressLocality:'Karachi',addressRegion:'Sindh',addressCountry:'PK'},
+    parentOrganization:{'@id':'https://rightlaw.pk/#organization'}
+  })
 
   const cell = {border:'1px solid #d9e1de',padding:12}
   const head = {...cell,textAlign:'left'}
@@ -114,20 +123,25 @@ export default function DnaRoutePage({ page, slug }) {
           <h1 style={{fontFamily:'Arial, Helvetica, sans-serif',fontSize:'clamp(38px,5vw,62px)',lineHeight:1.05,maxWidth:900,margin:'0 0 18px'}}>{page.title}</h1>
           <h2 style={{fontFamily:'Arial, Helvetica, sans-serif',fontSize:'clamp(24px,3vw,34px)',lineHeight:1.2,maxWidth:900,margin:'0 0 10px',color:'#fff'}}>Legal Guidance, Procedure, Documents And Representation</h2>
           <h3 style={{fontFamily:'Arial, Helvetica, sans-serif',fontSize:'clamp(18px,2.2vw,24px)',lineHeight:1.3,maxWidth:900,margin:'0 0 18px',color:'#e7efec'}}>Right Law Associates — Practical Legal Support Across Pakistan</h3>
-          <p style={{maxWidth:820,lineHeight:1.75,color:'#d2ddda',fontSize:17}}>{isServicePage ? `Right Law Associates offers consultation, document review, drafting and legal representation for ${page.title.toLowerCase()}. Discuss your circumstances with our lawyers so we can assess the appropriate legal work, documents and forum for your matter.` : page.description}</p>
+          <p style={{maxWidth:820,lineHeight:1.75,color:'#d2ddda',fontSize:17}}>{dissolution ? dissolution.hero : isServicePage ? `Right Law Associates offers consultation, document review, drafting and legal representation for ${page.title.toLowerCase()}. Discuss your circumstances with our lawyers so we can assess the appropriate legal work, documents and forum for your matter.` : page.description}</p>
+          {isServicePage && <h3 style={{color:'#fff',marginTop:20}}>More Than Four Decades Of Legal Experience</h3>}
           {isServicePage && <p style={{maxWidth:820,lineHeight:1.75,color:'#fff',fontSize:16}}><strong>More Than Four Decades Of Experience.</strong> Advocate High Court Mohsin Ali Shah has practised since 1985, bringing 40+ years of legal experience to our team.</p>}
+          <h3 style={{color:'#fff',marginTop:20}}>Offices And Consultation</h3>
           <p style={{maxWidth:820,lineHeight:1.75,color:'#d2ddda',fontSize:16}}>Head Office: G-9 Markaz, Islamabad. Karachi branches: DHA Phase 7 and Gulistan-e-Jauhar. Lahore branch: Chauburji. Call {firm.phone} for an initial case assessment and document review.</p>
           <div style={{display:'flex',gap:12,flexWrap:'wrap',marginTop:28}}><Link href="/contact/" className="button button-gold">Consult A Lawyer</Link><a href="tel:+923331127830" className="button button-outline-light">Call +92 333 1127830</a></div>
         </div>
       </section>
 
-      <section style={{background:'#fff'}}><div className="container" style={{paddingTop:26}}><img src={page.image} alt={`${page.title} legal services by Right Law Associates`} loading="eager" fetchPriority="high" style={{width:'100%',maxHeight:520,objectFit:'cover',display:'block',borderRadius:4}} /></div></section>
+      <section style={{background:'#fff'}}><div className="container" style={{paddingTop:26}}><img src={dissolution ? '/images/dissolution-of-marriage-services.svg' : page.image} alt={dissolution ? 'Right Law Associates dissolution of marriage consultation and case preparation illustration' : `${page.title} legal services by Right Law Associates`} loading="eager" fetchPriority="high" style={{width:'100%',maxHeight:520,objectFit:'cover',display:'block',borderRadius:4}} /></div></section>
+
+      {dissolution && <section style={{background:'#fff'}}><div className="container" style={{paddingTop:26}}><h2>DHA Consultation For Dissolution Of Marriage</h2><h3>Defence And Clifton Client Appointments</h3><p>{firm.dhaBranchAddress}. Arrange an appointment on <a href="tel:+923316644789">+92 331 6644789</a> or <a href="https://wa.me/923316644789">WhatsApp The DHA Office</a>. Bring your marriage record and existing case papers for review.</p></div></section>}
 
       <section className="section" style={{background:'#fff'}}>
         <div className="container dna-content-grid">
           <article className="route-article">
             <h2><b>{page.title}: Legal Overview</b></h2>
             <p>{context}</p>
+            <h3>Case Assessment And Legal Instructions</h3>
             <p>{page.description} Right Law Associates begins by identifying the applicable law, jurisdiction, documents and practical objective. Advice should be based on the actual record rather than a general assumption about similar matters.</p>
 
             {isServicePage && <section aria-labelledby="succession-lawyers-heading" style={{margin:'28px 0'}}>
@@ -139,14 +153,16 @@ export default function DnaRoutePage({ page, slug }) {
                 ].map(lawyer=><article key={lawyer.name} style={{background:'#fff',border:'1px solid #d9e1de',borderRadius:16,padding:20}}>
                   <img src={lawyer.image} alt={lawyer.name + ', ' + lawyer.designation} loading="lazy" width="128" height="160" style={{width:128,height:160,objectFit:'contain',display:'block',marginBottom:16}} />
                   <h3 style={{marginBottom:8}}>{lawyer.name}</h3>
-                  <p style={{fontWeight:700,color:'#173b35'}}>{lawyer.designation}</p>
+                  <h4 style={{fontWeight:700,color:'#173b35'}}>{lawyer.designation}</h4>
                   <p>{lawyer.copy}</p>
                   <a href={lawyer.profile} target="_blank" rel="noopener noreferrer" aria-label={lawyer.name + ' ' + lawyer.label}>{lawyer.label}</a>
                 </article>)}
               </div>
             </section>}
 
-            {(mainServiceSections[slug] || []).map(([title, subtitle, copy]) => <section key={title}><h2>{title}</h2><h3>{subtitle}</h3><p>{copy}</p></section>)}
+            {(dissolution?.sections || mainServiceSections[slug] || []).map(([title, subtitle, copy]) => <section key={title}><h2>{title}</h2><h3>{subtitle}</h3><p>{copy}</p></section>)}
+
+            {dissolution && <section><h2>Dissolution Of Marriage In Pakistan: Compare The Legal Work</h2><h3>Document Review, Petition And Connected Claims</h3><div className="dissolution-table" tabIndex={0} role="region" aria-label="Dissolution legal work comparison"><table style={{width:'100%',borderCollapse:'collapse'}}><thead><tr><th style={head}>Work</th><th style={head}>Purpose</th><th style={head}>Records To Review</th></tr></thead><tbody>{[['Initial Consultation','Assess the proposed dissolution route and scope.','Nikah Nama, chronology and identification.'],['Petition And Representation','Prepare the requested relief and manage court steps.','Jurisdiction details, addresses, pleadings and evidence.'],['Connected Family Claims','Review dower, maintenance, custody or visitation issues.','Financial records, child documents and existing orders.'],['Post-Decree Documentation','Identify relevant record and follow-up requirements.','Complete decree and authority correspondence.']].map(row=><tr key={row[0]}>{row.map(c=><td key={c} style={cell}>{c}</td>)}</tr>)}</tbody></table></div><h2>Legislation For Dissolution Of Marriage In Pakistan</h2><h3>Official Source And Provincial Procedure</h3><p>Read the <a href="https://pakistancode.gov.pk/pdffiles/administratorfb32d6015ae887e6d6b85018961842ea.pdf" target="_blank" rel="noopener noreferrer">Dissolution Of Muslim Marriages Act, 1939</a> on Pakistan Code alongside the applicable provincial Family Courts legislation and court directions. Our <Link href="/divorce-law/">divorce guidance</Link>, <Link href="/maintenance-in-pakistan/">maintenance services</Link> and <Link href="/child-custody/">child custody guidance</Link> cover connected matters.</p></section>}
 
             <h2><b>Key Issues In {page.title}</b></h2>
             <p>The following issues should be reviewed separately where necessary:</p>
@@ -157,10 +173,12 @@ export default function DnaRoutePage({ page, slug }) {
 
             <h2><b>Documents And Evidence</b></h2>
             <p>Relevant records may include CNIC copies, certificates, agreements, notices, court orders, registration records, correspondence, financial documents and other evidence. Originals or reliable copies should be reviewed before pleadings, applications or formal advice are prepared.</p>
+            <h3>Record Discrepancies Before Filing</h3>
             <p>Where a record contains an error, inconsistency or outdated entry, identify it before filing. Correcting the underlying record can sometimes be as important as the main legal proceeding.</p>
 
             <h2><b>Procedure, Jurisdiction And Timing</b></h2>
             <p>The correct court, tribunal, authority or registration office depends on the subject matter and facts connecting the dispute to a place. Filing in the wrong forum can cause delay, additional expense or dismissal. Jurisdiction, limitation and the relief required should be checked first.</p>
+            <h3>Urgent Applications And Deadlines</h3>
             <p>Urgent cases may require interim relief such as an injunction, stay, interim custody, preservation direction or another temporary order. Deadlines, notice periods and sequence can materially affect the result.</p>
 
             <h2><b>Legal Route Comparison</b></h2>
@@ -172,6 +190,7 @@ export default function DnaRoutePage({ page, slug }) {
 
             <h2><b>How Right Law Associates Handles These Matters</b></h2>
             <p>Our process begins with factual and documentary review. We identify the legal issue, check the available record, explain the route and then prepare the required documents or representation strategy. A negotiated or administrative solution may be considered before contested proceedings where legally appropriate.</p>
+            <h3>Legal Team And Regional Coordination</h3>
             <p>Right Law Associates works with clients in Karachi, Islamabad, Rawalpindi, Lahore and other parts of Pakistan through the relevant legal team. Overseas Pakistanis can provide initial documents electronically where the matter permits remote coordination.</p>
 
             <h2><b>Our Legal Review Process</b></h2>
@@ -191,7 +210,7 @@ export default function DnaRoutePage({ page, slug }) {
             <h2><b>Frequently Asked Questions</b></h2>
             {faqs.map(([question,answer])=><section key={question} style={{marginBottom:22}}><h3>{question}</h3><p>{answer}</p></section>)}
 
-            <section style={{margin:'36px 0 0',padding:24,background:'#eef4f1',borderLeft:'3px solid #173b35'}}><h2 style={{marginTop:0}}><b>Reviewed By {reviewer}</b></h2><p>This page is prepared for general legal information and reviewed within the Right Law Associates editorial process. Case-specific advice requires review of the actual facts, documents, jurisdiction and current procedural position.</p></section>
+            <section style={{margin:'36px 0 0',padding:24,background:'#eef4f1',borderLeft:'3px solid #173b35'}}><h2 style={{marginTop:0}}><b>Editorial Responsibility — {reviewer}</b></h2><h3>Professional Context And Case-Specific Advice</h3><p>This page provides general legal information within the Right Law Associates editorial process. Case-specific advice requires review of the actual facts, documents, jurisdiction and current procedural position.</p></section>
 
             <div style={{marginTop:40,padding:28,background:'#f7f3eb',borderLeft:'3px solid #c49a5a'}}><h2 style={{marginTop:0}}><b>Discuss {page.title} With A Lawyer</b></h2><p>Contact Right Law Associates with the city, a short summary of the matter and the key documents available.</p><Link href="/contact/" className="button button-dark">Contact Right Law Associates</Link></div>
           </article>
