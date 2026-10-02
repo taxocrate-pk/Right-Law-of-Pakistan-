@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { Footer } from '../../components/legal-site'
 
 export const metadata = {
   title: 'Legal Blog | Pakistani Law Guides | Right Law Associates',
@@ -67,7 +68,7 @@ const featured = [
 ]
 
 export default function BlogPage() {
-  return <main>
+  return <><main>
     <section style={{background:'#173b35',color:'#fff',padding:'76px 0'}}>
       <div className="container">
         <p className="eyebrow gold">Pakistani legal information</p>
@@ -112,5 +113,5 @@ export default function BlogPage() {
         <div style={{marginTop:36,padding:28,background:'#173b35',color:'#fff'}}><h2 style={{color:'#fff',marginTop:0}}><b>Need Advice on a Specific Legal Matter?</b></h2><p style={{color:'#d2ddda'}}>Send a short factual summary and the key documents through our contact page. The relevant legal team can then identify the appropriate practice area and next procedural step.</p><Link href="/contact/" className="button button-gold">Contact Right Law Associates</Link></div>
       </div>
     </section>
-  </main>
+  </main><Footer /></>
 }
