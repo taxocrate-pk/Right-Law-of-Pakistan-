@@ -94,7 +94,7 @@ export default function FamilyLawPage() {
           <p className="eyebrow">Right Law Associates</p>
           <h2>Family Lawyers In Pakistan For Sensitive And High-Stakes Family Matters</h2>
           <div className="senior-counsel-card">
-            <img className="senior-counsel-photo" src="https://www.advocates.com.pk/Syed-Akhter-Rizwi--01.png" alt="Syed Akhtar Rizvi, Advocate Supreme Court of Pakistan" />
+            <img width="160" height="190" loading="eager" className="senior-counsel-photo" src="/images/syed-akhtar-rizvi.webp" alt="Syed Akhtar Rizvi, Advocate Supreme Court of Pakistan" />
             <div>
               <p className="eyebrow">Senior Legal Oversight</p>
               <h3>Syed M. Akhtar Rizvi — Advocate Supreme Court Of Pakistan</h3>

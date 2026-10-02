@@ -388,3 +388,9 @@ footer { background: #fff; color: var(--muted); padding: 55px 0 0; border-top: 1
   .property-law-page .family-article section > p { font-size: 15px; line-height: 1.72; }
   .property-law-page .faq-item h3 { font-size: 18px; }
 }
+
+/* Portrait framing keeps the face visible at mobile and desktop sizes. */
+.family-law-page .senior-counsel-photo { object-position: center 45%; background: #fff; }
+@media (max-width: 520px) {
+  .family-law-page .senior-counsel-photo { width: 160px; height: 190px; object-position: center 45%; }
+}
