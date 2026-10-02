@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { ArrowUpRight, CheckCircle2, MessageCircle, Phone } from 'lucide-react'
 import { firm } from '../../lib/legal-data'
+import { Footer } from '../../components/legal-site'
 
 export const metadata = {
   title: 'Family Law in Pakistan | Family Lawyers for Divorce, Khula, Custody & Maintenance',
@@ -184,5 +185,6 @@ export default function FamilyLawPage() {
         </div>
       </article>
     </main>
+    <Footer />
   </>
 }
