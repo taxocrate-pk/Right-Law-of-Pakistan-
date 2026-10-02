@@ -45,7 +45,7 @@ const navItems = [
     ],
   },
   {
-    label: 'Civil Certificates', href: '#',
+    label: 'Civil Certificates', href: '/civil-certificates-in-pakistan/',
     groups: [{ title: 'Civil Certificates', links: [
       ['Succession Certificate', '/succession-certificate-letter-of-administration/'],
       ['Marriage Certificate', '/marriage-registration-certificate/'],
@@ -71,13 +71,13 @@ const navItems = [
   },
   { label: 'Intellectual Property', href: '/intellectual-property-in-pakistan/' },
   {
-    label: 'Business Lawyers', href: '#',
+    label: 'Business Lawyers', href: '/corporate-tax-law-services/',
     groups: [{ title: 'Business Lawyers', links: [
       ['Income Tax Lawyers', '/fbr-income-tax-return-filing-lawyers-pakistan/'],
-      ['Sales Tax Lawyers', '#'],
+      ['Sales Tax Lawyers', '/sales-tax-act-guide-for-importers-in-karachi/'],
       ['Sales Tax Act in Karachi', '/sales-tax-act-guide-for-importers-in-karachi/'],
       ['NTN Verification FBR in Pakistan', '/ntn-verification-from-the-fbr-in-pakistan/'],
-      ['Corporate Lawyers', '#'],
+      ['Corporate Lawyers', '/corporate-tax-law-services/'],
     ]}],
   },
 ]
