@@ -95,6 +95,22 @@ export default function DnaRoutePage({ page, slug }) {
             <p>{context}</p>
             <p>{page.description} Right Law Associates begins by identifying the applicable law, jurisdiction, documents and practical objective. Advice should be based on the actual record rather than a general assumption about similar matters.</p>
 
+            {['succession-certificate-in-pakistan-for-legal-heirs', 'succession-certificate-letter-of-administration', 'fbr-income-tax-return-filing-lawyers-pakistan', 'corporate-tax-law-services', 'company-registration-service-karachi'].includes(slug) && <section aria-labelledby="succession-lawyers-heading" style={{margin:'28px 0'}}>
+              <h2 id="succession-lawyers-heading">Senior Lawyers For Your Legal Matter</h2>
+              <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(240px,1fr))',gap:20}}>
+                {[
+                  {name:'S. M. Akhtar Rizvi',designation:'Advocate Supreme Court',image:'https://www.advocates.com.pk/Syed-Akhter-Rizwi--01.png',copy:'Senior Supreme Court advocate associated with our legal team. Provides senior legal guidance and representation in matters requiring experienced appellate counsel.',profile:'https://scbap.com/wp-content/uploads/2025/11/Directory-2025-26.pdf',label:'SCBAP Directory (PDF)'},
+                  {name:'Syed Mohsin Ali Shah',designation:'Advocate High Court',image:'https://www.advocates.com.pk/Mohsin-Ali-Shah.png',copy:'Senior lawyer with legal practice since 1985. Advises on property, inheritance, corporate and taxation matters and coordinates case-specific legal support.',profile:'https://lawzana.com/lawyer/right-law-associates/karachi/m-mohsin-ali-shah-26902',label:'Lawzana Profile'}
+                ].map(lawyer=><article key={lawyer.name} style={{background:'#fff',border:'1px solid #d9e1de',borderRadius:16,padding:20}}>
+                  <img src={lawyer.image} alt={lawyer.name + ', ' + lawyer.designation} loading="lazy" width="128" height="160" style={{width:128,height:160,objectFit:'contain',display:'block',marginBottom:16}} />
+                  <h3 style={{marginBottom:8}}>{lawyer.name}</h3>
+                  <p style={{fontWeight:700,color:'#173b35'}}>{lawyer.designation}</p>
+                  <p>{lawyer.copy}</p>
+                  <a href={lawyer.profile} target="_blank" rel="noopener noreferrer" aria-label={lawyer.name + ' ' + lawyer.label}>{lawyer.label}</a>
+                </article>)}
+              </div>
+            </section>}
+
             {(mainServiceSections[slug] || []).map(([title, subtitle, copy]) => <section key={title}><h2>{title}</h2><h3>{subtitle}</h3><p>{copy}</p></section>)}
 
             <h2><b>Key Issues In {page.title}</b></h2>
