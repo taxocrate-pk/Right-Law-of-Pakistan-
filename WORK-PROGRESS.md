@@ -4,6 +4,10 @@ Active site: RightLaw.pk, GitHub/Vercel. RightLaw.com.pk is a separate WordPress
 User authorizes continued corrections and publication without waiting for each reply; send completed live URLs in chat.
 
 ## Published
+- Income tax: /fbr-income-tax-return-filing-lawyers-pakistan — six dedicated DNA money-page sections added covering return filing, Iris/NTN profile, withholding records, wealth statement reconciliation, ATL status and FBR notices; specialist FBR/IncomeTaxLawyers/PakistanTax resources added.
+- Company registration: /company-registration-service-karachi — six dedicated DNA sections added covering structure selection, SECP name/incorporation, constitutional documents, ownership records, tax setup and post-incorporation compliance; SECP/CompanyRegistration/Taxocrate resources added.
+- Money-page profiles: succession routes, income-tax return filing, corporate/tax services, Karachi company registration and property disputes now use the shared senior-lawyer profile block; S. M. Akhtar Rizvi portrait is self-hosted.
+- Property disputes: /property-disputes — six litigation-specific sections added for title, possession, partition, inheritance disputes, fraud/forgery and injunction/evidence strategy; Pakistan Code and related specialist resources added.
 - Property: /property-law-in-pakistan — dedicated guide, ASC portrait, 20 specific FAQs, comparison table, statutory-source links, internal links and shared footer.
 - Civil: /civil-law — six practice-specific sections added.
 - Corporate/tax: /corporate-tax-law-services — six practice-specific sections added.
@@ -21,5 +25,6 @@ Current project exposes 57 content URLs; migration audit records 166 old WordPre
 Mobile CSS was corrected, but mobile screenshot verification is pending. Desktop property rendering has been visually inspected.
 
 ## Publishing
-Terminal git push lacks credentials. Connected GitHub create_file/update_file operations succeeded on main and Vercel auto-deployed. Latest content commit: f28ed0a4c482b736f72b106f969d81a0910299b8.
+Terminal git push lacks credentials. Connected GitHub create_file/update_file operations succeeded on main and Vercel auto-deployed. Latest content commit: a42141d2df8d81066b4b60f258245bbfc80d66ea.
 Use fresh remote blob SHA for API updates; local branches have equivalent changes but different commit history from API commits. Do not overwrite concurrent work.
+GitHub reports Vercel status success for the latest content commit. Public search/web caches may still show the previous render, so page-level live-content verification remains required before calling each newly refined page fully complete.
