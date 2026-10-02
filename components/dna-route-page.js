@@ -27,6 +27,33 @@ const relatedByCategory = {
 
 const reviewers = { 'Family Law':'Advocate Sobia Mohsin', 'Marriage Law':'Advocate Sobia Mohsin' }
 
+const specialResources = {
+  'fbr-income-tax-return-filing-lawyers-pakistan': [
+    ['Federal Board Of Revenue (FBR)', 'https://www.fbr.gov.pk/'],
+    ['Income Tax Lawyers Pakistan', 'https://incometaxlawyers.com.pk/'],
+    ['Pakistan Tax', 'https://pakistantax.com.pk/'],
+  ],
+  'corporate-tax-law-services': [
+    ['Securities And Exchange Commission Of Pakistan (SECP)', 'https://www.secp.gov.pk/'],
+    ['Federal Board Of Revenue (FBR)', 'https://www.fbr.gov.pk/'],
+    ['Taxocrate', 'https://taxocrate.com/'],
+    ['Income Tax Lawyers Pakistan', 'https://incometaxlawyers.com.pk/'],
+  ],
+  'company-registration-service-karachi': [
+    ['Securities And Exchange Commission Of Pakistan (SECP)', 'https://www.secp.gov.pk/'],
+    ['Company Registration Pakistan', 'https://companyregistration.com.pk/'],
+    ['Taxocrate', 'https://taxocrate.com/'],
+  ],
+  'succession-certificate-in-pakistan-for-legal-heirs': [
+    ['National Database And Registration Authority (NADRA)', 'https://www.nadra.gov.pk/'],
+    ['Qanoon House', 'https://qanoonhouse.com/'],
+  ],
+  'succession-certificate-letter-of-administration': [
+    ['National Database And Registration Authority (NADRA)', 'https://www.nadra.gov.pk/'],
+    ['Qanoon House', 'https://qanoonhouse.com/'],
+  ],
+}
+
 function buildFaqs(page) {
   const t = page.title
   return [
@@ -57,6 +84,7 @@ export default function DnaRoutePage({ page, slug }) {
   page = { ...page, title: page.title.replace(/\b[a-z]/g, letter => letter.toUpperCase()) }
   const context = contextByCategory[page.category] || 'The correct legal route depends on the facts, jurisdiction, documents and relief required. A structured review should take place before filing, registration or settlement.'
   const related = relatedByCategory[page.category] || []
+  const resources = specialResources[slug] || []
   const reviewer = reviewers[page.category] || 'Advocate Mohsin Ali Shah'
   const faqs = buildFaqs(page)
   const schema = {
@@ -99,7 +127,7 @@ export default function DnaRoutePage({ page, slug }) {
               <h2 id="succession-lawyers-heading">Senior Lawyers For Your Legal Matter</h2>
               <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(240px,1fr))',gap:20}}>
                 {[
-                  {name:'S. M. Akhtar Rizvi',designation:'Advocate Supreme Court',image:'https://www.advocates.com.pk/Syed-Akhter-Rizwi--01.png',copy:'Senior Supreme Court advocate associated with our legal team. Provides senior legal guidance and representation in matters requiring experienced appellate counsel.',profile:'https://scbap.com/wp-content/uploads/2025/11/Directory-2025-26.pdf',label:'SCBAP Directory (PDF)'},
+                  {name:'S. M. Akhtar Rizvi',designation:'Advocate Supreme Court',image:'/images/syed-akhtar-rizvi.webp',copy:'Senior Supreme Court advocate associated with our legal team. Provides senior legal guidance and representation in matters requiring experienced appellate counsel.',profile:'https://scbap.com/wp-content/uploads/2025/11/Directory-2025-26.pdf',label:'SCBAP Directory (PDF)'},
                   {name:'Syed Mohsin Ali Shah',designation:'Advocate High Court',image:'https://www.advocates.com.pk/Mohsin-Ali-Shah.png',copy:'Senior lawyer with legal practice since 1985. Advises on property, inheritance, corporate and taxation matters and coordinates case-specific legal support.',profile:'https://lawzana.com/lawyer/right-law-associates/karachi/m-mohsin-ali-shah-26902',label:'Lawzana Profile'}
                 ].map(lawyer=><article key={lawyer.name} style={{background:'#fff',border:'1px solid #d9e1de',borderRadius:16,padding:20}}>
                   <img src={lawyer.image} alt={lawyer.name + ', ' + lawyer.designation} loading="lazy" width="128" height="160" style={{width:128,height:160,objectFit:'contain',display:'block',marginBottom:16}} />
@@ -147,6 +175,8 @@ export default function DnaRoutePage({ page, slug }) {
             </tbody></table></div>
 
             {related.length>0&&<section style={{margin:'34px 0',padding:'24px 26px',background:'#f7f3eb'}}><h2 style={{marginTop:0}}><b>Related RightLaw.pk Legal Guides</b></h2><p>These pages provide more specific guidance on connected issues:</p><ul>{related.map(([label,href])=><li key={href}><Link href={href}>{label}</Link></li>)}</ul></section>}
+
+            {resources.length>0&&<section style={{margin:'34px 0',padding:'24px 26px',background:'#eef4f1'}}><h2 style={{marginTop:0}}><b>Authoritative And Specialist Resources</b></h2><h3>Official Sources And Relevant Legal References</h3><ul>{resources.map(([label,href])=><li key={href}><a href={href} target="_blank" rel="noopener noreferrer">{label}</a></li>)}</ul></section>}
 
             <h2><b>Trusted Legal Resources And Internal References</b></h2>
             <p>For connected information, readers may also review <a href="https://qanoonhouse.com/" target="_blank" rel="noopener noreferrer">Qanoon House</a>, <a href="https://qanoon.online/" target="_blank" rel="noopener noreferrer">Qanoon Online</a>, <a href="https://karachilawyers.com.pk/" target="_blank" rel="noopener noreferrer">Karachi Lawyers</a> and, for marriage procedure, <a href="https://court-marriage.com/" target="_blank" rel="noopener noreferrer">Court-Marriage.com</a>.</p>
