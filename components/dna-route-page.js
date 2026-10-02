@@ -52,6 +52,11 @@ const specialResources = {
     ['National Database And Registration Authority (NADRA)', 'https://www.nadra.gov.pk/'],
     ['Qanoon House', 'https://qanoonhouse.com/'],
   ],
+  'property-disputes': [
+    ['Pakistan Code', 'https://pakistancode.gov.pk/'],
+    ['Karachi Lawyers', 'https://karachilawyers.com.pk/'],
+    ['Qanoon House', 'https://qanoonhouse.com/'],
+  ],
 }
 
 function buildFaqs(page) {
@@ -123,7 +128,7 @@ export default function DnaRoutePage({ page, slug }) {
             <p>{context}</p>
             <p>{page.description} Right Law Associates begins by identifying the applicable law, jurisdiction, documents and practical objective. Advice should be based on the actual record rather than a general assumption about similar matters.</p>
 
-            {['succession-certificate-in-pakistan-for-legal-heirs', 'succession-certificate-letter-of-administration', 'fbr-income-tax-return-filing-lawyers-pakistan', 'corporate-tax-law-services', 'company-registration-service-karachi'].includes(slug) && <section aria-labelledby="succession-lawyers-heading" style={{margin:'28px 0'}}>
+            {['succession-certificate-in-pakistan-for-legal-heirs', 'succession-certificate-letter-of-administration', 'fbr-income-tax-return-filing-lawyers-pakistan', 'corporate-tax-law-services', 'company-registration-service-karachi', 'property-disputes'].includes(slug) && <section aria-labelledby="succession-lawyers-heading" style={{margin:'28px 0'}}>
               <h2 id="succession-lawyers-heading">Senior Lawyers For Your Legal Matter</h2>
               <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(240px,1fr))',gap:20}}>
                 {[
