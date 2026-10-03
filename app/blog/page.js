@@ -59,6 +59,7 @@ const categories = [
 ]
 
 const featured = [
+  ['Misyar Marriage And Family Rights Review', '/misyar-marriage-nikah-misyar-marriages', 'Marriage Law'],
   ['Mehar / Mahr And Dower Legal Advice', '/mehar-mahr-in-islam', 'Family Law'],
   ['Family Lawyer Sobia Mohsin In Karachi', '/best-family-and-divorce-lawyer-and-lady-advocate-in-karachi-sobia-mohsin-shah-legal-expertise-in-family-law', 'Family Law'],
   ['Nikah Khawan And Registrar In Karachi', '/nikah-khawan-qazi-and-nikah-registrar-in-karachi-pakistan', 'Marriage Law'],
