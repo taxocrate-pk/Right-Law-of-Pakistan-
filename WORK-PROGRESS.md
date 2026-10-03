@@ -28,3 +28,16 @@ Mobile CSS was corrected, but mobile screenshot verification is pending. Desktop
 Terminal git push lacks credentials. Connected GitHub create_file/update_file operations succeeded on main and Vercel auto-deployed. Latest content commit: a42141d2df8d81066b4b60f258245bbfc80d66ea.
 Use fresh remote blob SHA for API updates; local branches have equivalent changes but different commit history from API commits. Do not overwrite concurrent work.
 GitHub reports Vercel status success for the latest content commit. Public search/web caches may still show the previous render, so page-level live-content verification remains required before calling each newly refined page fully complete.
+
+
+## First Audit Batch — Published 3 October 2026
+Five historical URLs restored individually; all five verified with their service content live:
+- /nadra-computerized-death-certificate-online-verification-check
+- /nikah-khawan-qazi-and-nikah-registrar-in-karachi-pakistan
+- /best-family-and-divorce-lawyer-and-lady-advocate-in-karachi-sobia-mohsin-shah-legal-expertise-in-family-law
+- /mehar-mahr-in-islam
+- /misyar-marriage-nikah-misyar-marriages
+Each has a service-offer hero, DHA/Jauhar contacts, real lawyer profiles, unique generated image below the hero, 20 specific FAQ answers of 80–150 words, two tables, LegalService/LocalBusiness/FAQPage/BreadcrumbList schema, descriptive image title/alt/caption/ImageObject description, internal links and inclusion in sitemap/blog. Shared header/footer and historical slugs retained. Sobia has her genuine professional portrait plus the two senior counsel profiles. Misyar explicitly offers ordinary Nikah and marriage-documentation assistance, as instructed by the user.
+Counts are main paragraph content excluding FAQ answers: Nikah 1,480; Sobia 1,495; Mahr 1,499; Misyar 1,495. Main visible text phrase densities approximately 2.2–2.5%; one H1; no italics. Build passes with 66 generated static/system paths.
+Pending before claiming complete DNA verification: actual mobile viewport/menu verification, measured FCP/performance checks, title pixel-width verification. Published content count is five; do not equate it with five fully verified pages or all-site completion. The earlier death-certificate graveyard-image edit remains pending because the exact selected edit-source image is unavailable; do not substitute another selected source.
+Next audit batch: B-Form legacy URL, Karachi NADRA marriage-registration legacy URL, divorce-registration-certificate, marriage-registration-certificate, nikah-nama. Preserve existing useful text on present pages, retain URLs, and differentiate the national certificate service from the Karachi legacy page to avoid identical-intent copies.
