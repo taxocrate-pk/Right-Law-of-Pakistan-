@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { Footer } from './legal-site'
+import KarachiShortCta from './karachi-short-cta'
 import { firm } from '../lib/legal-data'
 
 export const serviceOffices = {
@@ -39,6 +40,7 @@ export default function RefinedServicePage({ page }) {
       <h3 style={{color:'#fff',fontSize:'clamp(18px,2.2vw,24px)',lineHeight:1.3,margin:'20px 0 10px'}}>{titleCase(page.informative ? 'Legal Editorial Experience Since 1985' : `${page.keyword} Advice With 40+ Years Of Experience`)}</h3><p style={{maxWidth:820,lineHeight:1.75,color:'#e7efec'}}>Advocate High Court Mohsin Ali Shah has practised since 1985, bringing more than four decades of legal experience to our team.</p>
       <h3 style={{color:'#fff',fontSize:'clamp(18px,2.2vw,24px)',lineHeight:1.3,margin:'20px 0 10px'}}>{titleCase(page.informative ? 'Official NADRA Application And Attendance' : `${page.keyword} Appointments In ${page.cities.join(' And ')}`)}</h3>{!page.informative&&<p style={{maxWidth:820,lineHeight:1.75,color:'#e7efec'}}>{offices.map((o,i)=><span key={o.name}>{i?' · ':''}{o.name}, {o.city}: <a style={{color:'#fff'}} href={`tel:+${o.compact}`}>{o.phone}</a></span>)}</p>}<div style={{display:'flex',gap:12,flexWrap:'wrap',marginTop:28}}>{page.informative?<a href="https://www.nadra.gov.pk/identityDocument/juvenile" className="button button-gold">{page.cta}</a>:<><Link href="/contact" className="button button-gold">{page.cta}</Link>{offices.map(o=><a key={o.name} href={`https://wa.me/${o.compact}`} className="button button-outline-light">WhatsApp The {o.name}</a>)}</>}</div>
     </div></section>
+    <KarachiShortCta />
     <section style={{background:'#fff'}}><div className="container" style={{paddingTop:26}}><figure style={{margin:0}}><Image src={page.image} width={1942} height={page.imageHeight} priority unoptimized title={page.imageTitle} alt={page.alt} style={{width:'100%',height:'auto',maxHeight:520,objectFit:'cover',display:'block',borderRadius:4}}/><figcaption style={{fontSize:14,lineHeight:1.6,color:'#455d55',paddingTop:10}}>{page.caption}</figcaption></figure></div></section>
     {!page.informative&&<section style={{background:'#fff'}}><div className="container route-article" style={{paddingTop:26}}><h2>{titleCase(`${page.keyword} Consultation In ${page.cities.join(' And ')}`)}</h2><h3>{titleCase(page.officeHeading)}</h3>{offices.map(o=><section key={o.name}><h4>{titleCase(`${o.name} — ${o.city}`)}</h4><p>{o.address}. Call <a href={`tel:+${o.compact}`}>{o.phone}</a>.</p></section>)}</div></section>}
     <section className="section" style={{background:'#fff'}}><div className="container dna-content-grid"><article className="route-article">
