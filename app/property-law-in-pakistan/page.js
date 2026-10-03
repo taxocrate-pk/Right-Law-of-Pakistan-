@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { Footer } from '../../components/legal-site'
+import KarachiShortCta from '../../components/karachi-short-cta'
 import { firm } from '../../lib/legal-data'
 
 export const metadata = {
@@ -63,6 +64,7 @@ export default function PropertyLawPage() {
         <p className="property-office-line">Islamabad Head Office · Karachi DHA And Gulistan-e-Jauhar · Lahore</p>
         <div className="hero-actions"><Link href="/contact/" className="button button-gold">Consult A Property Lawyer</Link><a href={`tel:${firm.phone}`} className="button button-outline-light">Call {firm.phone}</a><a href={`https://wa.me/${firm.whatsapp}`} className="text-link light-link">WhatsApp</a></div>
       </div></section>
+      <KarachiShortCta />
       <article className="section family-article"><div className="container family-article-inner">
         <h2>Property Law Advice From Experienced Counsel</h2>
         <h3>Syed M. Akhtar Rizvi — Advocate Supreme Court Of Pakistan</h3>
