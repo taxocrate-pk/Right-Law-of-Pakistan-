@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { Footer } from './legal-site'
+import KarachiShortCta from './karachi-short-cta'
 import { firm } from '../lib/legal-data'
 import { mainServiceSections } from '../lib/main-service-sections'
 import { dissolutionPage } from '../lib/dissolution-page'
@@ -171,6 +172,8 @@ export default function DnaRoutePage({ page, slug }) {
           <div style={{display:'flex',gap:12,flexWrap:'wrap',marginTop:28}}><Link href="/contact/" className="button button-gold">Consult A Lawyer</Link><a href="tel:+923331127830" className="button button-outline-light">Call +92 333 1127830</a></div>
         </div>
       </section>
+
+      <KarachiShortCta />
 
       <section style={{background:'#fff'}}><div className="container" style={{paddingTop:26}}><figure style={{margin:0}}><Image src={dissolution ? '/images/dissolution-of-marriage-services.svg' : page.image} title={`${page.title} — Right Law Associates`} alt={dissolution ? 'Right Law Associates dissolution of marriage consultation and case preparation illustration' : `${page.title} legal services and document review by Right Law Associates`} width={1600} height={900} priority unoptimized style={{width:'100%',height:'auto',maxHeight:520,objectFit:'cover',display:'block',borderRadius:4}} /><figcaption style={{fontSize:14,lineHeight:1.6,color:'#455d55',paddingTop:10}}>{page.title} — Legal Guidance And Document Review</figcaption></figure></div></section>
 
