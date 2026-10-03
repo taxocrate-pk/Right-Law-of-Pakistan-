@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { Footer } from './legal-site'
+import KarachiShortCta from './karachi-short-cta'
 import { firm } from '../lib/legal-data'
 import { nikahKhawanPage as page } from '../lib/nikah-khawan-page'
 
@@ -45,6 +46,7 @@ export default function NikahKhawanServicePage() {
       <h3 style={{color:'#fff',fontSize:'clamp(18px,2.2vw,24px)',lineHeight:1.3,margin:'20px 0 10px'}}> Nikah Khawan Consultation In DHA And Jauhar, Karachi</h3><p style={{maxWidth:820,lineHeight:1.75,color:'#e7efec'}}>DHA Phase 7, Karachi: <a style={{color:'#fff'}} href="tel:+923316644789">+92 331 6644789</a>. Gulistan-e-Jauhar, Karachi: <a style={{color:'#fff'}} href="tel:+923166644789">+92 316 6644789</a>.</p>
       <div style={{display:'flex',gap:12,flexWrap:'wrap',marginTop:28}}><Link href="/contact" className="button button-gold">Discuss Your Nikah Khawan</Link><a href="https://wa.me/923316644789" className="button button-outline-light">WhatsApp The DHA Office</a><a href="https://wa.me/923166644789" className="button button-outline-light">WhatsApp The Jauhar Office</a></div>
     </div></section>
+    <KarachiShortCta />
     <section style={{background:'#fff'}}><div className="container" style={{paddingTop:26}}><figure style={{margin:0}}><Image src="/images/nikah-khawan-document-review.webp" title="Nikah Khawan And Registration Assistance" alt="Marriage document folder, wedding rings and pen illustrating Nikah Khawan services in Karachi" width={1942} height={809} priority unoptimized style={{width:'100%',height:'auto',maxHeight:520,objectFit:'cover',display:'block',borderRadius:4}}/><figcaption style={{fontSize:14,lineHeight:1.6,color:'#455d55',paddingTop:10}}>Nikah Khawan Arrangements And Marriage Registration In Karachi</figcaption></figure></div></section>
     <section style={{background:'#fff'}}><div className="container route-article" style={{paddingTop:26}}><h2>Nikah Khawan Consultation At Our DHA And Jauhar Offices In Karachi</h2><h3>DHA, Clifton And Gulistan-e-Jauhar Appointments In Karachi</h3><h4>DHA Office</h4><p>{firm.dhaBranchAddress}. Call <a href="tel:+923316644789">+92 331 6644789</a>.</p><h4>Jauhar Office</h4><p>{firm.offices.karachiJohar.address}. Call <a href="tel:+923166644789">+92 316 6644789</a>.</p></div></section>
     <section className="section" style={{background:'#fff'}}><div className="container dna-content-grid"><article className="route-article">
