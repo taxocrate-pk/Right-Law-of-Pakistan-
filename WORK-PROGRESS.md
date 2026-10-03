@@ -62,3 +62,12 @@ Published batch 2. Desktop live checks confirmed all five URLs, city meta titles
 
 ## Navigation Follow-Up — 3 October 2026
 Added ten recently published pages to the shared desktop and mobile navigation: Lahore family, Sobia Karachi profile, Islamabad/Rawalpindi court marriage, Lahore court marriage, Karachi Nikah registrar, Mahr, Misyar, Karachi marriage registration, computerized death certificate guide and informative B-Form guide. Existing links retained. Content commit 36294c61e96b30942b7a0c55a2f39f46e8057559 has successful Vercel status. Live browser DOM confirms all ten links in the shared header and one H1 on the Lahore court-marriage page. Actual mobile viewport/menu interaction remains unverified. This is navigation completion, not new page creation or full-site DNA completion.
+
+
+## DNA 2.03 Navigation-Batch Completion Pass — 4 October 2026
+- Cross-referenced the ten navigation-follow-up routes against the SEO DNA 2.03 completion rule.
+- Added visible breadcrumb markup to the shared refined-service template and all five custom service templates; BreadcrumbList schema already existed.
+- Affected navigation batch: Lahore family, Sobia Karachi profile, Islamabad/Rawalpindi court marriage, Lahore court marriage, Karachi Nikah registrar, Mahr, Misyar, Karachi marriage registration, computerized death certificate guide and informative B-Form guide.
+- Latest breadcrumb commit chain ends at 9fb7a9733a74d27177252bbaf851a9c328bd8de1; Vercel status is successful.
+- Repository evidence now confirms route, navigation link, canonical, sitemap inclusion, hero/H1/H2/H3 template structure, CTA, image implementation, structured data and visible breadcrumbs across the batch. Page-specific content data and earlier audit records provide FAQ/table/content-depth evidence for the audited batch.
+- Runtime-only items such as actual mobile menu interaction, final visual contrast in every viewport, Core Web Vitals/Lighthouse and live rendered contact correctness remain separate verification gates and must not be inferred solely from source code.
