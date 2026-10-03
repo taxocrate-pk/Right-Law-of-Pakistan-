@@ -18,12 +18,12 @@ const contextByCategory = {
 const relatedByCategory = {
   'Family Law': [['Family Law In Pakistan','/family-law-in-pakistan/'],['Divorce Law','/divorce-law/'],['Child Custody','/child-custody/'],['Guardianship Laws','/legal-guardianship-laws-of-pakistan/']],
   'Marriage Law': [['Court Marriage Procedure','/court-marriage-procedure-in-pakistan/'],['Online Marriage','/online-marriage/'],['Nikah Nama','/nikah-nama/'],['Marriage Registration Certificate','/marriage-registration-certificate/']],
-  'Civil Certificates': [['Marriage Registration Certificate','/marriage-registration-certificate/'],['Divorce Registration Certificate','/divorce-registration-certificate/'],['Succession Certificate','/succession-certificate-letter-of-administration/']],
+  'Civil Certificates': [['Marriage Registration Certificate','/marriage-registration-certificate/'],['Divorce Registration Certificate','/divorce-registration-certificate/'],['Succession Certificate','/succession-certificate-letter-of-administration/'],['Death Certificate And Verification','/nadra-computerized-death-certificate-online-verification-check']],
   'Civil Law': [['Civil Law','/civil-law/'],['Court Litigation','/lawyers-for-litigation-in-the-court/'],['Property Disputes','/property-disputes/']],
   'Property Law': [['Property Law In Pakistan','/property-law-in-pakistan/'],['Property Disputes','/property-disputes/'],['Rental And Tenancy Law','/rental-and-tenancy-law-of-pakistan/']],
   'Intellectual Property': [['Intellectual Property Law','/intellectual-property-in-pakistan/'],['Corporate And Tax Law','/corporate-tax-law-services/']],
   'Tax Law': [['Income Tax Return Filing','/fbr-income-tax-return-filing-lawyers-pakistan/'],['NTN Verification','/ntn-verification-from-the-fbr-in-pakistan/'],['Corporate And Tax Law','/corporate-tax-law-services/']],
-  'Succession Law': [['Succession Certificate For Legal Heirs','/succession-certificate-in-pakistan-for-legal-heirs/'],['Succession Certificate And Letter Of Administration','/succession-certificate-letter-of-administration/'],['Property Law','/property-law-in-pakistan/']],
+  'Succession Law': [['Succession Certificate For Legal Heirs','/succession-certificate-in-pakistan-for-legal-heirs/'],['Succession Certificate And Letter Of Administration','/succession-certificate-letter-of-administration/'],['Property Law','/property-law-in-pakistan/'],['Death Certificate And Verification','/nadra-computerized-death-certificate-online-verification-check']],
 }
 
 const reviewers = { 'Family Law':'Advocate Sobia Mohsin', 'Marriage Law':'Advocate Sobia Mohsin' }

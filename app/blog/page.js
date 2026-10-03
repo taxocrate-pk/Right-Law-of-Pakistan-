@@ -59,6 +59,7 @@ const categories = [
 ]
 
 const featured = [
+  ['NADRA Death Certificate And Verification', '/nadra-computerized-death-certificate-online-verification-check', 'Civil Certificates'],
   ['Dissolution of Marriage in Pakistan', '/dissolution-of-marriage-in-pakistan/', 'Family Law'],
   ['Family Law in Pakistan', '/family-law-in-pakistan/', 'Family Law'],
   ['Child Custody in Pakistan', '/child-custody/', 'Family Law'],
