@@ -17,7 +17,7 @@ const contextByCategory = {
 
 const relatedByCategory = {
   'Family Law': [['Family Law In Pakistan','/family-law-in-pakistan/'],['Divorce Law','/divorce-law/'],['Child Custody','/child-custody/'],['Guardianship Laws','/legal-guardianship-laws-of-pakistan/']],
-  'Marriage Law': [['Court Marriage Procedure','/court-marriage-procedure-in-pakistan/'],['Online Marriage','/online-marriage/'],['Nikah Nama','/nikah-nama/'],['Marriage Registration Certificate','/marriage-registration-certificate/']],
+  'Marriage Law': [['Nikah Khawan And Registrar','/nikah-khawan-qazi-and-nikah-registrar-in-karachi-pakistan'],['Court Marriage Procedure','/court-marriage-procedure-in-pakistan/'],['Online Marriage','/online-marriage/'],['Nikah Nama','/nikah-nama/'],['Marriage Registration Certificate','/marriage-registration-certificate/']],
   'Civil Certificates': [['Marriage Registration Certificate','/marriage-registration-certificate/'],['Divorce Registration Certificate','/divorce-registration-certificate/'],['Succession Certificate','/succession-certificate-letter-of-administration/'],['Death Certificate And Verification','/nadra-computerized-death-certificate-online-verification-check']],
   'Civil Law': [['Civil Law','/civil-law/'],['Court Litigation','/lawyers-for-litigation-in-the-court/'],['Property Disputes','/property-disputes/']],
   'Property Law': [['Property Law In Pakistan','/property-law-in-pakistan/'],['Property Disputes','/property-disputes/'],['Rental And Tenancy Law','/rental-and-tenancy-law-of-pakistan/']],

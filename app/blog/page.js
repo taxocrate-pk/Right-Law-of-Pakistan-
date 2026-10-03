@@ -59,6 +59,7 @@ const categories = [
 ]
 
 const featured = [
+  ['Nikah Khawan And Registrar In Karachi', '/nikah-khawan-qazi-and-nikah-registrar-in-karachi-pakistan', 'Marriage Law'],
   ['NADRA Death Certificate And Verification', '/nadra-computerized-death-certificate-online-verification-check', 'Civil Certificates'],
   ['Dissolution of Marriage in Pakistan', '/dissolution-of-marriage-in-pakistan/', 'Family Law'],
   ['Family Law in Pakistan', '/family-law-in-pakistan/', 'Family Law'],
