@@ -41,3 +41,15 @@ Each has a service-offer hero, DHA/Jauhar contacts, real lawyer profiles, unique
 Counts are main paragraph content excluding FAQ answers: Nikah 1,480; Sobia 1,495; Mahr 1,499; Misyar 1,495. Main visible text phrase densities approximately 2.2–2.5%; one H1; no italics. Build passes with 66 generated static/system paths.
 Pending before claiming complete DNA verification: actual mobile viewport/menu verification, measured FCP/performance checks, title pixel-width verification. Published content count is five; do not equate it with five fully verified pages or all-site completion. The earlier death-certificate graveyard-image edit remains pending because the exact selected edit-source image is unavailable; do not substitute another selected source.
 Next audit batch: B-Form legacy URL, Karachi NADRA marriage-registration legacy URL, divorce-registration-certificate, marriage-registration-certificate, nikah-nama. Preserve existing useful text on present pages, retain URLs, and differentiate the national certificate service from the Karachi legacy page to avoid identical-intent copies.
+
+## Batch 2 — 3 October 2026
+
+Prepared four service pages and one informative page, preserving historical routes.
+- B-Form guide: informative only. Right Law Associates does not obtain B-Forms; applicants attend NADRA themselves for required biometrics and child attendance. Article + FAQ schema; official NADRA CTA.
+- Karachi marriage certificate: authority-issued certificate assistance, DHA and Jauhar addresses/numbers/CTAs.
+- Islamabad/Rawalpindi court marriage: Islamabad G-9 office CTA; the cities remain separate registration jurisdictions.
+- Lahore court marriage: Chauburji local CTA, adult Nikah, documents and registration.
+- Lahore family lawyers: useful existing service topics retained and expanded; divorce/khula, custody, guardianship, maintenance, dower/dowry, marriage documents, evidence, settlement, enforcement and overseas clients.
+All five: distinct generated WebP banners immediately below hero; accurate image alt/title/caption/description; genuine lawyer profiles/photos; two tables; twenty specific FAQs (90–103 words each); city meta titles; reverse category/blog links and sitemap.
+Validation: production build passed (70 static/system paths). Rendered service-page main content approximately 1477–1499 words excluding FAQs; informative B-Form approximately 1809 words excluding FAQs. Modeled 20px Arial-compatible title widths 448–519px; all descriptions <=160 characters; one H1; title-case headings; phrase densities approximately 2.35–2.50%.
+Deployment and desktop live verification pending at this checkpoint. Actual mobile/menu verification and controlled Lighthouse/FCP measurements remain pending; no complete site-wide DNA verification claim.

@@ -59,6 +59,12 @@ const categories = [
 ]
 
 const featured = [
+  ["Court Marriage In Islamabad And Rawalpindi", "/court-marriage-in-islamabad-and-rawalpindi", "Family Law"],
+  ["Court Marriage Services In Lahore", "/court-marriage-in-lahore-legal-union", "Family Law"],
+  ["NADRA B-Form Guide For Karachi, Islamabad And Lahore", "/b-form-nadra-importance-of-b-form-in-pakistan", "Civil Certificates"],
+  ["Family Lawyers In Lahore For Divorce, Khula And Family Cases", "/family-law-in-lahore-divorce-khula-court-marriage-online-nikah", "Family Law"],
+  ["NADRA Marriage Certificate Assistance In Karachi", "/marriage-registration-nadra-marriage-certificate-karachi", "Civil Certificates"],
+
   ['Misyar Marriage And Family Rights Review', '/misyar-marriage-nikah-misyar-marriages', 'Marriage Law'],
   ['Mehar / Mahr And Dower Legal Advice', '/mehar-mahr-in-islam', 'Family Law'],
   ['Family Lawyer Sobia Mohsin In Karachi', '/best-family-and-divorce-lawyer-and-lady-advocate-in-karachi-sobia-mohsin-shah-legal-expertise-in-family-law', 'Family Law'],
