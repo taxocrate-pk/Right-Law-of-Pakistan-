@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { Footer } from '../../components/legal-site'
+import KarachiShortCta from '../../components/karachi-short-cta'
 
 export const metadata = {
   title: 'Legal Blog | Pakistani Law Guides | Right Law Associates',
@@ -87,6 +88,8 @@ export default function BlogPage() {
         <p style={{maxWidth:800,color:'#d2ddda',lineHeight:1.75,fontSize:17}}>Our legal blog explains Pakistani law in practical language for individuals, families, businesses and overseas Pakistanis. The purpose is to help readers understand the legal framework, identify the documents that may matter and find the correct specialist page before seeking case-specific advice.</p>
       </div>
     </section>
+
+    <KarachiShortCta />
 
     <section className="section" style={{background:'#fff'}}>
       <div className="container">
