@@ -39,6 +39,26 @@ const karachiOnlySlugs = new Set([
 const isRoutineMatrimonialSlug = (page) => page.category === 'Marriage Law'
 
 const specialResources = {
+  'divorce-law': [
+    ['Muslim Family Laws Ordinance, 1961 — Pakistan Code', 'https://pakistancode.gov.pk/pdffiles/administratordf5df7bd70945d88e28f6a85c1a9ef6b.pdf'],
+    ['Dissolution Of Muslim Marriages Act, 1939 — Pakistan Code', 'https://pakistancode.gov.pk/pdffiles/administratorfb32d6015ae887e6d6b85018961842ea.pdf'],
+  ],
+  'divorce-lawyer-for-khula-divorce': [
+    ['Muslim Family Laws Ordinance, 1961 — Pakistan Code', 'https://pakistancode.gov.pk/pdffiles/administratordf5df7bd70945d88e28f6a85c1a9ef6b.pdf'],
+    ['Dissolution Of Muslim Marriages Act, 1939 — Pakistan Code', 'https://pakistancode.gov.pk/pdffiles/administratorfb32d6015ae887e6d6b85018961842ea.pdf'],
+  ],
+  'child-custody': [
+    ['Pakistan Code — Federal Laws', 'https://pakistancode.gov.pk/'],
+    ['Qanoon House — Family Law Resources', 'https://qanoonhouse.com/'],
+  ],
+  'legal-guardianship-laws-of-pakistan': [
+    ['Pakistan Code — Federal Laws', 'https://pakistancode.gov.pk/'],
+    ['Qanoon House — Family Law Resources', 'https://qanoonhouse.com/'],
+  ],
+  'maintenance-in-pakistan': [
+    ['Pakistan Code — Federal Laws', 'https://pakistancode.gov.pk/'],
+    ['Qanoon House — Family Law Resources', 'https://qanoonhouse.com/'],
+  ],
   'fbr-income-tax-return-filing-lawyers-pakistan': [
     ['Federal Board Of Revenue (FBR)', 'https://www.fbr.gov.pk/'],
     ['Income Tax Lawyers Pakistan', 'https://incometaxlawyers.com.pk/'],
