@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import { Footer } from './legal-site'
 import { firm } from '../lib/legal-data'
@@ -27,6 +28,15 @@ const relatedByCategory = {
 }
 
 const reviewers = { 'Family Law':'Advocate Sobia Mohsin', 'Marriage Law':'Advocate Sobia Mohsin' }
+
+const karachiOnlySlugs = new Set([
+  'guardianship-child-custody-lawyers-in-karachi-pakistan',
+  'guardianship-child-custody-lawyers-in-karachi',
+  'child-custody-and-guardianship-lawyers-in-karachi',
+  'sales-tax-act-guide-for-importers-in-karachi',
+  'company-registration-service-karachi',
+])
+const isRoutineMatrimonialSlug = (page) => page.category === 'Marriage Law'
 
 const specialResources = {
   'fbr-income-tax-return-filing-lawyers-pakistan': [
@@ -90,6 +100,11 @@ export default function DnaRoutePage({ page, slug }) {
   page = { ...page, title: page.title.replace(/\b[a-z]/g, letter => letter.toUpperCase()) }
   const dissolution = slug === 'dissolution-of-marriage-in-pakistan' ? dissolutionPage : null
   const isServicePage = page.category !== 'Firm'
+  const isRoutineMatrimonial = isRoutineMatrimonialSlug(page)
+  const isKarachiOnly = karachiOnlySlugs.has(slug)
+  const officeSummary = isKarachiOnly
+    ? 'Karachi offices: DHA Phase 7 and Gulistan-e-Jauhar. Call the central office number for an initial case assessment and document review.'
+    : 'Head Office: G-9 Markaz, Islamabad. Karachi branches: DHA Phase 7 and Gulistan-e-Jauhar. Lahore branch: Chauburji. Call the central office number for an initial case assessment and document review.'
   const context = contextByCategory[page.category] || 'The correct legal route depends on the facts, jurisdiction, documents and relief required. A structured review should take place before filing, registration or settlement.'
   const related = relatedByCategory[page.category] || []
   const resources = specialResources[slug] || []
@@ -98,7 +113,11 @@ export default function DnaRoutePage({ page, slug }) {
   const schema = {
     '@context':'https://schema.org',
     '@graph':[
-      {'@type':'LegalService','@id':`https://rightlaw.pk/${slug}/#legalservice`,name:page.title,url:`https://rightlaw.pk/${slug}/`,areaServed:'Pakistan',provider:{'@type':'Organization',name:'Right Law Associates (Pvt) Limited',url:'https://rightlaw.pk/'}},
+      {'@type':'Organization','@id':'https://rightlaw.pk/#organization',name:firm.legalName,url:'https://rightlaw.pk/',telephone:firm.phone},
+      ...(isServicePage
+        ? [{'@type':'LegalService','@id':`https://rightlaw.pk/${slug}/#legalservice`,name:page.title,url:`https://rightlaw.pk/${slug}/`,description:page.description,areaServed:'Pakistan',provider:{'@id':'https://rightlaw.pk/#organization'}}]
+        : [{'@type':'WebPage','@id':`https://rightlaw.pk/${slug}/#webpage`,name:page.title,url:`https://rightlaw.pk/${slug}/`,description:page.description,isPartOf:{'@id':'https://rightlaw.pk/#organization'}}]),
+      {'@type':'ImageObject','@id':`https://rightlaw.pk/${slug}/#primaryimage`,contentUrl:`https://rightlaw.pk${dissolution ? '/images/dissolution-of-marriage-services.svg' : page.image}`,name:`${page.title} — Right Law Associates`,caption:`${page.title} Legal Guidance And Document Review`,representativeOfPage:true},
       {'@type':'FAQPage',mainEntity:faqs.map(([question,answer])=>({'@type':'Question',name:question,acceptedAnswer:{'@type':'Answer',text:answer}}))},
       {'@type':'BreadcrumbList',itemListElement:[{'@type':'ListItem',position:1,name:'Home',item:'https://rightlaw.pk/'},{'@type':'ListItem',position:2,name:page.title,item:`https://rightlaw.pk/${slug}/`}]},
     ],
@@ -115,24 +134,25 @@ export default function DnaRoutePage({ page, slug }) {
   const head = {...cell,textAlign:'left'}
 
   return <>
-    <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(schema)}} />
+    <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(schema).replace(/</g,'\\u003c')}} />
     <main className="dna-route-page">
+      <nav aria-label="Breadcrumb" style={{background:'#f7f3eb',borderBottom:'1px solid #e3ddd2'}}><div className="container" style={{paddingTop:12,paddingBottom:12}}><ol style={{display:'flex',alignItems:'center',gap:8,flexWrap:'wrap',listStyle:'none',margin:0,padding:0,fontSize:14,lineHeight:1.5}}><li><Link href="/" style={{color:'#173b35',fontWeight:700,textDecoration:'none'}}>Home</Link></li><li aria-hidden="true" style={{color:'#7a8d86'}}>›</li><li aria-current="page" style={{color:'#455d55'}}>{page.title}</li></ol></div></nav>
       <section style={{background:'#173b35',color:'#fff',padding:'72px 0 54px'}}>
         <div className="container">
           <p className="eyebrow gold">{page.category}</p>
           <h1 style={{fontFamily:'Arial, Helvetica, sans-serif',fontSize:'clamp(38px,5vw,62px)',lineHeight:1.05,maxWidth:900,margin:'0 0 18px'}}>{page.title}</h1>
           <h2 style={{fontFamily:'Arial, Helvetica, sans-serif',fontSize:'clamp(24px,3vw,34px)',lineHeight:1.2,maxWidth:900,margin:'0 0 10px',color:'#fff'}}>Legal Guidance, Procedure, Documents And Representation</h2>
           <h3 style={{fontFamily:'Arial, Helvetica, sans-serif',fontSize:'clamp(18px,2.2vw,24px)',lineHeight:1.3,maxWidth:900,margin:'0 0 18px',color:'#e7efec'}}>Right Law Associates — Practical Legal Support Across Pakistan</h3>
-          <p style={{maxWidth:820,lineHeight:1.75,color:'#d2ddda',fontSize:17}}>{dissolution ? dissolution.hero : isServicePage ? `Right Law Associates offers consultation, document review, drafting and legal representation for ${page.title.toLowerCase()}. Discuss your circumstances with our lawyers so we can assess the appropriate legal work, documents and forum for your matter.` : page.description}</p>
+          <p style={{maxWidth:820,lineHeight:1.75,color:'#fff',fontSize:17}}>{dissolution ? dissolution.hero : isServicePage ? `Right Law Associates offers consultation, document review, drafting and legal representation for ${page.title.toLowerCase()}. Discuss your circumstances with our lawyers so we can assess the appropriate legal work, documents and forum for your matter.` : page.description}</p>
           {isServicePage && <h3 style={{color:'#fff',marginTop:20}}>More Than Four Decades Of Legal Experience</h3>}
           {isServicePage && <p style={{maxWidth:820,lineHeight:1.75,color:'#fff',fontSize:16}}><strong>More Than Four Decades Of Experience.</strong> Advocate High Court Mohsin Ali Shah has practised since 1985, bringing 40+ years of legal experience to our team.</p>}
           <h3 style={{color:'#fff',marginTop:20}}>Offices And Consultation</h3>
-          <p style={{maxWidth:820,lineHeight:1.75,color:'#d2ddda',fontSize:16}}>Head Office: G-9 Markaz, Islamabad. Karachi branches: DHA Phase 7 and Gulistan-e-Jauhar. Lahore branch: Chauburji. Call {firm.phone} for an initial case assessment and document review.</p>
+          <p style={{maxWidth:820,lineHeight:1.75,color:'#fff',fontSize:16}}>{officeSummary} Call <a style={{color:'#fff',fontWeight:700}} href="tel:+923331127830">{firm.phone}</a>.</p>
           <div style={{display:'flex',gap:12,flexWrap:'wrap',marginTop:28}}><Link href="/contact/" className="button button-gold">Consult A Lawyer</Link><a href="tel:+923331127830" className="button button-outline-light">Call +92 333 1127830</a></div>
         </div>
       </section>
 
-      <section style={{background:'#fff'}}><div className="container" style={{paddingTop:26}}><img src={dissolution ? '/images/dissolution-of-marriage-services.svg' : page.image} alt={dissolution ? 'Right Law Associates dissolution of marriage consultation and case preparation illustration' : `${page.title} legal services by Right Law Associates`} loading="eager" fetchPriority="high" style={{width:'100%',maxHeight:520,objectFit:'cover',display:'block',borderRadius:4}} /></div></section>
+      <section style={{background:'#fff'}}><div className="container" style={{paddingTop:26}}><figure style={{margin:0}}><Image src={dissolution ? '/images/dissolution-of-marriage-services.svg' : page.image} title={`${page.title} — Right Law Associates`} alt={dissolution ? 'Right Law Associates dissolution of marriage consultation and case preparation illustration' : `${page.title} legal services and document review by Right Law Associates`} width={1600} height={900} priority unoptimized style={{width:'100%',height:'auto',maxHeight:520,objectFit:'cover',display:'block',borderRadius:4}} /><figcaption style={{fontSize:14,lineHeight:1.6,color:'#455d55',paddingTop:10}}>{page.title} — Legal Guidance And Document Review</figcaption></figure></div></section>
 
       {dissolution && <section style={{background:'#fff'}}><div className="container" style={{paddingTop:26}}><h2>DHA Consultation For Dissolution Of Marriage</h2><h3>Defence And Clifton Client Appointments</h3><p>{firm.dhaBranchAddress}. Arrange an appointment on <a href="tel:+923316644789">+92 331 6644789</a> or <a href="https://wa.me/923316644789">WhatsApp The DHA Office</a>. Bring your marriage record and existing case papers for review.</p></div></section>}
 
@@ -144,7 +164,7 @@ export default function DnaRoutePage({ page, slug }) {
             <h3>Case Assessment And Legal Instructions</h3>
             <p>{page.description} Right Law Associates begins by identifying the applicable law, jurisdiction, documents and practical objective. Advice should be based on the actual record rather than a general assumption about similar matters.</p>
 
-            {isServicePage && <section aria-labelledby="succession-lawyers-heading" style={{margin:'28px 0'}}>
+            {isServicePage && !isRoutineMatrimonial && <section aria-labelledby="succession-lawyers-heading" style={{margin:'28px 0'}}>
               <h2 id="succession-lawyers-heading">Senior Lawyers For Your Legal Matter</h2>
               <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(240px,1fr))',gap:20}}>
                 {[
@@ -159,6 +179,8 @@ export default function DnaRoutePage({ page, slug }) {
                 </article>)}
               </div>
             </section>}
+
+            {isServicePage && isRoutineMatrimonial && <section style={{margin:'28px 0',padding:'24px 26px',background:'#eef4f1',borderLeft:'3px solid #173b35'}}><h2>Marriage Service Legal Team</h2><h3>Local Lawyer Assignment Without Guessed Portraits</h3><p>Right Law Associates assigns marriage-service work through the relevant local team. Karachi assignments include Shankar Lal Kataria, Mohsin Ali Mirani, Zaheer Ashraf Qazi and Sobia Mohsin; Islamabad and Rawalpindi matters are assigned through Kashif Mumtaz, Advocate High Court; Lahore matters are assigned through Junaid Kahloon. Lawyer portraits are displayed only when a genuine identified image is available in the approved site assets.</p></section>}
 
             {(dissolution?.sections || mainServiceSections[slug] || []).map(([title, subtitle, copy]) => <section key={title}><h2>{title}</h2><h3>{subtitle}</h3><p>{copy}</p></section>)}
 
@@ -215,7 +237,7 @@ export default function DnaRoutePage({ page, slug }) {
             <div style={{marginTop:40,padding:28,background:'#f7f3eb',borderLeft:'3px solid #c49a5a'}}><h2 style={{marginTop:0}}><b>Discuss {page.title} With A Lawyer</b></h2><p>Contact Right Law Associates with the city, a short summary of the matter and the key documents available.</p><Link href="/contact/" className="button button-dark">Contact Right Law Associates</Link></div>
           </article>
 
-          <aside style={{position:'sticky',top:170}}><img src={page.image} alt={`${page.title} consultation and document review`} loading="lazy" style={{width:'100%',height:320,objectFit:'cover',display:'block'}} /><div style={{background:'#f7f3eb',padding:24,marginTop:18}}><p className="eyebrow">On This Page</p>{page.topics.map((topic)=><p key={topic} style={{borderBottom:'1px solid #dce5e1',paddingBottom:10,margin:'10px 0',fontSize:14}}>{topic}</p>)}</div></aside>
+          <aside style={{position:'sticky',top:170}}><Image src={page.image} title={`${page.title} — Consultation And Document Review`} alt={`${page.title} consultation and document review`} width={640} height={480} unoptimized style={{width:'100%',height:320,objectFit:'cover',display:'block'}} /><div style={{background:'#f7f3eb',padding:24,marginTop:18}}><p className="eyebrow">On This Page</p>{page.topics.map((topic)=><p key={topic} style={{borderBottom:'1px solid #dce5e1',paddingBottom:10,margin:'10px 0',fontSize:14}}>{topic}</p>)}</div></aside>
         </div>
       </section>
     </main>
