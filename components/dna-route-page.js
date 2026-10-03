@@ -94,7 +94,7 @@ export default function DnaRoutePage({ page, slug }) {
   const related = relatedByCategory[page.category] || []
   const resources = specialResources[slug] || []
   const reviewer = reviewers[page.category] || 'Advocate Mohsin Ali Shah'
-  const faqs = dissolution?.faqs || buildFaqs(page)
+  const faqs = dissolution?.faqs || page.faqs || buildFaqs(page)
   const schema = {
     '@context':'https://schema.org',
     '@graph':[
