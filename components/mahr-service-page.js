@@ -1,0 +1,54 @@
+import Image from 'next/image'
+import Link from 'next/link'
+import { Footer } from './legal-site'
+import { firm } from '../lib/legal-data'
+import { mahrPage as page } from '../lib/mahr-page'
+
+const url = `https://rightlaw.pk/${page.slug}`
+const lawyers = [
+  { name: 'S. M. Akhtar Rizvi', designation: 'Advocate Supreme Court', image: '/images/syed-akhtar-rizvi.webp', copy: 'Senior Supreme Court advocate associated with our legal team. His litigation guidance is relevant to disputed marital status and connected family proceedings requiring experienced counsel.', href: 'https://scbap.com/wp-content/uploads/2025/11/Directory-2025-26.pdf', label: 'SCBAP Directory (PDF)' },
+  { name: 'Syed Mohsin Ali Shah', designation: 'Advocate High Court', image: 'https://www.advocates.com.pk/Mohsin-Ali-Shah.png', copy: 'Legal practice since 1985, with more than four decades of experience. Advises on family law, dower contracts and financial claims.', href: 'https://lawzana.com/lawyer/right-law-associates/karachi/m-mohsin-ali-shah-26902', label: 'Professional Profile' },
+]
+const authorityRows = [
+ ['Prompt Payment','Payable Under The Agreed Immediate Terms','Amount, Due Terms And Actual Receipts'],
+ ['Deferred Payment','Payment Tied To The Agreed Later Terms','Specified Event Or Date And Outstanding Balance'],
+ ['Unspecified Payment Mode','Section 10 Treats Dower As Payable On Demand','Complete Nikah Nama And Any Separate Agreement'],
+ ['Partly Paid Dower','Distinguish Received Amount From The Balance','Genuine Payment Evidence And Contract Wording'],
+]
+const workRows = [
+ ['Cash Claim','Identify The Agreed Amount','Contract, Currency And Payment Records'],
+ ['Gold Claim','Identify The Promised Quantity','Description, Weight And Delivery Evidence'],
+ ['Property Promise','Review Title And The Obligation','Property Records And The Promisor’s Authority'],
+ ['Estate Claim','Assess An Outstanding Debt','Death Record, Agreement And Estate Information'],
+]
+function Table({ title, headings, rows }) {
+  return <div role="region" aria-label={title} tabIndex={0} style={{overflowX:'auto',margin:'20px 0 30px'}}><table style={{width:'100%',minWidth:520,borderCollapse:'collapse'}}><caption style={{textAlign:'left',fontWeight:700,paddingBottom:12}}>{title}</caption><thead><tr>{headings.map(h=><th key={h} scope="col" style={{textAlign:'left',border:'1px solid #d9e1de',padding:12}}>{h}</th>)}</tr></thead><tbody>{rows.map(row=><tr key={row[0]}>{row.map((c,i)=>i===0?<th key={c} scope="row" style={{textAlign:'left',border:'1px solid #d9e1de',padding:12}}>{c}</th>:<td key={c} style={{border:'1px solid #d9e1de',padding:12}}>{c}</td>)}</tr>)}</tbody></table></div>
+}
+export default function MahrServicePage() {
+  const schema = {'@context':'https://schema.org','@graph':[
+    {'@type':'LegalService','@id':`${url}#service`,name:'Mahr Contract Review And Dower Recovery Advice',url,serviceType:'Mahr contract review, payment advice, dower recovery and settlement assistance',areaServed:'Pakistan',provider:{'@id':'https://rightlaw.pk/#organization'}},
+    {'@type':'Organization','@id':'https://rightlaw.pk/#organization',name:firm.legalName,url:'https://rightlaw.pk/',telephone:firm.phone},
+    {'@type':['LegalService','LocalBusiness'],'@id':'https://rightlaw.pk/#dha-office',name:'Right Law Associates — DHA Karachi Office',url:'https://rightlaw.pk/contact',telephone:'+923316644789',address:{'@type':'PostalAddress',streetAddress:firm.dhaBranchAddress,addressLocality:'Karachi',addressRegion:'Sindh',addressCountry:'PK'},parentOrganization:{'@id':'https://rightlaw.pk/#organization'}},
+    {'@type':'FAQPage',mainEntity:page.faqs.map(([question,answer])=>({'@type':'Question',name:question,acceptedAnswer:{'@type':'Answer',text:answer}}))},
+    {'@type':'BreadcrumbList',itemListElement:[{'@type':'ListItem',position:1,name:'Home',item:'https://rightlaw.pk/'},{'@type':'ListItem',position:2,name:'Mahr',item:url}]},
+  ]}
+  return <><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(schema).replace(/</g,'\\u003c')}}/><main className="dna-route-page">
+    <section style={{background:'#173b35',color:'#fff',padding:'72px 0 54px'}}><div className="container">
+      <h1 style={{fontFamily:'Arial, Helvetica, sans-serif',fontSize:'clamp(38px,5vw,62px)',lineHeight:1.05,maxWidth:900,margin:'0 0 18px'}}>Mehar / Mahr In Islam And Pakistan</h1>
+      <h2 style={{color:'#fff',fontSize:'clamp(24px,3vw,34px)',lineHeight:1.2,margin:'0 0 12px'}}> Mahr Contract Review And Dower Recovery Services</h2><h3 style={{color:'#e7efec',fontSize:'clamp(18px,2.2vw,24px)',lineHeight:1.3,margin:'0 0 16px'}}> Legal Assistance From Right Law Associates</h3><p style={{maxWidth:820,lineHeight:1.75,color:'#fff',fontSize:17}}>{page.hero}</p>
+      <h3 style={{color:'#fff',fontSize:'clamp(18px,2.2vw,24px)',lineHeight:1.3,margin:'20px 0 10px'}}> Mahr Advice With 40+ Years Of Legal Experience</h3><p style={{maxWidth:820,lineHeight:1.75,color:'#e7efec'}}>Advocate High Court Mohsin Ali Shah has practised since 1985. Our team assists families in Karachi, Islamabad, Lahore and other jurisdictions, including overseas Pakistanis seeking advice on dower obligations.</p>
+      <h3 style={{color:'#fff',fontSize:'clamp(18px,2.2vw,24px)',lineHeight:1.3,margin:'20px 0 10px'}}> Mahr Consultation In DHA And Jauhar, Karachi</h3><p style={{maxWidth:820,lineHeight:1.75,color:'#e7efec'}}>DHA Phase 7, Karachi: <a style={{color:'#fff'}} href="tel:+923316644789">+92 331 6644789</a>. Gulistan-e-Jauhar, Karachi: <a style={{color:'#fff'}} href="tel:+923166644789">+92 316 6644789</a>. Arrange an appointment for document review.</p>
+      <div style={{display:'flex',gap:12,flexWrap:'wrap',marginTop:28}}><Link href="/contact" className="button button-gold">Discuss Your Mahr Claim</Link><a href="https://wa.me/923316644789" className="button button-outline-light">WhatsApp The DHA Office</a></div>
+    </div></section>
+    <section style={{background:'#fff'}}><div className="container" style={{paddingTop:26}}><Image src="/images/mahr-document-review.webp" alt="Illustration of a dower contract folder, gold bracelet and fountain pen for Mahr legal advice" width={1942} height={809} priority unoptimized style={{width:'100%',height:'auto',maxHeight:520,objectFit:'cover',display:'block',borderRadius:4}}/></div></section>
+    <section style={{background:'#fff'}}><div className="container route-article" style={{paddingTop:26}}><h2>Mahr Consultation At Our DHA Office</h2><h3>Defence And Clifton Client Appointments</h3><p>{firm.dhaBranchAddress}. Call <a href="tel:+923316644789">+92 331 6644789</a> to arrange review of your dower documents. Our Jauhar office is at {firm.offices.karachiJohar.address}; call <a href="tel:+923166644789">+92 316 6644789</a>.</p></div></section>
+    <section className="section" style={{background:'#fff'}}><div className="container dna-content-grid"><article className="route-article">
+      <section><h2>Lawyers For Mahr Contracts And Recovery</h2><h3>Senior Counsel And Dower Advice</h3><div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(min(240px,100%),1fr))',gap:20}}>{lawyers.map(l=><article key={l.name} style={{border:'1px solid #d9e1de',borderRadius:16,padding:20}}><Image unoptimized src={l.image} alt={`${l.name}, ${l.designation}`} width={128} height={160} style={{objectFit:'contain',display:'block',marginBottom:16}}/><h3>{l.name}</h3><h4>{l.designation}</h4><p>{l.copy}</p><a href={l.href} target="_blank" rel="noopener noreferrer">{l.label}</a></article>)}</div></section>
+      {page.sections.map(([title,subtitle,copy],i)=><section id={`mahr-${i+1}`} key={title}><h2>{title}</h2><h3>Mahr: {subtitle}</h3><p>{copy}</p>{i===1&&<Table title="Mahr Payment Arrangements Compared" headings={['Authority','Role','Check First']} rows={authorityRows}/>} {i===11&&<Table title="Mahr Claims And Supporting Documents" headings={['Work','Purpose','Records To Review']} rows={workRows}/>}</section>)}
+      <section><h2>Mahr Sources And Related Legal Guides</h2><h3>Mahr Payment And The Marriage Contract</h3><p>See <a href="https://quran.com/4/4" target="_blank" rel="noopener noreferrer">Surah An-Nisa 4:4</a> and <a href="https://pakistancode.gov.pk/pdffiles/administratordf5df7bd70945d88e28f6a85c1a9ef6b.pdf" target="_blank" rel="noopener noreferrer">Section 10 Of The Muslim Family Laws Ordinance</a> for the principles discussed above.</p><h3>Mahr And Connected Family Services</h3><p>Read <Link href="/nikah-nama">Nikah Nama Guidance</Link>, <Link href="/dissolution-of-marriage-in-pakistan">Dissolution Of Marriage</Link>, <Link href="/succession-certificate-in-pakistan-for-legal-heirs">Succession Advice</Link> and <Link href="/nikah-khawan-qazi-and-nikah-registrar-in-karachi-pakistan">Nikah Khawan Services</Link>. Related resources include <a href="https://qanoonhouse.com/">Qanoon House</a> and <a href="https://rightlaw.com.pk/">Right Law Associates</a>.</p></section>
+      <section><h2>Frequently Asked Questions About The Mahr</h2>{page.faqs.map(([q,a])=><section key={q}><h3>{q}</h3><p>{a}</p></section>)}</section>
+      <section style={{marginTop:36,padding:24,background:'#eef4f1'}}><h2>Mahr Editorial Responsibility</h2><h3>Advocate Mohsin Ali Shah — Advocate High Court</h3><p>This guide forms part of the Right Law Associates editorial process. Each claim requires review of the agreement, payment evidence and applicable legal procedure. Right Law Associates is a private legal service provider; courts decide contested claims within their jurisdiction.</p></section>
+      <section style={{marginTop:40,padding:28,background:'#f7f3eb',borderLeft:'3px solid #c49a5a'}}><h2>Book Your Mahr Consultation</h2><h3>Contract Review, Payment And Recovery</h3><p>Tell us the dower amount, payment terms and documents available. Call the DHA office on <a href="tel:+923316644789">+92 331 6644789</a> or <Link href="/contact">request a consultation</Link> so our team can assess your dower claim.</p><a href="https://wa.me/923316644789" className="button button-dark">WhatsApp For Document Review</a></section>
+    </article><aside style={{alignSelf:'start',background:'#f7f3eb',padding:24}}><h2>Mahr Checklist</h2><h3>Prepare For The Consultation</h3><ul><li>Complete Nikah Nama</li><li>Payment Terms And Receipts</li><li>Gold Or Property Particulars</li><li>Existing Orders Or Settlements</li><li>Your Questions And Objective</li></ul><h3>Mahr Topics</h3><nav aria-label="Mahr page sections"><ul>{page.sections.map(([title,subtitle],i)=><li key={title}><a href={`#mahr-${i+1}`}>{subtitle}</a></li>)}</ul></nav></aside></div></section>
+  </main><Footer/></>
+}

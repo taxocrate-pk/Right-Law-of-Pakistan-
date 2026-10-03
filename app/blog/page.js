@@ -59,6 +59,7 @@ const categories = [
 ]
 
 const featured = [
+  ['Mehar / Mahr And Dower Legal Advice', '/mehar-mahr-in-islam', 'Family Law'],
   ['Family Lawyer Sobia Mohsin In Karachi', '/best-family-and-divorce-lawyer-and-lady-advocate-in-karachi-sobia-mohsin-shah-legal-expertise-in-family-law', 'Family Law'],
   ['Nikah Khawan And Registrar In Karachi', '/nikah-khawan-qazi-and-nikah-registrar-in-karachi-pakistan', 'Marriage Law'],
   ['NADRA Death Certificate And Verification', '/nadra-computerized-death-certificate-online-verification-check', 'Civil Certificates'],
