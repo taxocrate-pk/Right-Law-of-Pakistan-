@@ -5,7 +5,7 @@ import KarachiShortCta from '../../components/karachi-short-cta'
 import { firm } from '../../lib/legal-data'
 
 export const metadata = {
-  title: 'Property Lawyers In Pakistan | Title And Disputes',
+  title: 'Property Lawyers In Pakistan | Property Lawyers for Title and Disputes',
   description: 'Property lawyers in Pakistan for title review, sale deeds, inheritance, partition and possession disputes. Consult Right Law Associates in Karachi or Islamabad.',
   alternates: { canonical: 'https://rightlaw.pk/property-law-in-pakistan/' },
 }
@@ -59,7 +59,7 @@ export default function PropertyLawPage() {
     <main className="property-law-page family-law-page">
       <section className="hero"><div className="container property-hero">
         <p className="eyebrow gold">Property Law • Pakistan</p>
-        <h1>Property Lawyers In Pakistan For Title, Transfers And Disputes</h1>
+        <h1>Property Lawyers In Pakistan | Property Lawyers for Title, Transfers and Disputes</h1>
         <p className="hero-lede">Right Law Associates helps owners, buyers and legal heirs assess property records, protect their interests and choose the correct transaction or litigation route.</p>
         <p className="property-office-line">Islamabad Head Office · Karachi DHA And Gulistan-e-Jauhar · Lahore</p>
         <div className="hero-actions"><Link href="/contact/" className="button button-gold">Consult A Property Lawyer</Link><a href={`tel:${firm.phone}`} className="button button-outline-light">Call {firm.phone}</a><a href={`https://wa.me/${firm.whatsapp}`} className="text-link light-link">WhatsApp</a></div>
@@ -78,8 +78,17 @@ export default function PropertyLawPage() {
           <tr><td>Mutation Or Revenue Entry</td><td>Recorded Revenue Position</td><td>Underlying Transaction And Competing Claims</td></tr>
           <tr><td>Power Of Attorney</td><td>Representative’s Authority</td><td>Validity, Scope And Authentication</td></tr>
         </tbody></table></div>
-        <h2>Related Property Law And Inheritance Guides</h2>
-        <ul><li><Link href="/property-disputes/">Property Disputes</Link></li><li><Link href="/rental-and-tenancy-law-of-pakistan/">Rental And Tenancy Law</Link></li><li><Link href="/succession-certificate-letter-of-administration/">Succession Certificates And Letters Of Administration</Link></li><li><Link href="/civil-law/">Civil Law And Litigation</Link></li></ul>
+        <h2>Property Lawyers In Pakistan by City</h2>
+        <ul>
+          <li><Link href="/property-lawyers-in-karachi/">Property Lawyers In Karachi</Link></li>
+          <li><Link href="/property-lawyers-in-hyderabad/">Property Lawyers In Hyderabad</Link></li>
+          <li><Link href="/property-lawyers-in-lahore/">Property Lawyers In Lahore</Link></li>
+          <li><Link href="/property-lawyers-in-islamabad/">Property Lawyers In Islamabad</Link></li>
+          <li><Link href="/property-lawyers-in-rawalpindi/">Property Lawyers In Rawalpindi</Link></li>
+          <li><Link href="/property-lawyers-in-faisalabad/">Property Lawyers In Faisalabad</Link></li>
+        </ul>
+        <h2>Related Property Law and Inheritance Guides</h2>
+        <ul><li><Link href="/property-disputes/">Property Disputes</Link></li><li><Link href="/rental-and-tenancy-law-of-pakistan/">Rental and Tenancy Law</Link></li><li><Link href="/succession-certificate-letter-of-administration/">Succession Certificates and Letters of Administration</Link></li><li><Link href="/civil-law/">Civil Law and Litigation</Link></li></ul>
         <h2>Property Law Sources And Further Legal Information</h2>
         <h3>Check Applicable Law And The Property’s Jurisdiction</h3>
         <p>The <a href="https://pakistancode.gov.pk/pdffiles/administrator77923ce792b475e339e1f46ba0442da3.pdf">Transfer Of Property Act, 1882</a> and <a href="https://pakistancode.gov.pk/pdffiles/administrator0f29bc9f1e3dfed37c0034eed1e29d53.pdf">Registration Act, 1908</a> are relevant starting points for transfer and registration questions. Applicable provincial amendments, tenure and authority rules must also be examined. Related legal information is available through <a href="https://qanoonhouse.com/">Qanoon House</a> and <a href="https://karachilawyers.com.pk/">Karachi Lawyers</a>.</p>
