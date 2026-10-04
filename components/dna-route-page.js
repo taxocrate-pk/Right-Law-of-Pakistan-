@@ -122,6 +122,7 @@ export default function DnaRoutePage({ page, slug }) {
   const dissolution = slug === 'dissolution-of-marriage-in-pakistan' ? dissolutionPage : null
   const isServicePage = page.category !== 'Firm'
   const isRoutineMatrimonial = isRoutineMatrimonialSlug(page)
+  const isFamilyLaw = page.category === 'Family Law'
   const isKarachiOnly = karachiOnlySlugs.has(slug)
   const officeSummary = isKarachiOnly
     ? 'Karachi offices: DHA Phase 7 and Gulistan-e-Jauhar. Call the central office number for an initial case assessment and document review.'
@@ -136,7 +137,11 @@ export default function DnaRoutePage({ page, slug }) {
     '@graph':[
       {'@type':'Organization','@id':'https://rightlaw.pk/#organization',name:firm.legalName,url:'https://rightlaw.pk/',telephone:firm.phone},
       ...(isServicePage
-        ? [{'@type':'LegalService','@id':`https://rightlaw.pk/${slug}/#legalservice`,name:page.title,url:`https://rightlaw.pk/${slug}/`,description:page.description,areaServed:'Pakistan',provider:{'@id':'https://rightlaw.pk/#organization'}}]
+        ? [
+            {'@type':'LegalService','@id':`https://rightlaw.pk/${slug}/#legalservice`,name:page.title,url:`https://rightlaw.pk/${slug}/`,description:page.description,areaServed:'Pakistan',provider:{'@id':'https://rightlaw.pk/#organization'}},
+            {'@type':'WebPage','@id':`https://rightlaw.pk/${slug}/#webpage`,name:page.title,url:`https://rightlaw.pk/${slug}/`,description:page.description,isPartOf:{'@id':'https://rightlaw.pk/#organization'},about:{'@id':`https://rightlaw.pk/${slug}/#legalservice`}},
+            {'@type':'LocalBusiness','@id':'https://rightlaw.pk/#localbusiness',name:firm.name,url:'https://rightlaw.pk/',telephone:firm.phone,areaServed:['Karachi','Islamabad','Rawalpindi','Lahore','Pakistan']}
+          ]
         : [{'@type':'WebPage','@id':`https://rightlaw.pk/${slug}/#webpage`,name:page.title,url:`https://rightlaw.pk/${slug}/`,description:page.description,isPartOf:{'@id':'https://rightlaw.pk/#organization'}}]),
       {'@type':'ImageObject','@id':`https://rightlaw.pk/${slug}/#primaryimage`,contentUrl:`https://rightlaw.pk${dissolution ? '/images/dissolution-of-marriage-services.svg' : page.image}`,name:`${page.title} — Right Law Associates`,caption:`${page.title} Legal Guidance And Document Review`,representativeOfPage:true},
       {'@type':'FAQPage',mainEntity:faqs.map(([question,answer])=>({'@type':'Question',name:question,acceptedAnswer:{'@type':'Answer',text:answer}}))},
@@ -187,20 +192,21 @@ export default function DnaRoutePage({ page, slug }) {
             <h3>Case Assessment And Legal Instructions</h3>
             <p>{page.description} Right Law Associates begins by identifying the applicable law, jurisdiction, documents and practical objective. Advice should be based on the actual record rather than a general assumption about similar matters.</p>
 
-            {isServicePage && !isRoutineMatrimonial && <section aria-labelledby="succession-lawyers-heading" style={{margin:'28px 0'}}>
-              <h2 id="succession-lawyers-heading">Senior Lawyers For Your Legal Matter</h2>
-              <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(240px,1fr))',gap:20}}>
-                {[
-                  {name:'S. M. Akhtar Rizvi',designation:'Advocate Supreme Court',image:'/images/syed-akhtar-rizvi.webp',copy:'Senior Supreme Court advocate associated with our legal team. Provides senior legal guidance and representation in matters requiring experienced appellate counsel.',profile:'https://scbap.com/wp-content/uploads/2025/11/Directory-2025-26.pdf',label:'SCBAP Directory (PDF)'},
-                  {name:'Syed Mohsin Ali Shah',designation:'Advocate High Court',image:'https://www.advocates.com.pk/Mohsin-Ali-Shah.png',copy:'Senior lawyer with legal practice since 1985. Advises on family, property, inheritance, corporate and taxation matters and coordinates case-specific legal support.',profile:'https://lawzana.com/lawyer/right-law-associates/karachi/m-mohsin-ali-shah-26902',label:'Lawzana Profile'}
-                ].map(lawyer=><article key={lawyer.name} style={{background:'#fff',border:'1px solid #d9e1de',borderRadius:16,padding:20}}>
-                  <img src={lawyer.image} alt={lawyer.name + ', ' + lawyer.designation} loading="lazy" width="128" height="160" style={{width:128,height:160,objectFit:'contain',display:'block',marginBottom:16}} />
-                  <h3 style={{marginBottom:8}}>{lawyer.name}</h3>
-                  <h4 style={{fontWeight:700,color:'#173b35'}}>{lawyer.designation}</h4>
-                  <p>{lawyer.copy}</p>
-                  <a href={lawyer.profile} target="_blank" rel="noopener noreferrer" aria-label={lawyer.name + ' ' + lawyer.label}>{lawyer.label}</a>
-                </article>)}
-              </div>
+            {isServicePage && isFamilyLaw && <section style={{margin:'28px 0',padding:'24px 26px',background:'#eef4f1',borderLeft:'3px solid #173b35'}}>
+              <h2>Family Law Team By Region</h2>
+              <h3>Relevant Lawyers Without Guessed Portraits</h3>
+              <p><strong>Karachi:</strong> Shankar Lal Kataria for family and matrimonial matters; Mohsin Ali Mirani for connected civil and family litigation; Zaheer Ashraf Qazi for Right Law family-law coordination; and Sobia Mohsin for family, matrimonial and documentation matters.</p>
+              <p><strong>Islamabad And Rawalpindi:</strong> Kashif Mumtaz, Advocate High Court, for local family-law representation and coordination.</p>
+              <p><strong>Lahore:</strong> Junaid Kahloon, Advocate High Court, for local family-law matters.</p>
+              <p><strong>Senior And Appellate Matters:</strong> Akhtar Rizvi, Advocate Supreme Court, is referenced only where senior or appellate involvement is genuinely relevant. Fayyaz Khan, Advocate Supreme Court, may be relevant for higher or appellate matters in Lahore, Islamabad and Multan.</p>
+              <p>Verified portraits are displayed only where an authorised site asset clearly identifies the correct lawyer. Otherwise, the profile remains text-only.</p>
+            </section>}
+
+            {isServicePage && !isRoutineMatrimonial && !isFamilyLaw && <section style={{margin:'28px 0',padding:'24px 26px',background:'#f7f3eb',borderLeft:'3px solid #c49a5a'}}>
+              <h2>Legal Team And Senior Supervision</h2>
+              <h3>Case Assignment Based On Practice Area And Forum</h3>
+              <p><strong>Mohsin Ali Shah</strong> provides senior advisory and team-management oversight, especially for corporate and taxation matters. Senior or appellate counsel is added only where the case forum and complexity justify that level of involvement.</p>
+              <p>Where a verified portrait is not available in the authorised site assets, the lawyer profile remains text-only rather than using a guessed or mismatched image.</p>
             </section>}
 
             {isServicePage && isRoutineMatrimonial && <section style={{margin:'28px 0',padding:'24px 26px',background:'#eef4f1',borderLeft:'3px solid #173b35'}}><h2>Marriage Service Legal Team</h2><h3>Local Lawyer Assignment Without Guessed Portraits</h3><p>Right Law Associates assigns marriage-service work through the relevant local team. Karachi assignments include Shankar Lal Kataria, Mohsin Ali Mirani, Zaheer Ashraf Qazi and Sobia Mohsin; Islamabad and Rawalpindi matters are assigned through Kashif Mumtaz, Advocate High Court; Lahore matters are assigned through Junaid Kahloon. Lawyer portraits are displayed only when a genuine identified image is available in the approved site assets.</p></section>}
