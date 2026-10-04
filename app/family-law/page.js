@@ -37,6 +37,20 @@ const faqs = [
   ['Is maintenance only payable to children?', 'No. Maintenance claims may involve children and, depending on the circumstances and applicable law, a wife may also assert maintenance rights. The amount and period depend on the facts, legal entitlement, evidence and court determination.'],
   ['What documents should I bring to a family-law consultation?', 'Bring the CNICs or identity documents available to you, Nikah Nama or marriage certificate, children’s B-Forms or birth records, relevant notices, previous court orders, proof of expenses or income where relevant, and any correspondence or documents connected with the dispute.'],
   ['Which court hears family cases in Pakistan?', 'Family Courts hear many matrimonial and financial family claims, while guardianship matters are dealt with under the relevant guardianship jurisdiction. Union Councils and Arbitration Councils also perform statutory functions in matters such as talaq notice and marriage-related registration processes.'],
+  ['What is the difference between divorce, talaq and khula?', 'Talaq generally refers to dissolution initiated by the husband, while khula is a court-based remedy commonly pursued by a wife. Divorce is often used as a broader description of marital dissolution. The documents, forum and post-decree steps differ according to the legal route used.'],
+  ['Can child custody and guardianship be claimed together?', 'They may arise in the same family dispute, but custody and guardianship are distinct legal concepts. The required pleadings should identify whether the client seeks day-to-day custody, legal guardianship, visitation, authority over property, travel permission or another specific order.'],
+  ['Can a father seek visitation if the child lives with the mother?', 'Yes. A non-custodial parent may seek structured visitation or access. The court considers the child’s welfare and may set a schedule for meetings, holidays, calls or other contact depending on the circumstances.'],
+  ['Can a mother seek maintenance for children before divorce is final?', 'A child-maintenance claim can be legally distinct from the final status of the marriage. The correct filing strategy depends on the facts, existing proceedings and the relief already claimed, so the chronology should be reviewed before filing.'],
+  ['How is dower different from dowry articles?', 'Dower or mahr arises from the marriage contract, while dowry articles and bridal belongings are separate property issues. The Nikah Nama, lists, receipts, photographs, admissions and other evidence may be relevant to the respective claims.'],
+  ['What happens if the other party avoids court service?', 'Avoidance of service can delay proceedings, but procedural law provides methods for progressing service where ordinary service is unsuccessful. Accurate address and service information should be prepared at filing stage.'],
+  ['Can family court orders be enforced after judgment?', 'Yes. A decree or order may require execution or other post-decree steps. Maintenance arrears, custody implementation, certified copies and administrative follow-up can all require further action after the main decision.'],
+  ['Can family disputes be settled without completing a trial?', 'Many family disputes can be resolved through lawful settlement where both sides agree and the terms are workable. Settlement should be documented carefully, especially where children, maintenance, dower or property are involved.'],
+  ['Can one lawyer handle connected family and property issues?', 'Connected issues should be coordinated so that one proceeding does not prejudice another. A family dispute may overlap with inheritance, jointly held property, possession or documentation, and those issues may require separate pleadings or specialist input.'],
+  ['Do overseas powers of attorney work for every family case?', 'No single generic power of attorney fits every matter. The authority should match the acts required in the case, and authentication, identification and court requirements should be checked before execution.'],
+  ['Can a family case be filed in Karachi if one spouse lives elsewhere?', 'Jurisdiction depends on the type of claim and legally relevant connecting facts. Residence, place of marriage, place where parties last lived together and other statutory factors may matter, so jurisdiction should be checked before filing.'],
+  ['Should WhatsApp messages and digital records be preserved?', 'Potentially relevant communications should be preserved in their original form where possible. Their legal usefulness depends on authenticity, context and the issue in dispute.'],
+  ['How long does a family case take in Pakistan?', 'There is no single reliable duration for every family case. Service, evidence, court workload, interim applications, settlement efforts, appeals and compliance by the parties can affect the timeline.'],
+  ['Can Right Law Associates assist with family matters in Karachi, Islamabad and Lahore?', 'Right Law Associates coordinates family-law assistance across its relevant offices and legal teams. The lawyer assigned should match the city, forum and nature of the matter, with senior or appellate counsel involved where genuinely required.'],
 ]
 
 export default function FamilyLawPage() {
@@ -55,10 +69,27 @@ export default function FamilyLawPage() {
       },
       {
         '@type': 'BreadcrumbList',
+        '@id': 'https://rightlaw.pk/family-law/#breadcrumb',
         itemListElement: [
           { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://rightlaw.pk/' },
           { '@type': 'ListItem', position: 2, name: 'Family Law', item: 'https://rightlaw.pk/family-law/' },
         ],
+      },
+      {
+        '@type': 'WebPage',
+        '@id': 'https://rightlaw.pk/family-law/#webpage',
+        url: 'https://rightlaw.pk/family-law/',
+        name: 'Family Law In Pakistan | Family Lawyers For Divorce, Khula, Custody And Maintenance',
+        breadcrumb: { '@id': 'https://rightlaw.pk/family-law/#breadcrumb' },
+        about: { '@id': 'https://rightlaw.pk/family-law/#service' },
+      },
+      {
+        '@type': 'LocalBusiness',
+        '@id': 'https://rightlaw.pk/#localbusiness',
+        name: 'Right Law Associates',
+        url: 'https://rightlaw.pk/',
+        telephone: firm.phone,
+        areaServed: ['Karachi', 'Islamabad', 'Rawalpindi', 'Lahore', 'Pakistan'],
       },
       {
         '@type': 'FAQPage',
@@ -91,18 +122,23 @@ export default function FamilyLawPage() {
       </section>
 
       <KarachiShortCta />
+      <nav className="container" aria-label="Breadcrumb" style={{ paddingTop: 24, fontSize: 13 }}>
+        <Link href="/">Home</Link> <span aria-hidden="true">›</span> <span>Family Law</span>
+      </nav>
 
       <article className="section family-article">
         <div className="container family-article-inner">
           <p className="eyebrow">Right Law Associates</p>
           <h2>Family Lawyers In Pakistan For Sensitive And High-Stakes Family Matters</h2>
           <div className="senior-counsel-card">
-            <img width="160" height="190" loading="eager" className="senior-counsel-photo" src="/images/syed-akhtar-rizvi.webp" alt="Syed Akhtar Rizvi, Advocate Supreme Court of Pakistan" />
             <div>
-              <p className="eyebrow">Senior Legal Oversight</p>
-              <h3>Syed M. Akhtar Rizvi — Advocate Supreme Court Of Pakistan</h3>
-              <p>Senior trial and appellate counsel with more than four decades of legal practice. His work includes complex family and property litigation, High Court appeals, constitutional matters and Supreme Court appellate proceedings where maintainable.</p>
-              <p className="senior-counsel-note">Family-law content is reviewed with senior-counsel oversight together with Advocate Sobia Mohsin and the relevant Right Law Associates team.</p>
+              <p className="eyebrow">Family Law Team</p>
+              <h3>Relevant Family Lawyers For Karachi And Connected Proceedings</h3>
+              <p><strong>Shankar Lal Kataria</strong> — Family Law Head, Karachi, for matrimonial and Family Court matters.</p>
+              <p><strong>Mohsin Ali Mirani</strong> — Advocate handling connected civil and family litigation where the facts overlap.</p>
+              <p><strong>Zaheer Ashraf Qazi</strong> — Right Law team member for family-law coordination and client matters.</p>
+              <p><strong>Sobia Mohsin</strong> — Advocate for family and matrimonial matters, documentation and client advisory work.</p>
+              <p className="senior-counsel-note">Verified portraits are not shown here unless an authorised repository source clearly identifies the correct lawyer. Senior or appellate counsel is assigned only where the nature and forum of the case require it.</p>
             </div>
           </div>
           <p>Family law in Pakistan covers some of the most personal legal issues a person may face. A marriage may be ending, a parent may be trying to protect contact with a child, a wife may be seeking maintenance, or a family may need guardianship orders before a minor can travel, inherit property or complete official documentation. These matters cannot be handled properly by using a single standard form or relying on informal advice. The remedy depends on the relationship between the parties, the relief required, the forum that has jurisdiction and the evidence available.</p>
@@ -115,6 +151,18 @@ export default function FamilyLawPage() {
           <p>Family law is broader than divorce. A single matrimonial dispute may involve several connected claims, and each one may require a different pleading, document or forum. For example, the end of a marriage may raise questions about dower, dowry articles, maintenance, child custody, visitation, guardianship, Union Council documentation and execution of an existing order. For this reason, the legal strategy should be planned as a whole rather than treating every issue in isolation.</p>
           <div className="service-grid" style={{ marginTop: 28, marginBottom: 36 }}>
             {services.map((item) => <div className="service-card family-service-card" key={item}><span className="service-icon"><CheckCircle2 size={22} /></span><strong className="family-service-title">{item}</strong></div>)}
+          </div>
+          <h3>Family Law Route Comparison</h3>
+          <div className="property-table-wrap">
+            <table>
+              <thead><tr><th>Matter</th><th>Typical Forum Or Process</th><th>Key Preparation</th></tr></thead>
+              <tbody>
+                <tr><td>Talaq</td><td>Union Council / Arbitration Council statutory process after pronouncement</td><td>Notice, identity details, marriage record and service information</td></tr>
+                <tr><td>Khula / Dissolution</td><td>Family Court</td><td>Nikah Nama, jurisdiction facts, pleadings and connected financial claims</td></tr>
+                <tr><td>Child Custody / Visitation</td><td>Family / guardianship jurisdiction as applicable</td><td>Child welfare facts, schooling, care arrangements and existing orders</td></tr>
+                <tr><td>Maintenance</td><td>Family Court</td><td>Expense evidence, income material, prior payments and dependent details</td></tr>
+              </tbody>
+            </table>
           </div>
 
           <h2>Divorce And Talaq Under Pakistani Family Law</h2>
