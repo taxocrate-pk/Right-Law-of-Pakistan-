@@ -399,3 +399,18 @@ footer { background: #fff; color: var(--muted); padding: 55px 0 0; border-top: 1
 .dissolution-table { overflow-x: auto; margin: 20px 0 30px; }
 .dissolution-table table { min-width: 520px; }
 .dna-route-page h1, .dna-route-page h2, .dna-route-page h3 { overflow-wrap: break-word; }
+
+.family-law-page .family-team-card {
+  display: block;
+  grid-template-columns: none;
+}
+.family-law-page .family-team-card > div {
+  width: 100%;
+  min-width: 0;
+}
+@media (max-width: 800px) {
+  .family-law-page .family-team-card {
+    display: block;
+    grid-template-columns: none;
+  }
+}
