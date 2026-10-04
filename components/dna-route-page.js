@@ -149,12 +149,20 @@ export default function DnaRoutePage({ page, slug }) {
     ],
   }
 
-  if (dissolution) schema['@graph'].push({
-    '@type':['LegalService','LocalBusiness'], '@id':'https://rightlaw.pk/#dha-office',
-    name:'Right Law Associates — DHA Karachi Office', url:'https://rightlaw.pk/contact',
-    telephone:'+923316644789', address:{'@type':'PostalAddress',streetAddress:firm.dhaBranchAddress,addressLocality:'Karachi',addressRegion:'Sindh',addressCountry:'PK'},
-    parentOrganization:{'@id':'https://rightlaw.pk/#organization'}
-  })
+  if (dissolution) schema['@graph'].push(
+    {
+      '@type':['LegalService','LocalBusiness'], '@id':'https://rightlaw.pk/#dha-office',
+      name:'Right Law Associates — DHA Karachi Office', url:'https://rightlaw.pk/contact/',
+      telephone:'+923316644789', address:{'@type':'PostalAddress',streetAddress:firm.offices.karachiDha.address,addressLocality:'Karachi',addressRegion:'Sindh',addressCountry:'PK'},
+      parentOrganization:{'@id':'https://rightlaw.pk/#organization'}
+    },
+    {
+      '@type':['LegalService','LocalBusiness'], '@id':'https://rightlaw.pk/#johar-office',
+      name:'Right Law Associates — Gulistan-e-Jauhar Karachi Office', url:'https://rightlaw.pk/contact/',
+      telephone:firm.phone, address:{'@type':'PostalAddress',streetAddress:firm.offices.karachiJohar.address,addressLocality:'Karachi',addressRegion:'Sindh',addressCountry:'PK'},
+      parentOrganization:{'@id':'https://rightlaw.pk/#organization'}
+    }
+  )
 
   const cell = {border:'1px solid #d9e1de',padding:12}
   const head = {...cell,textAlign:'left'}
@@ -182,7 +190,12 @@ export default function DnaRoutePage({ page, slug }) {
 
       <section style={{background:'#fff'}}><div className="container" style={{paddingTop:26}}><figure style={{margin:0}}><Image src={dissolution ? '/images/dissolution-of-marriage-services.svg' : page.image} title={`${page.title} — Right Law Associates`} alt={dissolution ? 'Right Law Associates dissolution of marriage consultation and case preparation illustration' : `${page.title} legal services and document review by Right Law Associates`} width={1600} height={900} priority unoptimized style={{width:'100%',height:'auto',maxHeight:520,objectFit:'cover',display:'block',borderRadius:4}} /><figcaption style={{fontSize:14,lineHeight:1.6,color:'#455d55',paddingTop:10}}>{page.title} — Legal Guidance And Document Review</figcaption></figure></div></section>
 
-      {dissolution && <section style={{background:'#fff'}}><div className="container" style={{paddingTop:26}}><h2>DHA Consultation For Dissolution Of Marriage</h2><h3>Defence And Clifton Client Appointments</h3><p>{firm.dhaBranchAddress}. Arrange an appointment on <a href="tel:+923316644789">+92 331 6644789</a> or <a href="https://wa.me/923316644789">WhatsApp The DHA Office</a>. Bring your marriage record and existing case papers for review.</p></div></section>}
+      {dissolution && <section style={{background:'#fff'}}><div className="container" style={{paddingTop:26}}>
+        <h2>Karachi Consultation For Dissolution Of Marriage</h2>
+        <h3>DHA Phase 7 And Gulistan-e-Jauhar Offices</h3>
+        <p><strong>DHA Phase 7:</strong> {firm.offices.karachiDha.address}. Arrange an appointment on <a href="tel:+923316644789">+92 331 6644789</a> or <a href="https://wa.me/923316644789">WhatsApp The DHA Office</a>.</p>
+        <p><strong>Gulistan-e-Jauhar:</strong> {firm.offices.karachiJohar.address}. Call <a href="tel:+923331127830">{firm.phone}</a>. Bring your Nikah Nama, identification and any existing court papers for review.</p>
+      </div></section>}
 
       <section className="section" style={{background:'#fff'}}>
         <div className="container dna-content-grid">
