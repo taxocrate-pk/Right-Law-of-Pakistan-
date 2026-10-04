@@ -109,7 +109,7 @@ export default function FamilyLawPage() {
         <div className="container hero-grid">
           <div className="hero-copy">
             <p className="eyebrow gold">FAMILY LAW • PAKISTAN</p>
-            <h1>Family Law In Pakistan: Lawyers For Divorce, Khula, Child Custody, Guardianship And Maintenance</h1>
+            <h1>Family Law In Pakistan: Lawyers for Divorce, Khula, Child Custody, Guardianship and Maintenance</h1>
             <p className="hero-lede">Right Law Associates advises and represents clients in family law matters across Pakistan, including divorce, khula, child custody, guardianship, maintenance, dower, dowry recovery and Family Court proceedings.</p>
             <div className="hero-actions">
               <Link href="/contact/" className="button button-gold">Consult a Family Lawyer <ArrowUpRight size={17} /></Link>
@@ -117,7 +117,7 @@ export default function FamilyLawPage() {
               <a className="text-link light-link" href={`https://wa.me/${firm.whatsapp}`} target="_blank" rel="noreferrer"><MessageCircle size={17} /> WhatsApp</a>
             </div>
           </div>
-          <div className="hero-visual"><img src="/images/legal-consultation.png" alt="Family lawyers discussing legal documents with clients in Pakistan" /></div>
+          <div className="hero-visual"><img src="/images/family-law-pakistan.svg" alt="Family lawyers discussing legal documents with clients in Pakistan" /></div>
         </div>
       </section>
 
@@ -129,11 +129,11 @@ export default function FamilyLawPage() {
       <article className="section family-article">
         <div className="container family-article-inner">
           <p className="eyebrow">Right Law Associates</p>
-          <h2>Family Lawyers In Pakistan For Sensitive And High-Stakes Family Matters</h2>
-          <div className="senior-counsel-card">
+          <h2>Family Lawyers In Pakistan for Sensitive and High-Stakes Family Matters</h2>
+          <div className="senior-counsel-card family-team-card">
             <div>
               <p className="eyebrow">Family Law Team</p>
-              <h3>Relevant Family Lawyers For Karachi And Connected Proceedings</h3>
+              <h3>Relevant Family Lawyers for Karachi and Connected Proceedings</h3>
               <p><strong>Shankar Lal Kataria</strong> — Family Law Head, Karachi, for matrimonial and Family Court matters.</p>
               <p><strong>Mohsin Ali Mirani</strong> — Advocate handling connected civil and family litigation where the facts overlap.</p>
               <p><strong>Zaheer Ashraf Qazi</strong> — Right Law team member for family-law coordination and client matters.</p>
@@ -144,7 +144,7 @@ export default function FamilyLawPage() {
           <p>Family law in Pakistan covers some of the most personal legal issues a person may face. A marriage may be ending, a parent may be trying to protect contact with a child, a wife may be seeking maintenance, or a family may need guardianship orders before a minor can travel, inherit property or complete official documentation. These matters cannot be handled properly by using a single standard form or relying on informal advice. The remedy depends on the relationship between the parties, the relief required, the forum that has jurisdiction and the evidence available.</p>
           <h3>Family Law Advice Built Around The Correct Legal Remedy</h3>
           <p>Right Law Associates provides family law services through lawyers dealing with matrimonial disputes, child-related proceedings and related documentation. Our work includes advising clients before litigation, drafting pleadings and notices, filing and defending cases, preparing evidence, appearing before the relevant courts and helping clients understand what should happen after a decree or order. The objective is not simply to file a case. The objective is to identify the correct legal route from the beginning so that avoidable procedural mistakes do not create additional delay or cost.</p>
-          <h3>Confidential Family Court Representation And Evidence Review</h3>
+          <h3>Confidential Family Court Representation and Evidence Review</h3>
           <p>Family disputes also require discretion. Allegations between spouses, financial records, personal messages, medical information, school records and details concerning children may all become relevant to a case. A careful family lawyer should separate legally important facts from emotional background, preserve useful evidence and present the case in a manner that assists the court without unnecessarily increasing hostility between the parties.</p>
 
           <h2>Core Family Law Services In Pakistan</h2>
