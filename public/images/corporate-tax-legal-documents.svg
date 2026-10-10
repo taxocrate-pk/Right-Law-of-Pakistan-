@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+<title id="title">Corporate and Tax Legal Documentation</title>
+<desc id="desc">Illustration of company registration documents, a legal contract and financial compliance records on a professional office desk.</desc>
+<rect width="1400" height="900" fill="#e8eff0"/><path d="M0 710L1400 570V900H0Z" fill="#d1dcdf"/><circle cx="1170" cy="165" r="245" fill="#c9ab78" opacity=".22"/>
+<rect x="180" y="125" width="680" height="610" rx="17" fill="#a6b4b6" opacity=".25"/><rect x="155" y="96" width="680" height="610" rx="16" fill="#fff"/>
+<rect x="230" y="165" width="350" height="21" rx="7" fill="#173247"/><rect x="230" y="209" width="490" height="11" rx="5" fill="#c2ced0"/><rect x="230" y="248" width="450" height="11" rx="5" fill="#c2ced0"/>
+<rect x="230" y="317" width="480" height="3" fill="#d7dfe1"/><rect x="230" y="345" width="490" height="10" rx="5" fill="#bac8cd"/><rect x="230" y="376" width="445" height="10" rx="5" fill="#bac8cd"/><rect x="230" y="407" width="473" height="10" rx="5" fill="#bac8cd"/>
+<rect x="230" y="480" width="165" height="120" rx="12" fill="#eff3f4"/><path d="M267 567V529M300 567V504M333 567V541M366 567V517" stroke="#bd985e" stroke-width="16" stroke-linecap="round"/>
+<circle cx="685" cy="565" r="52" fill="none" stroke="#bd985e" stroke-width="8"/><path d="m658 565 17 19 36-42" fill="none" stroke="#bd985e" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="845" y="335" width="330" height="260" rx="17" fill="#173247"/><rect x="900" y="390" width="220" height="16" rx="5" fill="#f8f5ed"/><rect x="900" y="434" width="190" height="11" rx="5" fill="#9eb4bc"/><rect x="900" y="464" width="160" height="11" rx="5" fill="#9eb4bc"/><rect x="900" y="519" width="90" height="8" rx="4" fill="#cba870"/>
+<path d="M945 335v-60h130v60" fill="none" stroke="#173247" stroke-width="20" stroke-linejoin="round"/>
+</svg>
