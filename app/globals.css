@@ -414,3 +414,9 @@ footer { background: #fff; color: var(--muted); padding: 55px 0 0; border-top: 1
     grid-template-columns: none;
   }
 }
+
+/* Alternate the homepage service images on wider screens. */
+@media (min-width: 801px) {
+  .home-page .split-feature.reverse .split-content { order: 1; }
+  .home-page .split-feature.reverse .split-image { order: 2; }
+}
