@@ -1,10 +1,12 @@
 import PropertyCityPage from '../../components/property-city-page'
 import { getPropertyCityPage } from '../../lib/property-city-data'
+import {karachiOffice} from '../../lib/batch-one-assets'
 
-const page = getPropertyCityPage('karachi')
+const original = getPropertyCityPage('karachi')
+const page = {...original,batch:true,phone:karachiOffice.phone,addresses:[karachiOffice.johar,karachiOffice.dha],sections:original.sections.map(([title,copy],i)=>[i===0?'Title And Ownership Disputes':title,copy])}
 
 export const metadata = {
-  title: page.title,
+  title: {absolute:'Property Lawyers In Karachi | RightLaw.pk'},
   description: page.description,
   alternates: { canonical: `https://rightlaw.pk/${page.slug}/` },
   openGraph: {

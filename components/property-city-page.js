@@ -3,6 +3,8 @@ import Image from 'next/image'
 import { Footer } from './legal-site'
 import { firm } from '../lib/legal-data'
 import { propertyCityKeys, propertyCityPages, propertyFaqs } from '../lib/property-city-data'
+import BatchImage from './batch-image'
+import {imageSchema, batchImages} from '../lib/batch-one-assets'
 
 export default function PropertyCityPage({ page }) {
   const url = `https://rightlaw.pk/${page.slug}/`
@@ -12,6 +14,7 @@ export default function PropertyCityPage({ page }) {
     { '@type': 'FAQPage', mainEntity: faqs.map(([name, text]) => ({ '@type': 'Question', name, acceptedAnswer: { '@type': 'Answer', text } })) },
     { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://rightlaw.pk/' }, { '@type': 'ListItem', position: 2, name: 'Property Law in Pakistan', item: 'https://rightlaw.pk/property-law-in-pakistan/' }, { '@type': 'ListItem', position: 3, name: page.serviceName, item: url }] }
   ]
+  if (page.batch) graph.push(imageSchema(batchImages.property,`${url}#primaryimage`),imageSchema(batchImages.rizvi,`${url}#senior-portrait`))
   if (page.addresses?.length) graph.push({ '@type': 'LocalBusiness', '@id': `${url}#local`, name: `Right Law Associates — ${page.city}`, url, telephone: page.phone || firm.phone, areaServed: page.city, address: page.addresses.map(streetAddress => ({ '@type': 'PostalAddress', streetAddress, addressLocality: page.city, addressCountry: 'PK' })) })
 
   return <>
@@ -24,14 +27,15 @@ export default function PropertyCityPage({ page }) {
         <div className="hero-actions"><Link href="/contact/" className="button button-gold">Consult A Property Lawyer</Link><a href={`tel:${page.phone || firm.phone}`} className="button button-outline-light">Call {page.phone || firm.phone}</a><a href={`https://wa.me/${(page.phone || firm.phone).replace(/\D/g,'')}`} className="text-link light-link">WhatsApp</a></div>
       </div></section>
       <article className="section family-article"><div className="container family-article-inner">
-        <Image className="property-content-image" src="/images/legal-consultation.png" width={1000} height={600} sizes="(max-width: 800px) 100vw, 940px" priority alt={`${page.serviceName} reviewing property documents in ${page.city}`} />
-        <h2>{page.serviceName} for Property Disputes and Transactions</h2>
+        {page.batch && <h2>Advice For Karachi Ownership And Transactions</h2>}
+        {page.batch ? <BatchImage asset={batchImages.property} priority/> : <Image className="property-content-image" src="/images/legal-consultation.png" width={1000} height={600} sizes="(max-width: 800px) 100vw, 940px" priority alt={`${page.serviceName} reviewing property documents in ${page.city}`} />}
+        {!page.batch && <h2>{page.serviceName} for Property Disputes and Transactions</h2>}
         <h3>{page.profile.name} — {page.profile.role}</h3>
         <div className="senior-counsel-card">
-          {page.profile.image && <Image unoptimized width={92} height={108} className="senior-counsel-photo" src={page.profile.image} alt={`${page.profile.name}, ${page.profile.role}`} />}
+          {page.profile.image && (page.batch ? <BatchImage asset={batchImages.rizvi} portrait/> : <Image unoptimized width={92} height={108} className="senior-counsel-photo" src={page.profile.image} alt={`${page.profile.name}, ${page.profile.role}`} />)}
           <div><p>{page.profile.text}</p><p className="senior-counsel-note">The appropriate lawyer and forum depend on the title record, property location, relief required and stage of proceedings.</p></div>
         </div>
-        {page.sections.map(([title, copy]) => <section key={title}><h2>{title}</h2><h3>Document-Based Advice for {page.city} Property Matters</h3><p>{copy}</p></section>)}
+        {page.sections.map(([title, copy]) => <section key={title}><h2>{title}</h2>{!page.batch && <h3>Document-Based Advice for {page.city} Property Matters</h3>}<p>{copy}</p></section>)}
         <section><h2>{page.serviceName} Across Key Localities</h2><h3>Local Property Coverage in {page.city}</h3><p>We assist clients with matters across {page.localities}. Locality alone does not determine the legal route; the property record, tenure, authority and court jurisdiction remain decisive.</p></section>
         {page.addresses?.length > 0 && <section><h2>Property Law Consultation Offices in {page.city}</h2><h3>Verified Office Locations</h3>{page.addresses.map(a => <p key={a}>{a}</p>)}</section>}
         <h2>Property Documents We Commonly Review</h2>
@@ -48,8 +52,9 @@ export default function PropertyCityPage({ page }) {
           <li><Link href="/property-disputes/">Property Disputes in Pakistan</Link></li>
           <li><Link href="/civil-law/">Civil Law and Litigation</Link></li>
         </ul>
+        {page.batch && <section><h2>Editorial Review And Statutory Sources</h2><h3>Mohsin Ali Shah — Advocate High Court</h3><p>Review based on property records, the applicable law and the correct legal forum. Read the <a href="https://pakistancode.gov.pk/pdffiles/administrator77923ce792b475e339e1f46ba0442da3.pdf">Transfer of Property Act, 1882</a> with the relevant registration, civil-procedure and Sindh provisions for the particular matter.</p></section>}
         <h2>Frequently Asked Questions About {page.serviceName}</h2>
-        <div className="faq-list">{faqs.map(([question, answer]) => <section className="faq-item active" key={question}><h3>{question}</h3><p>{answer}</p></section>)}</div>
+        <div className="faq-list" data-faqs={page.batch ? true : undefined}>{faqs.map(([question, answer]) => <section className="faq-item active" key={question}><h3>{question}</h3><p>{answer}</p></section>)}</div>
         <h2>Discuss Your {page.city} Property Matter</h2>
         <h3>Send the Property Location, Chronology and Documents</h3>
         <p>Send the available title papers, agreements, notices, court orders and a short chronology. We will identify the missing record, likely forum and practical next step before recommending litigation or a transaction.</p>
