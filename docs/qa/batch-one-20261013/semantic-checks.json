@@ -1,0 +1,300 @@
+[
+  {
+    "route": "/",
+    "title": "Family, Property, Tax & Corporate Lawyers | RightLaw.pk",
+    "titlePixels": 565.2734375,
+    "descriptionLength": 143,
+    "canonical": "https://rightlaw.pk/",
+    "faqSchema": 3,
+    "faqMatches": null,
+    "schemaTypes": [
+      "ImageObject",
+      "ImageObject",
+      "ImageObject",
+      "ImageObject",
+      "ImageObject",
+      "ImageObject",
+      "FAQPage",
+      "LocalBusiness",
+      "LocalBusiness",
+      "Organization",
+      "LegalService",
+      "WebSite"
+    ],
+    "imageObjects": [
+      {
+        "@type": "ImageObject",
+        "@id": "https://rightlaw.pk/#home-image",
+        "contentUrl": "https://rightlaw.pk/images/rightlaw-home-consultation.webp",
+        "name": "Right Law General Legal Advice",
+        "caption": "Illustrative Legal Advice And Document Review Setting",
+        "description": "A general legal-services illustration. This is not a photograph of Right Law staff or an identified client.",
+        "encodingFormat": "image/webp"
+      },
+      {
+        "@type": "ImageObject",
+        "@id": "https://rightlaw.pk/#rizvi-image",
+        "contentUrl": "https://rightlaw.pk/images/syed-akhtar-rizvi.webp",
+        "name": "Syed M. Akhtar Rizvi — Advocate Supreme Court",
+        "caption": "Syed M. Akhtar Rizvi — Advocate Supreme Court of Pakistan",
+        "description": "Existing identified senior-counsel portrait retained from the approved RightLaw assets.",
+        "encodingFormat": "image/webp"
+      },
+      {
+        "@type": "ImageObject",
+        "@id": "https://rightlaw.pk/#tahir-image",
+        "contentUrl": "https://rightlaw.pk/images/tahir-pervez-qureshi-verified.webp",
+        "name": "Tahir Pervez Qureshi — Senior Advocate High Court",
+        "caption": "Tahir Pervez Qureshi — Senior Advocate High Court",
+        "description": "Identified portrait from the owner’s Advocates.com.pk letter-of-administration practice page.",
+        "encodingFormat": "image/webp"
+      },
+      {
+        "@type": "ImageObject",
+        "@id": "https://rightlaw.pk/#shankar-image",
+        "contentUrl": "https://rightlaw.pk/images/shankar-lal-kataria-verified.webp",
+        "name": "Shankar Lal Kataria — Advocate High Court",
+        "caption": "Shankar Lal Kataria — Advocate High Court",
+        "description": "Identified portrait from the owner’s Advocates.com.pk family-law practice page.",
+        "encodingFormat": "image/webp"
+      },
+      {
+        "@type": "ImageObject",
+        "@id": "https://rightlaw.pk/#familySupport-image",
+        "contentUrl": "https://rightlaw.pk/images/family-law-consultation-pakistan.webp",
+        "name": "Family Law In Pakistan",
+        "caption": "Illustrative Family-Law Consultation",
+        "description": "Existing approved illustration of family-law document review, not an identified staff or client photograph.",
+        "encodingFormat": "image/webp"
+      },
+      {
+        "@type": "ImageObject",
+        "@id": "https://rightlaw.pk/#corporateSupport-image",
+        "contentUrl": "https://rightlaw.pk/images/corporate-tax-document-review.webp",
+        "name": "Corporate And Tax Document Review",
+        "caption": "Illustrative Corporate And Tax Records",
+        "description": "Existing approved corporate and taxation document-review illustration.",
+        "encodingFormat": "image/webp"
+      }
+    ],
+    "mainParagraphWords": 745,
+    "firstImage": "/images/rightlaw-home-consultation.webp",
+    "forms": 0,
+    "phones": [
+      "tel:+92 331 6644789",
+      "tel:+923316644789",
+      "tel:+92 331 6644789"
+    ],
+    "headingBounds": []
+  },
+  {
+    "route": "/property-lawyers-in-karachi",
+    "title": "Property Lawyers In Karachi | RightLaw.pk",
+    "titlePixels": 420.21484375,
+    "descriptionLength": 138,
+    "canonical": "https://rightlaw.pk/property-lawyers-in-karachi/",
+    "faqSchema": 20,
+    "faqMatches": true,
+    "schemaTypes": [
+      "LegalService",
+      "FAQPage",
+      "BreadcrumbList",
+      "ImageObject",
+      "ImageObject",
+      "LocalBusiness"
+    ],
+    "imageObjects": [
+      {
+        "@type": "ImageObject",
+        "@id": "https://rightlaw.pk/property-lawyers-in-karachi/#primaryimage",
+        "contentUrl": "https://rightlaw.pk/images/property-karachi-title-review.webp",
+        "name": "Karachi Property Title Review",
+        "caption": "Illustrative Property Documents And Title Review",
+        "description": "Illustration of property-document review and transaction preparation in Karachi, without fabricated official instruments.",
+        "encodingFormat": "image/webp"
+      },
+      {
+        "@type": "ImageObject",
+        "@id": "https://rightlaw.pk/property-lawyers-in-karachi/#senior-portrait",
+        "contentUrl": "https://rightlaw.pk/images/syed-akhtar-rizvi.webp",
+        "name": "Syed M. Akhtar Rizvi — Advocate Supreme Court",
+        "caption": "Syed M. Akhtar Rizvi — Advocate Supreme Court of Pakistan",
+        "description": "Existing identified senior-counsel portrait retained from the approved RightLaw assets.",
+        "encodingFormat": "image/webp"
+      }
+    ],
+    "mainParagraphWords": 541,
+    "firstImage": "/images/property-karachi-title-review.webp",
+    "forms": 0,
+    "phones": [
+      "tel:+92 331 6644789",
+      "tel:+92 331 6644789"
+    ],
+    "headingBounds": []
+  },
+  {
+    "route": "/best-family-and-divorce-lawyer-and-lady-advocate-in-karachi-sobia-mohsin-shah-legal-expertise-in-family-law",
+    "title": "Family Lawyer Sobia Mohsin | Karachi | RightLaw.pk",
+    "titlePixels": 516.66015625,
+    "descriptionLength": 143,
+    "canonical": "https://rightlaw.pk/best-family-and-divorce-lawyer-and-lady-advocate-in-karachi-sobia-mohsin-shah-legal-expertise-in-family-law/",
+    "faqSchema": 20,
+    "faqMatches": true,
+    "schemaTypes": [
+      "ImageObject",
+      "ImageObject",
+      "ImageObject",
+      "ImageObject",
+      "LegalService",
+      "Organization",
+      "LegalService",
+      "LocalBusiness",
+      "LegalService",
+      "LocalBusiness",
+      "FAQPage",
+      "BreadcrumbList"
+    ],
+    "imageObjects": [
+      {
+        "@type": "ImageObject",
+        "@id": "https://rightlaw.pk/best-family-and-divorce-lawyer-and-lady-advocate-in-karachi-sobia-mohsin-shah-legal-expertise-in-family-law/#service-image",
+        "contentUrl": "https://rightlaw.pk/images/sobia-family-lawyer-document-review.webp",
+        "name": "Sobia Mohsin Family Lawyer Consultation",
+        "caption": "Illustrative Family-Law Document Review — Karachi",
+        "description": "Family lawyer consultation illustration for divorce, khula, custody and maintenance advice in Karachi.",
+        "representativeOfPage": true,
+        "encodingFormat": "image/webp"
+      },
+      {
+        "@type": "ImageObject",
+        "contentUrl": "https://rightlaw.pk/images/sobia-mohsin-verified.webp",
+        "name": "Sobia Mohsin — Advocate And Director Legal",
+        "caption": "Sobia Mohsin, Advocate And Director Legal",
+        "description": "Family lawyer in Karachi handling consultations concerning divorce, khula, child custody and matrimonial documentation. Also works in corporate taxation. Clients can request a consultation with Sobia Mohsin through the office.",
+        "encodingFormat": "image/webp"
+      },
+      {
+        "@type": "ImageObject",
+        "contentUrl": "https://rightlaw.pk/images/syed-akhtar-rizvi.webp",
+        "name": "S. M. Akhtar Rizvi — Advocate Supreme Court",
+        "caption": "S. M. Akhtar Rizvi, Advocate Supreme Court",
+        "description": "Senior Supreme Court advocate associated with our legal team. His litigation guidance is relevant to disputed marital status and connected family proceedings requiring experienced counsel.",
+        "encodingFormat": "image/webp"
+      },
+      {
+        "@type": "ImageObject",
+        "contentUrl": "https://rightlaw.pk/images/mohsin-ali-shah-verified.webp",
+        "name": "Mohsin Ali Shah — Advocate High Court",
+        "caption": "Mohsin Ali Shah, Advocate High Court",
+        "description": "Legal practice since 1985, with more than four decades of experience. Advises on family proceedings, marriage documentation and financial rights.",
+        "encodingFormat": "image/webp"
+      }
+    ],
+    "mainParagraphWords": 843,
+    "firstImage": "/images/sobia-family-lawyer-document-review.webp",
+    "forms": 0,
+    "phones": [
+      "tel:+923316644789",
+      "tel:+923316644789",
+      "tel:+923316644789",
+      "tel:+923316644789"
+    ],
+    "headingBounds": []
+  },
+  {
+    "route": "/divorce-lawyer-for-khula-divorce",
+    "title": "Divorce and Khula Lawyers in Pakistan | RightLaw.pk",
+    "titlePixels": 527.001953125,
+    "descriptionLength": 73,
+    "canonical": "https://rightlaw.pk/divorce-lawyer-for-khula-divorce/",
+    "faqSchema": 20,
+    "faqMatches": true,
+    "schemaTypes": [
+      "LegalService",
+      "Organization",
+      "LocalBusiness",
+      "LocalBusiness",
+      "ImageObject",
+      "ImageObject",
+      "BreadcrumbList",
+      "FAQPage"
+    ],
+    "imageObjects": [
+      {
+        "@type": "ImageObject",
+        "@id": "https://rightlaw.pk/divorce-lawyer-for-khula-divorce/#primaryimage",
+        "contentUrl": "https://rightlaw.pk/images/divorce-khula-case-review.webp",
+        "name": "Divorce And Khula Case Preparation",
+        "caption": "Illustrative Confidential Family Case Review",
+        "description": "Illustrative setting for confidential divorce and khula advice, not an actual client meeting or judicial proceeding.",
+        "encodingFormat": "image/webp"
+      },
+      {
+        "@type": "ImageObject",
+        "@id": "https://rightlaw.pk/divorce-lawyer-for-khula-divorce/#senior-portrait",
+        "contentUrl": "https://rightlaw.pk/images/syed-akhtar-rizvi.webp",
+        "name": "Syed M. Akhtar Rizvi — Advocate Supreme Court",
+        "caption": "Syed M. Akhtar Rizvi — Advocate Supreme Court of Pakistan",
+        "description": "Existing identified senior-counsel portrait retained from the approved RightLaw assets.",
+        "encodingFormat": "image/webp"
+      }
+    ],
+    "mainParagraphWords": 655,
+    "firstImage": "/images/divorce-khula-case-review.webp",
+    "forms": 0,
+    "phones": [
+      "tel:+923316644789",
+      "tel:+923316644789",
+      "tel:+923316644789"
+    ],
+    "headingBounds": []
+  },
+  {
+    "route": "/child-custody-and-guardianship-lawyers-in-karachi",
+    "title": "Child Custody Lawyers In Karachi | RightLaw.pk",
+    "titlePixels": 474.0625,
+    "descriptionLength": 79,
+    "canonical": "https://rightlaw.pk/child-custody-and-guardianship-lawyers-in-karachi/",
+    "faqSchema": 20,
+    "faqMatches": true,
+    "schemaTypes": [
+      "LegalService",
+      "Organization",
+      "LocalBusiness",
+      "LocalBusiness",
+      "ImageObject",
+      "ImageObject",
+      "BreadcrumbList",
+      "FAQPage"
+    ],
+    "imageObjects": [
+      {
+        "@type": "ImageObject",
+        "@id": "https://rightlaw.pk/child-custody-and-guardianship-lawyers-in-karachi/#primaryimage",
+        "contentUrl": "https://rightlaw.pk/images/custody-karachi-child-welfare.webp",
+        "name": "Karachi Child Welfare And Custody Review",
+        "caption": "Illustrative Child Welfare And Education Records",
+        "description": "Illustration of child-centred custody preparation, with school materials and neutral folders; no identifiable child or official order.",
+        "encodingFormat": "image/webp"
+      },
+      {
+        "@type": "ImageObject",
+        "@id": "https://rightlaw.pk/child-custody-and-guardianship-lawyers-in-karachi/#senior-portrait",
+        "contentUrl": "https://rightlaw.pk/images/syed-akhtar-rizvi.webp",
+        "name": "Syed M. Akhtar Rizvi — Advocate Supreme Court",
+        "caption": "Syed M. Akhtar Rizvi — Advocate Supreme Court of Pakistan",
+        "description": "Existing identified senior-counsel portrait retained from the approved RightLaw assets.",
+        "encodingFormat": "image/webp"
+      }
+    ],
+    "mainParagraphWords": 705,
+    "firstImage": "/images/custody-karachi-child-welfare.webp",
+    "forms": 0,
+    "phones": [
+      "tel:+923316644789",
+      "tel:+923316644789",
+      "tel:+923316644789"
+    ],
+    "headingBounds": []
+  }
+]
