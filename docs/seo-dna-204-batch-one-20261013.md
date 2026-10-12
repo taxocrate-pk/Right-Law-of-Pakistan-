@@ -4,7 +4,7 @@ Prepared on 13 October 2026 from PR #2, parent SHA `9931c799531ab0974dbf5768aa63
 
 ## Status
 
-Five-page implementation and local production-build QA are complete. Vercel preview and final environment verification are BLOCKED. Do not mark any page fully complete or merge this PR until the preview gate passes and the owner separately approves production.
+Five-page implementation and local production-build QA are complete. Vercel preview is READY; authenticated preview QA and final environment verification are BLOCKED. Do not mark any page fully complete or merge this PR until the preview gate passes and the owner separately approves production.
 No production deployment, merge, project recreation, relinking, domain change, secret change or unrelated-site edit was performed.
 
 ## Existing Page URLs And Five Mandatory Gates
@@ -85,7 +85,7 @@ The frozen footer still contains historical office labels/unit text and its prev
 ## Remaining Blockers And Exact Resume Step
 
 1. Vercel connector still returns project-not-found for existing `rightlaw-production-recovery` in team `team_H60uZsyQZIOkZYoxnfsGC8DY`. Browser reached the Vercel login page; secure sign-in request timed out with no verified signed-in state. Do not retry credential entry automatically or assume successful authentication.
-2. No preview URL is available. After existing-project access is restored, verify production branch/domain mapping read-only, create or inspect a PREVIEW for the exact PR head, and repeat five-route visual/form/navigation checks in that environment.
+2. GitHub’s Vercel status now reports READY for code commit `1c4c8b8b7525ca2fe6b01f6e658c6bf9fbf7c4ab`. Preview: https://rightlaw-production-recovery-git-5e6ac2-taxocrate-pks-projects.vercel.app/ . Its unauthenticated request redirects to Vercel SSO/login, so authenticated preview QA remains blocked. Project ID from the Vercel bot: `prj_OqjAL8JQTSc2aZZ3W59DI5cS42xb`; deployment ID: `dpl_Gz45vGmfuNN8cbvFCB47RKYnMSFw`. Do not disable protection or create an unauthorised share bypass. After existing-project access is restored, verify mapping read-only and repeat the five-route checks on the exact preview commit.
 3. Check the frozen shared footer content against the separate proposal before final owner review. Never implement that redesign or any new hero structure on this branch without approval.
 4. No page is marked fully complete yet. After preview QA, report the exact PR head and preview, then await separate owner approval for production.
 
@@ -127,3 +127,7 @@ Built-in imagegen was used; no CLI API key was needed. Project-bound images are 
 - `custody-karachi-child-welfare.webp`: school backpack and closed notebooks beside neutral review folders; child welfare and education theme; no identifiable child, wedding scene or fabricated order.
 
 Illustrations were visually inspected before WebP conversion. Photographs were converted from identified existing owner sources, without generating or substituting faces.
+
+## Final Remote Verification
+
+The remote branch contains all 35 new/changed files, with a Git tree SHA matching the locally checked index: `00408f9c7795e021ca37937aee579a334ffbe00b`. Main remains `479095957884739fc21b590d60e1940faeb9fc5c`. PR #2 remains draft and unmerged. The subsequent checkpoint update changes documentation only.
