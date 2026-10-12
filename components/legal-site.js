@@ -44,6 +44,44 @@ function FAQ() { const [active, setActive] = useState(0); return <section classN
 
 function Contact() { return <section className="contact" id="contact"><div className="container contact-grid"><div><p className="eyebrow gold">Discuss your matter</p><h2>Start With The Facts.</h2><p>Tell us briefly what legal assistance you require. Our team can direct your inquiry to the appropriate practice area and office.</p><div className="contact-details"><a href={`tel:${firm.phone}`}><Phone size={17} /> {firm.phone}</a><a href={`https://wa.me/${firm.whatsapp}`} target="_blank" rel="noreferrer"><MessageCircle size={17} /> WhatsApp our team</a></div></div><div className="contact-form"><h3>Need A Detailed Consultation?</h3><p>Use our contact page to share the nature of your matter and the city or jurisdiction involved.</p><Link href="/contact/" className="button button-gold">Request a consultation <ArrowUpRight size={17} /></Link><small>Contacting the firm does not by itself create a lawyer-client relationship.</small></div></div></section> }
 
-export function Footer() { const officeList = [firm.offices.islamabad, firm.offices.karachiDha, firm.offices.karachiJohar, firm.offices.lahore]; return <footer><div className="container footer-grid"><div><div className="footer-logo"><HeaderLogo /></div><p className="footer-blurb">Professional legal assistance for individuals, families and businesses across Pakistan.</p></div><div><h4>Practice Areas</h4><Link href="/family-law/">Family law</Link><Link href="/property-law-in-pakistan/">Property & inheritance</Link><Link href="/corporate-tax-law-services/">Corporate & tax</Link><Link href="/civil-law/">Civil law</Link></div><div><h4>Offices</h4>{officeList.map((office) => <span key={office.label}><strong>{office.label}</strong><br />{office.address}</span>)}</div><div><h4>Contact</h4><a href={`tel:${firm.phone}`}>{firm.phone}</a><a href={`mailto:${firm.email}`}>{firm.email}</a><span>Pakistan-wide assistance</span></div></div><div className="footer-bottom"><div className="container footer-bottom-inner"><span>© 2026 Right Law Associates (Pvt) Limited</span><span><Link href="/privacy-policy/">Privacy Policy</Link><Link href="/disclaimer/">Disclaimer</Link></span></div></div></footer> }
+const footerGroups = [
+  { title: 'Family & Litigation', links: [
+    ['Family Law', '/family-law/'], ['Divorce & Khula', '/divorce-lawyer-for-khula-divorce/'], ['Child Custody', '/child-custody/'], ['Guardianship', '/legal-guardianship-laws-of-pakistan/'], ['Civil Lawyers', '/civil-law/'], ['Criminal Law', '/criminal-law-in-pakistan/']
+  ] },
+  { title: 'Property & Business', links: [
+    ['Property Lawyers Karachi', '/property-lawyers-in-karachi/'], ['Property Disputes', '/property-disputes/'], ['Inheritance & Succession', '/succession-certificate-in-pakistan-for-legal-heirs/'], ['Corporate & Tax', '/corporate-tax-law-services/'], ['Company Registration', '/company-registration-service-karachi/'], ['Income Tax Lawyers', '/fbr-income-tax-return-filing-lawyers-pakistan/']
+  ] },
+  { title: 'Marriage & Documents', links: [
+    ['Court Marriage', '/court-marriage-procedure-in-pakistan/'], ['Online Nikah', '/online-marriage/'], ['Marriage Certificate', '/marriage-registration-certificate/'], ['Divorce Certificate', '/divorce-registration-certificate/'], ['Civil Certificates', '/civil-certificates-in-pakistan/'], ['Intellectual Property', '/intellectual-property-in-pakistan/']
+  ] },
+  { title: 'Right Law Associates', links: [
+    ['About Us', '/about-us/'], ['Our Attorneys', '/meet-our-attorneys/'], ['FAQs', '/faq/'], ['Legal Blog', '/blog/'], ['Contact Us', '/contact/']
+  ] }
+]
+export function Footer() {
+  const offices = [
+    ['Karachi — Johar', 'Supreme Corner, 2nd Floor, Johar Chowrangi'],
+    ['Karachi — DHA', '76-C, Mezzanine, Main Jami Commercial, Phase 7'],
+    ['Islamabad', 'G-9 Markaz, Laraib Plaza'],
+    ['Lahore', 'Al-Mairaj Arcade, Chauburji']
+  ]
+  return <footer className="rightlaw-compact-footer" aria-label="Right Law Associates footer">
+    <div className="container footer-grid">
+      <div className="footer-brand">
+        <div className="footer-logo"><HeaderLogo /></div>
+        <p className="footer-blurb">The Right Law. The Right Legal Remedy.</p>
+        <a href={`tel:${firm.phone}`}>{firm.phone}</a>
+        <a href={`mailto:${firm.email}`}>{firm.email}</a>
+      </div>
+      {footerGroups.map(group => <div className="footer-links" key={group.title}><h4>{group.title}</h4><nav aria-label={group.title}>{group.links.map(([label, href]) => <Link href={href} key={href}>{label}</Link>)}</nav></div>)}
+    </div>
+    <div className="container footer-office-strip"><strong>Offices:</strong>{offices.map(([city,address])=><span key={city}><b>{city}:</b> {address}</span>)}</div>
+    <div className="footer-bottom"><div className="container footer-bottom-inner">
+      <span>© 2021 Right Law Associates (Pvt) Limited. All Rights Reserved.</span>
+      <span className="footer-credits">Website: <a href="https://digitocrate.com/" target="_blank" rel="noopener noreferrer">Digitocrate</a> · SEO: <a href="https://googlepeak.com/" target="_blank" rel="noopener noreferrer">GooglePeak</a></span>
+      <span><Link href="/privacy-policy/">Privacy Policy</Link><Link href="/disclaimer/">Disclaimer</Link></span>
+    </div></div>
+  </footer>
+}
 
 export default function LegalSite() { return <><Header /><main className="home-page"><Hero /><KarachiShortCta /><AuthorityIntro /><About /><Services /><PracticeLinks /><SplitFeature eyebrow="Family law" title="A Steady Legal Strategy For Family Matters" copy="Family disputes require careful handling because they affect personal status, children, financial rights and future documentation. Our lawyers advise on divorce, khula, custody, guardianship, maintenance and family court proceedings." items={['Divorce, talaq and khula guidance', 'Child custody and guardianship', 'Maintenance, dower and family court matters']} image="/images/family-law-consultation-pakistan.webp" alt="Illustrative family-law consultation about divorce, custody and legal documents in Pakistan" href="/family-law/" /><SplitFeature reverse eyebrow="Business & tax" title="Legal Counsel For Companies, Businesses And Tax Matters" copy="From company registration and contracts to taxation and compliance, our corporate and tax practice helps clients understand obligations, manage risk and respond to legal or regulatory issues." items={['Company registration and SECP matters', 'Corporate compliance and advisory', 'Income tax and sales tax guidance']} image="/images/corporate-tax-document-review.webp" alt="Illustrative corporate and tax document review with a calculator and business records" href="/corporate-tax-law-services/" /><Locations /><Team /><Insights /><FAQ /><Contact /></main><Footer /><a className="mobile-call" href={`tel:${firm.phone}`} aria-label="Call Right Law Associates"><Phone size={18} /></a></> }
