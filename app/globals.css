@@ -450,5 +450,5 @@ footer { background: #fff; color: var(--muted); padding: 55px 0 0; border-top: 1
 
 /* Compact homepage hero heading: desktop/tablet only; preserve mobile typography and H1 wording. */
 @media (min-width: 801px) {
-  .home-page .hero h1 { font-size: clamp(38px, 3.65vw, 56px); line-height: 1.09; letter-spacing: -.025em; max-width: 670px; margin-bottom: 21px; }
+  .home-page .hero h1 { font-size: clamp(36px, 3vw, 46px); line-height: 1.14; letter-spacing: -.02em; max-width: 660px; margin-bottom: 18px; }
 }
