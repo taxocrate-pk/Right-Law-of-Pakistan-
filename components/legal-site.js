@@ -62,7 +62,7 @@ export function Footer() {
   const offices = [
     ['Karachi — Johar', 'Supreme Corner, 2nd Floor, Johar Chowrangi'],
     ['Karachi — DHA', '76-C, Mezzanine, Main Jami Commercial, Phase 7'],
-    ['Islamabad', 'G-9 Markaz, Laraib Plaza'],
+    ['Head Office — Islamabad', 'Office No. 5, 2nd Floor, Laraib Plaza, G-9 Markaz, Islamabad'],
     ['Lahore', 'Al-Mairaj Arcade, Chauburji']
   ]
   return <footer className="rightlaw-compact-footer" aria-label="Right Law Associates footer">
