@@ -115,7 +115,7 @@ function MegaMenu({ item, index }) {
     event.currentTarget.blur()
   }
   const enter = () => { if (!dismissed) setExpanded(true) }
-  const leave = () => setExpanded(false)
+  const leave = () => { setExpanded(false); setDismissed(false) }
   const blur = (event) => { if (!event.currentTarget.contains(event.relatedTarget)) setExpanded(false) }
   // Hover and focus alone never reveal a dismissed menu after a link click.
   // Only a fresh pointer entry after the previous menu was fully left re-arms it.
