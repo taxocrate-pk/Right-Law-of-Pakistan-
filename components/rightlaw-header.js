@@ -105,17 +105,26 @@ export function Logo() {
 }
 
 function MegaMenu({ item, index }) {
+  const [expanded, setExpanded] = useState(false)
   const [dismissed, setDismissed] = useState(false)
   if (!item.groups) return <Link href={item.href} className="whitespace-nowrap px-2.5 py-3 text-[12px] font-semibold text-[#173b35] no-underline hover:bg-[#f7f3eb] hover:text-[#b18342] xl:px-3 xl:text-[13px]">{item.label}</Link>
   const edge = index <= 1 ? 'left-0' : index >= navItems.length - 2 ? 'right-0' : 'left-1/2 -translate-x-1/2'
-  const reveal = dismissed ? '' : 'group-hover/nav:visible group-hover/nav:opacity-100 group-focus-within/nav:visible group-focus-within/nav:opacity-100'
-  const closeAfterNavigation = () => setDismissed(true)
-  const resetWhenOutside = (event) => {
-    if (!event.currentTarget.contains(event.relatedTarget)) setDismissed(false)
+  const reveal = expanded && !dismissed ? 'visible opacity-100' : 'invisible opacity-0 pointer-events-none'
+  const closeAfterNavigation = (event) => {
+    setDismissed(true)
+    setExpanded(false)
+    // A clicked menu item may retain focus across a client-side route transition.
+    // Remove that focus so focus-within cannot make a closed menu reappear.
+    event.currentTarget.blur()
+  }
+  const leaveMenu = () => setExpanded(false)
+  const enterMenu = () => { if (!dismissed) setExpanded(true) }
+  const blurMenu = (event) => {
+    if (!event.currentTarget.contains(event.relatedTarget)) setExpanded(false)
   }
   return (
-    <div className="group/nav relative" onMouseLeave={() => setDismissed(false)} onBlur={resetWhenOutside}>
-      <Link href={item.href} onClick={closeAfterNavigation} className="flex items-center gap-1 whitespace-nowrap px-2.5 py-3 text-[12px] font-semibold text-[#173b35] no-underline hover:bg-[#f7f3eb] hover:text-[#b18342] xl:px-3 xl:text-[13px]">
+    <div className="relative" onMouseEnter={enterMenu} onMouseLeave={leaveMenu} onFocus={enterMenu} onBlur={blurMenu}>
+      <Link href={item.href} onClick={closeAfterNavigation} onMouseEnter={dismissed ? undefined : enterMenu} className="flex items-center gap-1 whitespace-nowrap px-2.5 py-3 text-[12px] font-semibold text-[#173b35] no-underline hover:bg-[#f7f3eb] hover:text-[#b18342] xl:px-3 xl:text-[13px]">
         {item.label}<ChevronDown size={14}/>
       </Link>
       <div className={`invisible absolute top-full z-50 w-[min(92vw,980px)] border border-[#dce5e1] bg-white p-5 opacity-0 shadow-2xl transition-all ${reveal} ${edge}`}>
@@ -126,6 +135,14 @@ function MegaMenu({ item, index }) {
         <div className={`grid max-h-[68vh] ${item.groups.length > 1 ? 'grid-cols-2 xl:grid-cols-3' : 'grid-cols-1'} gap-x-8 gap-y-6 overflow-y-auto pr-1`}>
           {item.groups.map(group => <section key={group.title}>
             <h3 className="mb-2 text-[10px] font-bold uppercase tracking-[0.14em] text-[#b18342]">{group.title}</h3>
+            <div className="space-y-0.5">{group.links.map(([label,href]) => <Link key={`${label}-${href}`} href={href} onClick={closeAfterNavigation} className="block border-l border-transparent px-2 py-1.5 text-[13px] leading-5 text-slate-600 no-underline hover:border-[#c49a5a] hover:bg-[#f7f3eb] hover:text-[#173b35]">{label}</Link>)}</div>
+          </section>)}
+        </div>
+      </div>
+    </div>
+  )
+}
+se tracking-[0.14em] text-[#b18342]">{group.title}</h3>
             <div className="space-y-0.5">{group.links.map(([label,href]) => <Link key={`${label}-${href}`} href={href} onClick={closeAfterNavigation} className="block border-l border-transparent px-2 py-1.5 text-[13px] leading-5 text-slate-600 no-underline hover:border-[#c49a5a] hover:bg-[#f7f3eb] hover:text-[#173b35]">{label}</Link>)}</div>
           </section>)}
         </div>
