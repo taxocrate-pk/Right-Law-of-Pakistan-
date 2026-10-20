@@ -14,7 +14,7 @@ export const metadata = {
     description: 'A practical guide to searching, filing and protecting a trademark through IPO-Pakistan.',
     url: pageUrl,
     siteName: 'Right Law Associates',
-    type: 'article',
+    type: 'website',
   },
 }
 
@@ -110,10 +110,19 @@ export default function TrademarkRegistrationPakistanPage() {
         serviceType: 'Trademark searches, filing advice, prosecution and disputes',
       },
       {
+        '@type': 'WebPage',
+        '@id': pageUrl + '#webpage',
+        url: pageUrl,
+        name: 'Trademark Registration in Pakistan',
+        description: metadata.description,
+        about: { '@id': pageUrl + '#service' },
+      },
+      {
         '@type': 'BreadcrumbList',
         itemListElement: [
           { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://rightlaw.pk/' },
-          { '@type': 'ListItem', position: 2, name: 'Trademark Registration Pakistan', item: pageUrl },
+          { '@type': 'ListItem', position: 2, name: 'Intellectual Property', item: 'https://rightlaw.pk/intellectual-property-in-pakistan' },
+          { '@type': 'ListItem', position: 3, name: 'Trademark Registration', item: pageUrl },
         ],
       },
       {
@@ -142,10 +151,19 @@ export default function TrademarkRegistrationPakistanPage() {
       </section>
       <article className="section family-article">
         <div className="container family-article-inner">
+          <nav aria-label="Breadcrumb" style={{fontSize:13,marginBottom:14}}>
+            <Link href="/">Home</Link> <span aria-hidden="true">›</span> <Link href="/intellectual-property-in-pakistan/">Intellectual Property</Link> <span aria-hidden="true">›</span> <span aria-current="page">Trademark Registration</span>
+          </nav>
+          {/* Reused draft placeholder: replace with a page-exclusive compressed WebP before production under DNA 2.06. */}
+          <Image className="property-content-image" src="/images/corporate-tax-document-review.webp" width={1000} height={600} sizes="(max-width: 800px) 100vw, 940px" alt="Trademark and business document review prior to registration in Pakistan" title="Trademark Legal Document Review in Pakistan" priority />
           <h2>Legal Review Before a Trade Mark Filing</h2>
           <h3>Protect the Correct Mark for the Intended Business</h3>
           <p>Trademark registration is a legal process, not simply a purchase of a certificate. A sensible application begins with identifying the true proprietor, checking possible conflicts and matching the mark to the goods or services it will distinguish. The law must be applied to the actual facts, not a generic filing checklist.</p>
-          <Image className="property-content-image" src="/images/corporate-tax-document-review.webp" width={1000} height={600} sizes="(max-width: 800px) 100vw, 940px" alt="Business records under review during a brand registration consultation" />
+          <section aria-label="Editorial responsibility" style={{padding:'14px 18px',margin:'20px 0',borderLeft:'3px solid #c49a5a',background:'#f7f3eb'}}>
+            <h2 style={{marginTop:0}}>Professional Responsibility and Legal Scope</h2>
+            <h3>Case-Specific Review by Right Law Associates</h3>
+            <p>Right Law Associates (Pvt) Limited is a Pakistan-based legal practice. Trademark applications, registry objections and infringement matters are evaluated against the relevant facts and current official requirements. A named lawyer, representation terms and filing authority are confirmed during the actual client engagement; this page does not claim that a particular advocate has reviewed an individual file.</p>
+          </section>
           {sections.map(({ title, subtitle, text }) =>
             <section key={title}>
               <h2>{title}</h2>
