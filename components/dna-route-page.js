@@ -81,7 +81,8 @@ const specialResources = {
     ['Qanoon House', 'https://qanoonhouse.com/'],
   ],
   'succession-certificate-letter-of-administration': [
-    ['National Database And Registration Authority (NADRA)', 'https://www.nadra.gov.pk/'],
+    ['NADRA Official Succession Certificates and Letters of Administration', 'https://www.nadra.gov.pk/identityDocument/certificates/succession'],
+    ['National Database and Registration Authority', 'https://www.nadra.gov.pk/'],
     ['Qanoon House', 'https://qanoonhouse.com/'],
   ],
   'property-disputes': [
