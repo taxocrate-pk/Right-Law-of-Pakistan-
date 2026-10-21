@@ -457,3 +457,12 @@ footer { background: #fff; color: var(--muted); padding: 55px 0 0; border-top: 1
 .home-page .hero-bottom-inner a { color:inherit; text-decoration:none; display:inline-flex; align-items:center; justify-content:center; min-height:38px; transition:color .2s ease; }
 .home-page .hero-bottom-inner a:hover,.home-page .hero-bottom-inner a:focus-visible { color:#f2c778; }
 .home-page .hero-bottom-inner a:focus-visible { outline:2px solid #f2c778; outline-offset:3px; }
+
+/* PR #5: page-scoped trademark article and compact, responsive navigation. */
+.trademark-content-grid { display:grid; grid-template-columns:minmax(0,1fr) 240px; gap:32px; align-items:start; }
+.trademark-sidebar { position:sticky; top:150px; padding:20px; background:var(--cream); }
+.trademark-page .family-article .trademark-sidebar h2 { font-size:23px; margin:0 0 16px; padding:0; border:0; }
+.trademark-sidebar p { font-size:14px; line-height:1.5; margin:0 0 14px; }
+.trademark-page .faq-item h3 { margin:0 0 10px; font-size:20px; }
+.trademark-page section[id], .trademark-page h2[id] { scroll-margin-top:160px; }
+@media(max-width:800px) { .trademark-content-grid { grid-template-columns:minmax(0,1fr); } .trademark-sidebar { position:static; } }

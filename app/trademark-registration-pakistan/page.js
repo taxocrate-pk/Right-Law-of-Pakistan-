@@ -3,10 +3,13 @@ import Image from 'next/image'
 import { Footer } from '../../components/legal-site'
 import { firm } from '../../lib/legal-data'
 
+const imageUrl = 'https://rightlaw.pk/images/trademark-brand-clearance-pakistan.webp'
+const imageDescription = 'Conceptual illustration of a magnifying glass reviewing an abstract brand mark beside blank application papers; not a client file, office photograph or registration approval.'
+
 const pageUrl = 'https://rightlaw.pk/trademark-registration-pakistan'
 
 export const metadata = {
-  title: 'Trademark Registration in Pakistan | RightLaw.pk',
+  title: { absolute: 'Trademark Registration in Pakistan | RightLaw.pk' },
   description: 'Legal assistance with IPO Pakistan trademark searches, applications, objections, opposition and protection. Review your brand with Right Law Associates.',
   alternates: { canonical: pageUrl },
   openGraph: {
@@ -15,6 +18,7 @@ export const metadata = {
     url: pageUrl,
     siteName: 'Right Law Associates',
     type: 'website',
+    images: [{ url: imageUrl, width: 1200, height: 675, alt: 'Magnifying glass examining an abstract brand mark beside application papers' }],
   },
 }
 
@@ -55,7 +59,7 @@ const sections = [
     text: 'Once a trademark is registered, maintain a reliable record of the certificate, relevant classes, renewal dates, changes of business name and any assignments or licences. Do not assume that payment to a private agent changes an official registry entry. A registered owner should watch for confusingly similar uses, evaluate suspected infringement promptly and collect dated evidence before sending a notice. Renewals and recordal requirements can change, so the current IPO-Pakistan rules and instructions should be verified when action is due. Trademark rights also differ by territory: a Pakistan filing is not worldwide registration.',
   },
   {
-    title: 'Trademark Registration Costs and Timelines',
+    title: 'Trademark Registration in Pakistan: Costs and Timelines',
     subtitle: 'Separate Official Charges From Professional Fees',
     text: 'An accurate quotation depends on the number of marks, classes, goods or services, filing method, professional work, objections, opposition and any later recordal or renewal requirements. Official charges should be checked against current IPO-Pakistan instructions rather than a static website price. Examination and registration timelines are not guaranteed; objections, hearings and disputed rights can extend the process. Right Law Associates can explain the work proposed and the expected filing expenses after reviewing the applicant’s instructions. No approval, fixed processing date or immediate enforceability should be promised merely because an application is submitted.',
   },
@@ -65,7 +69,7 @@ const sections = [
     text: 'A startup may need its trade name, logo, company incorporation record and online marketplace accounts reviewed together. An established business may have several product brands, logos and licence arrangements. When founders, designers, distributors or group companies contribute to the brand, clarify ownership through appropriate agreements. Franchise and manufacturing arrangements may require an authorised-use framework that matches the trademark record. Strong brand protection begins with the correct proprietor, a coherent filing plan and preserved evidence of use, not simply collecting certificates.',
   },
   {
-    title: 'Legal Advice and Filing Coordination Across Pakistan',
+    title: 'Trademark Registration in Pakistan: Legal Advice and Filing Coordination',
     subtitle: 'A Document-Led Consultation for the Proposed Brand',
     text: 'Right Law Associates can review the proposed brand, supporting documents and the legal concerns identified by a preliminary search. The relevant practice team can then advise on filing, responses to examination, opposition or other IP disputes within the agreed scope. Clients in Karachi, Islamabad, Rawalpindi, Lahore and elsewhere can initiate a document review remotely where appropriate. The correct professional and forum depend on the work required. This page explains trademark legal services nationwide; it is not a promise that every filing or dispute can be completed without further documentation.',
   },
@@ -78,14 +82,14 @@ const faqs = [
   ['Can two businesses use a similar brand name?', 'Similarity must be assessed in context, including the marks, relevant goods or services, earlier rights and likelihood of confusion. A different company registration or city does not automatically remove the risk.'],
   ['Does one class cover every business activity?', 'No. The class and the specification of goods or services matter. Different activities or products may require additional classes or separate applications according to the filing strategy.'],
   ['Can overseas Pakistanis apply for trademark registration?', 'An overseas applicant may be able to instruct a representative. The eligibility, address, power of attorney and other documentary requirements should be confirmed for the specific applicant and filing route.'],
-  ['How long does trademark registration take?', 'Time depends on examination, objections, publication, any third-party opposition and registry processing. No fixed completion date should be assumed before the actual file is assessed.'],
+  ['How long does trademark registration in Pakistan take?', 'Time depends on examination, objections, publication, any third-party opposition and registry processing. No fixed completion date should be assumed before the actual file is assessed.'],
   ['What if IPO-Pakistan objects to an application?', 'Review the examination report and any deadline before preparing a response. The correct argument may involve the mark, specification, legal standard and supporting material. Some objections require a hearing.'],
   ['Is trademark opposition the same as examination?', 'No. Examination is the registry’s review; opposition is a challenge by another party within the process permitted by law. Their grounds, timing and evidence may differ.'],
-  ['What is the official fee for trademark registration?', 'Fees depend on the present IPO-Pakistan schedule and the requested filing or related action. A legal-service quotation should clearly separate government charges from professional fees.'],
+  ['What is the official fee for trademark registration in Pakistan?', 'Fees depend on the present IPO-Pakistan schedule and the requested filing or related action. A legal-service quotation should clearly separate government charges from professional fees.'],
   ['Does a Pakistan trademark registration protect a brand worldwide?', 'No. Trademark protection is generally territorial. Expansion into other countries calls for a separate review of the applicable national or international filing routes.'],
   ['Can I register a trademark without having a registered company?', 'The correct applicant depends on legal ownership and the rules for the chosen filing. An eligible individual applicant may be possible; verify the name and documentary requirements before submission.'],
   ['Does registering a domain name protect my trademark?', 'No. Domain registration and trademark registration serve different purposes. A domain can still raise infringement or unfair-competition concerns, and its availability does not prove that a mark is legally clear.'],
-  ['What documents should I prepare for a consultation?', 'Prepare the proposed mark or logo, applicant identity and business details, the goods or services to be covered, examples of use if available, and any search results, existing filings or objections.'],
+  ['What documents should I prepare for trademark registration in Pakistan?', 'Prepare the proposed mark or logo, applicant identity and business details, the goods or services to be covered, examples of use if available, and any search results, existing filings or objections.'],
 ]
 
 const detailRows = [
@@ -101,12 +105,12 @@ export default function TrademarkRegistrationPakistanPage() {
     '@context': 'https://schema.org',
     '@graph': [
       {
-        '@type': 'LegalService',
+        '@type': 'Service',
         '@id': pageUrl + '#service',
         name: 'Trademark Registration Legal Services in Pakistan',
         url: pageUrl,
         areaServed: { '@type': 'Country', name: 'Pakistan' },
-        provider: { '@type': 'Organization', name: firm.legalName, url: 'https://rightlaw.pk/' },
+        provider: { '@type': 'LegalService', '@id': 'https://rightlaw.pk/#organization', name: firm.legalName, url: 'https://rightlaw.pk/' },
         serviceType: 'Trademark searches, filing advice, prosecution and disputes',
       },
       {
@@ -116,6 +120,13 @@ export default function TrademarkRegistrationPakistanPage() {
         name: 'Trademark Registration in Pakistan',
         description: metadata.description,
         about: { '@id': pageUrl + '#service' },
+        primaryImageOfPage: { '@id': pageUrl + '#primaryimage' },
+      },
+      {
+        '@type': 'ImageObject', '@id': pageUrl + '#primaryimage',
+        contentUrl: imageUrl, url: imageUrl, encodingFormat: 'image/webp', width: 1200, height: 675,
+        name: 'Trademark Brand Clearance in Pakistan', description: imageDescription,
+        representativeOfPage: true,
       },
       {
         '@type': 'BreadcrumbList',
@@ -137,12 +148,12 @@ export default function TrademarkRegistrationPakistanPage() {
 
   return <>
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, '\\u003c') }} />
-    <main className="property-law-page family-law-page">
+    <main className="property-law-page family-law-page trademark-page">
       <section className="hero">
         <div className="container property-hero">
           <p className="eyebrow gold">Intellectual Property • Brand Protection</p>
           <h1>Trademark Registration in Pakistan</h1>
-          <p className="hero-lede">Review your brand before filing with IPO-Pakistan. Our legal team advises on trademark searches, application strategy, examination objections and contested rights.</p>
+          <p className="hero-lede">Trademark registration in Pakistan begins with reviewing your brand before filing with IPO-Pakistan. Our legal team advises on trademark searches, application strategy, examination objections and contested rights.</p>
           <div className="hero-actions">
             <Link href="/contact/" className="button button-gold">Arrange a Phone Appointment</Link>
             <Link href="/intellectual-property-in-pakistan/" className="button button-outline-light">Intellectual Property Guide</Link>
@@ -154,23 +165,24 @@ export default function TrademarkRegistrationPakistanPage() {
           <nav aria-label="Breadcrumb" style={{fontSize:13,marginBottom:14}}>
             <Link href="/">Home</Link> <span aria-hidden="true">›</span> <Link href="/intellectual-property-in-pakistan/">Intellectual Property</Link> <span aria-hidden="true">›</span> <span aria-current="page">Trademark Registration</span>
           </nav>
-          {/* Reused draft placeholder: replace with a page-exclusive compressed WebP before production under DNA 2.06. */}
-          <Image className="property-content-image" src="/images/corporate-tax-document-review.webp" width={1000} height={600} sizes="(max-width: 800px) 100vw, 940px" alt="Trademark and business document review prior to registration in Pakistan" title="Trademark Legal Document Review in Pakistan" priority />
-          <h2>Legal Review Before a Trade Mark Filing</h2>
+          <Image className="property-content-image" src="/images/trademark-brand-clearance-pakistan.webp" width={1200} height={675} sizes="(max-width: 800px) 100vw, 940px" alt="Magnifying glass examining an abstract brand mark beside application papers" title="Trademark Brand Clearance in Pakistan" priority />
+          <h2>Trademark Registration: Legal Review Before Filing</h2>
           <h3>Protect the Correct Mark for the Intended Business</h3>
-          <p>Trademark registration is a legal process, not simply a purchase of a certificate. A sensible application begins with identifying the true proprietor, checking possible conflicts and matching the mark to the goods or services it will distinguish. The law must be applied to the actual facts, not a generic filing checklist.</p>
+          <p>Trademark registration in Pakistan is a legal process, not simply a purchase of a certificate. A sensible application begins with identifying the true proprietor, checking possible conflicts and matching the mark to the goods or services it will distinguish. The law must be applied to the actual facts, not a generic filing checklist.</p>
           <section aria-label="Editorial responsibility" style={{padding:'14px 18px',margin:'20px 0',borderLeft:'3px solid #c49a5a',background:'#f7f3eb'}}>
             <h2 style={{marginTop:0}}>Professional Responsibility and Legal Scope</h2>
             <h3>Case-Specific Review by Right Law Associates</h3>
             <p>Right Law Associates (Pvt) Limited is a Pakistan-based legal practice. Trademark applications, registry objections and infringement matters are evaluated against the relevant facts and current official requirements. A named lawyer, representation terms and filing authority are confirmed during the actual client engagement; this page does not claim that a particular advocate has reviewed an individual file.</p>
           </section>
-          {sections.map(({ title, subtitle, text }) =>
-            <section key={title}>
+          <div className="trademark-content-grid"><div>
+          {sections.map(({ title, subtitle, text }, index) =>
+            <section key={title} id={`trademark-section-${index}`}>
               <h2>{title}</h2>
               <h3>{subtitle}</h3>
               <p>{text}</p>
             </section>
           )}
+          <p>For founders selecting a business structure alongside the brand, <a href="https://taxocrate.com/company-registration/" target="_blank" rel="noopener noreferrer">Taxocrate’s company registration guidance</a> explains incorporation as a separate process from trademark protection.</p>
           <h2>Trademark Filing Stages and Legal Checks</h2>
           <h3>How the Work Changes as an Application Progresses</h3>
           <div className="property-table-wrap" role="region" tabIndex={0} aria-label="Trademark filing stages">
@@ -181,18 +193,19 @@ export default function TrademarkRegistrationPakistanPage() {
           <h2>Official Trademark Legislation and Registry Resources</h2>
           <h3>Use Current Instructions for Filing and Fees</h3>
           <p>Review the <a href="https://pakistancode.gov.pk/pdffiles/administratora4ef8d40e3d97faef49343d2242e0c3a.pdf" target="_blank" rel="noopener noreferrer">Trade Marks Ordinance, 2001 (Pakistan Code)</a> and current information issued by the <a href="https://ipo.gov.pk/" target="_blank" rel="noopener noreferrer">Intellectual Property Organization of Pakistan</a>. Available e-filing and payment facilities, current forms, classification and government fees should be checked at the time of filing. This legal-service guide is separate from the independent <Link href="/intellectual-property-in-pakistan/">overview of intellectual property in Pakistan</Link>.</p>
-          <h2>Frequently Asked Trademark Questions</h2>
-          <h3>Answers for Applicants, Startups and Existing Brand Owners</h3>
+          <h2 id="trademark-faqs">Frequently Asked Trademark Questions</h2>
+          <p>Answers for applicants, startups and existing brand owners.</p>
           <div className="faq-list">{faqs.map(([question, answer]) =>
-            <section className="faq-item active" key={question}><h4>{question}</h4><p>{answer}</p></section>
+            <section className="faq-item active" key={question}><h3>{question}</h3><p>{answer}</p></section>
           )}</div>
-          <h2>Contact Right Law Associates About Brand Protection</h2>
+          <h2>Contact Right Law Associates About Trademark Registration in Pakistan</h2>
           <h3>Share the Proposed Mark and Business Details</h3>
           <p>For a focused phone appointment, explain the proposed name or logo, intended goods or services, current business structure and any existing registry correspondence. Case-specific advice requires reviewing the documents and relevant law. We do not guarantee registration or a fixed decision time.</p>
           <div className="hero-actions">
             <Link href="/contact/" className="button button-gold">Request a Trademark Legal Review</Link>
             <Link href="/corporate-tax-law-services/" className="button button-dark">Corporate and Tax Legal Services</Link>
           </div>
+          </div><aside className="trademark-sidebar" aria-label="Trademark page navigation"><h2>On This Page</h2><nav>{sections.map((section, i) => <p key={section.title}><a href={`#trademark-section-${i}`}>{section.title}</a></p>)}<p><a href="#trademark-faqs">Trademark FAQs</a></p></nav><h3>Related Legal Guidance</h3><p><Link href="/intellectual-property-in-pakistan/">Intellectual Property in Pakistan</Link></p><p><Link href="/corporate-tax-law-services/">Corporate and Tax Lawyers</Link></p></aside></div>
         </div>
       </article>
     </main>

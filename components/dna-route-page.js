@@ -120,6 +120,7 @@ function buildFaqs(page) {
 
 export default function DnaRoutePage({ page, slug }) {
   page = { ...page, title: page.title.replace(/\b[a-z]/g, letter => letter.toUpperCase()) }
+  const isSuccession = slug === 'succession-certificate-letter-of-administration'
   const dissolution = slug === 'dissolution-of-marriage-in-pakistan' ? dissolutionPage : null
   const isServicePage = page.category !== 'Firm'
   const isRoutineMatrimonial = isRoutineMatrimonialSlug(page)
@@ -139,7 +140,7 @@ export default function DnaRoutePage({ page, slug }) {
       {'@type':'Organization','@id':'https://rightlaw.pk/#organization',name:firm.legalName,url:'https://rightlaw.pk/',telephone:firm.phone},
       ...(isServicePage
         ? [
-            {'@type':'LegalService','@id':`https://rightlaw.pk/${slug}/#legalservice`,name:page.title,url:`https://rightlaw.pk/${slug}/`,description:page.description,areaServed:'Pakistan',provider:{'@id':'https://rightlaw.pk/#organization'}},
+            {'@type':isSuccession ? 'Service' : 'LegalService','@id':`https://rightlaw.pk/${slug}/#legalservice`,name:page.title,url:`https://rightlaw.pk/${slug}/`,description:page.description,areaServed:'Pakistan',provider:{'@id':'https://rightlaw.pk/#organization'}},
             {'@type':'WebPage','@id':`https://rightlaw.pk/${slug}/#webpage`,name:page.title,url:`https://rightlaw.pk/${slug}/`,description:page.description,isPartOf:{'@id':'https://rightlaw.pk/#organization'},about:{'@id':`https://rightlaw.pk/${slug}/#legalservice`}},
             {'@type':'LocalBusiness','@id':'https://rightlaw.pk/#localbusiness',name:firm.name,url:'https://rightlaw.pk/',telephone:firm.phone,areaServed:['Karachi','Islamabad','Rawalpindi','Lahore','Pakistan']}
           ]
@@ -264,6 +265,8 @@ export default function DnaRoutePage({ page, slug }) {
               <tr><td style={cell}>Legal Strategy</td><td style={cell}>Forum, law, relief, notices and evidence.</td><td style={cell}>Recommended route and filing plan.</td></tr>
               <tr><td style={cell}>Execution</td><td style={cell}>Drafting, filing, representation and follow-up.</td><td style={cell}>Documented next steps and coordination.</td></tr>
             </tbody></table></div>
+
+            {slug === 'intellectual-property-in-pakistan' && <section><h2>Trademark Filing and Brand Clearance</h2><p>For help with a proposed brand, applicant records or an examination objection, see our dedicated <Link href="/trademark-registration-pakistan">trademark registration in Pakistan</Link> service page.</p></section>}
 
             {related.length>0&&<section style={{margin:'34px 0',padding:'24px 26px',background:'#f7f3eb'}}><h2 style={{marginTop:0}}><b>Related RightLaw.pk Legal Guides</b></h2><p>These pages provide more specific guidance on connected issues:</p><ul>{related.map(([label,href])=><li key={href}><Link href={href}>{label}</Link></li>)}</ul></section>}
 
