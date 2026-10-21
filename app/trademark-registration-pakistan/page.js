@@ -148,7 +148,7 @@ export default function TrademarkRegistrationPakistanPage() {
 
   return <>
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, '\\u003c') }} />
-    <main className="property-law-page family-law-page trademark-page">
+    <main className="property-law-page family-law-page trademark-page pr5-service-page">
       <section className="hero">
         <div className="container property-hero">
           <p className="eyebrow gold">Intellectual Property • Brand Protection</p>

@@ -122,6 +122,8 @@ export default function DnaRoutePage({ page, slug }) {
   page = { ...page, title: page.title.replace(/\b[a-z]/g, letter => letter.toUpperCase()) }
   const isSuccession = slug === 'succession-certificate-letter-of-administration'
   const dissolution = slug === 'dissolution-of-marriage-in-pakistan' ? dissolutionPage : null
+  const leadImage = isSuccession ? '/images/nadra-succession-estate-records-pakistan.webp' : page.image
+  const leadImageAlt = isSuccession ? 'Estate record folders, a model house and financial papers for succession certificate and letter of administration guidance in Pakistan' : `${page.title} legal services and document review by Right Law Associates`
   const isServicePage = page.category !== 'Firm'
   const isRoutineMatrimonial = isRoutineMatrimonialSlug(page)
   const isFamilyLaw = page.category === 'Family Law'
@@ -145,7 +147,7 @@ export default function DnaRoutePage({ page, slug }) {
             {'@type':'LocalBusiness','@id':'https://rightlaw.pk/#localbusiness',name:firm.name,url:'https://rightlaw.pk/',telephone:firm.phone,areaServed:['Karachi','Islamabad','Rawalpindi','Lahore','Pakistan']}
           ]
         : [{'@type':'WebPage','@id':`https://rightlaw.pk/${slug}/#webpage`,name:page.title,url:`https://rightlaw.pk/${slug}/`,description:page.description,isPartOf:{'@id':'https://rightlaw.pk/#organization'}}]),
-      {'@type':'ImageObject','@id':`https://rightlaw.pk/${slug}/#primaryimage`,contentUrl:`https://rightlaw.pk${dissolution ? '/images/dissolution-of-marriage-services.svg' : page.image}`,name:`${page.title} — Right Law Associates`,caption:`${page.title} Legal Guidance And Document Review`,representativeOfPage:true},
+      {'@type':'ImageObject','@id':`https://rightlaw.pk/${slug}/#primaryimage`,contentUrl:`https://rightlaw.pk${dissolution ? '/images/dissolution-of-marriage-services.svg' : leadImage}`,description:isSuccession ? 'NADRA succession certificate and letter of administration document preparation for movable assets and immovable property in Pakistan.' : undefined,name:`${page.title} — Right Law Associates`,caption:`${page.title} Legal Guidance And Document Review`,representativeOfPage:true},
       {'@type':'FAQPage',mainEntity:faqs.map(([question,answer])=>({'@type':'Question',name:question,acceptedAnswer:{'@type':'Answer',text:answer}}))},
       {'@type':'BreadcrumbList',itemListElement:[{'@type':'ListItem',position:1,name:'Home',item:'https://rightlaw.pk/'},{'@type':'ListItem',position:2,name:page.title,item:`https://rightlaw.pk/${slug}/`}]},
     ],
@@ -171,9 +173,9 @@ export default function DnaRoutePage({ page, slug }) {
 
   return <>
     <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(schema).replace(/</g,'\\u003c')}} />
-    <main className="dna-route-page">
+    <main className={`dna-route-page${isSuccession ? ' pr5-service-page' : ''}`}>
       <nav aria-label="Breadcrumb" style={{background:'#f7f3eb',borderBottom:'1px solid #e3ddd2'}}><div className="container" style={{paddingTop:12,paddingBottom:12}}><ol style={{display:'flex',alignItems:'center',gap:8,flexWrap:'wrap',listStyle:'none',margin:0,padding:0,fontSize:14,lineHeight:1.5}}><li><Link href="/" style={{color:'#173b35',fontWeight:700,textDecoration:'none'}}>Home</Link></li><li aria-hidden="true" style={{color:'#7a8d86'}}>›</li><li aria-current="page" style={{color:'#455d55'}}>{page.title}</li></ol></div></nav>
-      <section style={{background:'#173b35',color:'#fff',padding:'72px 0 54px'}}>
+      <section className={isSuccession ? 'hero' : undefined} style={{background:isSuccession ? undefined : '#173b35',color:'#fff',padding:'72px 0 54px'}}>
         <div className="container">
           <p className="eyebrow gold">{page.category}</p>
           <h1 style={{fontFamily:'Arial, Helvetica, sans-serif',fontSize:'clamp(38px,5vw,62px)',lineHeight:1.05,maxWidth:900,margin:'0 0 18px'}}>{page.title}</h1>
@@ -190,7 +192,7 @@ export default function DnaRoutePage({ page, slug }) {
 
       <KarachiShortCta />
 
-      <section style={{background:'#fff'}}><div className="container" style={{paddingTop:26}}><figure style={{margin:0}}><Image src={dissolution ? '/images/dissolution-of-marriage-services.svg' : page.image} title={`${page.title} — Right Law Associates`} alt={dissolution ? 'Right Law Associates dissolution of marriage consultation and case preparation illustration' : `${page.title} legal services and document review by Right Law Associates`} width={1600} height={900} priority unoptimized style={{width:'100%',height:'auto',maxHeight:520,objectFit:'cover',display:'block',borderRadius:4}} /><figcaption style={{fontSize:14,lineHeight:1.6,color:'#455d55',paddingTop:10}}>{page.title} — Legal Guidance And Document Review</figcaption></figure></div></section>
+      <section style={{background:'#fff'}}><div className="container" style={{paddingTop:26}}><figure style={{margin:0}}><Image src={dissolution ? '/images/dissolution-of-marriage-services.svg' : leadImage} title={`${page.title} — Right Law Associates`} alt={dissolution ? 'Right Law Associates dissolution of marriage consultation and case preparation illustration' : leadImageAlt} width={isSuccession ? 1200 : 1600} height={isSuccession ? 675 : 900} priority unoptimized style={{width:'100%',height:'auto',maxHeight:520,objectFit:'cover',display:'block',borderRadius:4}} /><figcaption style={{fontSize:14,lineHeight:1.6,color:'#455d55',paddingTop:10}}>{page.title} — Legal Guidance And Document Review</figcaption></figure></div></section>
 
       {dissolution && <section style={{background:'#fff'}}><div className="container" style={{paddingTop:26}}>
         <h2>Karachi Consultation For Dissolution Of Marriage</h2>
@@ -214,17 +216,17 @@ export default function DnaRoutePage({ page, slug }) {
               <p><strong>Islamabad And Rawalpindi:</strong> Kashif Mumtaz, Advocate High Court, for local family-law representation and coordination.</p>
               <p><strong>Lahore:</strong> Junaid Kahloon, Advocate High Court, for local family-law matters.</p>
               <p><strong>Senior And Appellate Matters:</strong> Akhtar Rizvi, Advocate Supreme Court, is referenced only where senior or appellate involvement is genuinely relevant. Fayyaz Khan, Advocate Supreme Court, may be relevant for higher or appellate matters in Lahore, Islamabad and Multan.</p>
-              <p>Verified portraits are displayed only where an authorised site asset clearly identifies the correct lawyer. Otherwise, the profile remains text-only.</p>
+
             </section>}
 
             {isServicePage && !isRoutineMatrimonial && !isFamilyLaw && <section style={{margin:'28px 0',padding:'24px 26px',background:'#f7f3eb',borderLeft:'3px solid #c49a5a'}}>
               <h2>Legal Team And Senior Supervision</h2>
               <h3>Case Assignment Based On Practice Area And Forum</h3>
               <p><strong>Mohsin Ali Shah</strong> provides senior advisory and team-management oversight, especially for corporate and taxation matters. Senior or appellate counsel is added only where the case forum and complexity justify that level of involvement.</p>
-              <p>Where a verified portrait is not available in the authorised site assets, the lawyer profile remains text-only rather than using a guessed or mismatched image.</p>
+
             </section>}
 
-            {isServicePage && isRoutineMatrimonial && <section style={{margin:'28px 0',padding:'24px 26px',background:'#eef4f1',borderLeft:'3px solid #173b35'}}><h2>Marriage Service Legal Team</h2><h3>Local Lawyer Assignment Without Guessed Portraits</h3><p>Right Law Associates assigns marriage-service work through the relevant local team. Karachi assignments include Shankar Lal Kataria, Mohsin Ali Mirani, Zaheer Ashraf Qazi and Sobia Mohsin; Islamabad and Rawalpindi matters are assigned through Kashif Mumtaz, Advocate High Court; Lahore matters are assigned through Junaid Kahloon. Lawyer portraits are displayed only when a genuine identified image is available in the approved site assets.</p></section>}
+            {isServicePage && isRoutineMatrimonial && <section style={{margin:'28px 0',padding:'24px 26px',background:'#eef4f1',borderLeft:'3px solid #173b35'}}><h2>Marriage Service Legal Team</h2><h3>Local Lawyer Assignment</h3><p>Right Law Associates assigns marriage-service work through the relevant local team. Karachi assignments include Shankar Lal Kataria, Mohsin Ali Mirani, Zaheer Ashraf Qazi and Sobia Mohsin; Islamabad and Rawalpindi matters are assigned through Kashif Mumtaz, Advocate High Court; Lahore matters are assigned through Junaid Kahloon.</p></section>}
 
             {(dissolution?.sections || mainServiceSections[slug] || []).map(([title, subtitle, copy]) => <section key={title}><h2>{title}</h2><h3>{subtitle}</h3><p>{copy}</p></section>)}
 
@@ -283,7 +285,7 @@ export default function DnaRoutePage({ page, slug }) {
             <div style={{marginTop:40,padding:28,background:'#f7f3eb',borderLeft:'3px solid #c49a5a'}}><h2 style={{marginTop:0}}><b>Discuss {page.title} With A Lawyer</b></h2><p>Contact Right Law Associates with the city, a short summary of the matter and the key documents available.</p><Link href="/contact/" className="button button-dark">Contact Right Law Associates</Link></div>
           </article>
 
-          <aside style={{position:'sticky',top:170}}><Image src={page.image} title={`${page.title} — Consultation And Document Review`} alt={`${page.title} consultation and document review`} width={640} height={480} unoptimized style={{width:'100%',height:320,objectFit:'cover',display:'block'}} /><div style={{background:'#f7f3eb',padding:24,marginTop:18}}><p className="eyebrow">On This Page</p>{page.topics.map((topic)=><p key={topic} style={{borderBottom:'1px solid #dce5e1',paddingBottom:10,margin:'10px 0',fontSize:14}}>{topic}</p>)}</div></aside>
+          <aside style={{position:'sticky',top:170}}>{!isSuccession && <Image src={page.image} title={`${page.title} — Consultation And Document Review`} alt={`${page.title} consultation and document review`} width={640} height={480} unoptimized style={{width:'100%',height:320,objectFit:'cover',display:'block'}} />}<div style={{background:'#f7f3eb',padding:24,marginTop:18}}><p className="eyebrow">On This Page</p>{page.topics.map((topic)=><p key={topic} style={{borderBottom:'1px solid #dce5e1',paddingBottom:10,margin:'10px 0',fontSize:14}}>{topic}</p>)}</div></aside>
         </div>
       </section>
     </main>

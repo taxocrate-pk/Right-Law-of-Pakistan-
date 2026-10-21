@@ -1,0 +1,14 @@
+{
+  "asset": "public/images/nadra-succession-estate-records-pakistan.webp",
+  "width": 1200,
+  "height": 675,
+  "bytes": 100760,
+  "sha256": "7efcb461c0d2cf1249c026086dfb010114f5b3ce2b4c15dcf3985dde2c071442",
+  "title": "Succession Certificate and Letter of Administration \u2014 Estate Document Review",
+  "alt": "Estate record folders, a model house and financial papers for succession certificate and letter of administration guidance in Pakistan",
+  "description": "NADRA succession certificate and letter of administration document preparation for movable assets and immovable property in Pakistan.",
+  "visibleCaption": false,
+  "generation": "Built-in imagegen, exclusive to this route, 22 October 2026 Asia/Karachi.",
+  "prompt": "Estate record folders, model house for immovable assets, blank financial papers for movable assets, pen and brass scales; warm greige, emerald and ivory; no people, words, government logos, seals or actual identity records.",
+  "sourcePng": "exec-404ae6d1-78af-4391-a60c-fc848f9b8c2d.png"
+}

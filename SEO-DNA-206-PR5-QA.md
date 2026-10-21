@@ -1,5 +1,7 @@
 # RightLaw.pk PR #5 — Draft QA and Release Hold
 
+**Current owner visual review:** [site-wide unified theme, NADRA image replacement and 225 rendered checks](qa/pr5/evidence/THEME-REVIEW-20261022.md). This follow-up supersedes earlier references below to preserving the NADRA image, visible captions, or two-page-only styling. Prior Lighthouse records remain historical for commit `334671f`.
+
 Updated **22 October 2026, Asia/Karachi**. **DRAFT ONLY — NO MERGE OR PRODUCTION APPROVAL.**
 
 Repository: `taxocrate-pk/Right-Law-of-Pakistan-`
