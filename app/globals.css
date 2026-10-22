@@ -479,3 +479,7 @@ footer { background: #fff; color: var(--muted); padding: 55px 0 0; border-top: 1
 .rightlaw-unified-theme main figcaption, .rightlaw-unified-theme main .hero-caption { display:none; }
 .rightlaw-unified-theme .family-article .trademark-sidebar h2 { font-size:23px !important; }
 @media(max-width:800px) { .rightlaw-unified-theme .route-article p, .rightlaw-unified-theme .family-article-inner > p, .rightlaw-unified-theme .trademark-content-grid > div p { font-size:15px !important; line-height:1.72 !important; } }
+
+/* A profile without an approved portrait must use the full card width. */
+.family-law-page .senior-counsel-card-text-only { grid-template-columns: minmax(0, 1fr); }
+.family-law-page .senior-counsel-card > div { min-width: 0; }

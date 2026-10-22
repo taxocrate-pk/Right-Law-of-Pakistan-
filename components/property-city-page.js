@@ -27,7 +27,7 @@ export default function PropertyCityPage({ page }) {
         <Image className="property-content-image" src="/images/legal-consultation.png" width={1000} height={600} sizes="(max-width: 800px) 100vw, 940px" priority alt={`${page.serviceName} reviewing property documents in ${page.city}`} />
         <h2>{page.serviceName} for Property Disputes and Transactions</h2>
         <h3>{page.profile.name} — {page.profile.role}</h3>
-        <div className="senior-counsel-card">
+        <div className={`senior-counsel-card${page.profile.image ? "" : " senior-counsel-card-text-only"}`}>
           {page.profile.image && <Image unoptimized width={92} height={108} className="senior-counsel-photo" src={page.profile.image} alt={`${page.profile.name}, ${page.profile.role}`} />}
           <div><p>{page.profile.text}</p><p className="senior-counsel-note">The appropriate lawyer and forum depend on the title record, property location, relief required and stage of proceedings.</p></div>
         </div>
