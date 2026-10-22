@@ -457,3 +457,7 @@ footer { background: #fff; color: var(--muted); padding: 55px 0 0; border-top: 1
 .home-page .hero-bottom-inner a { color:inherit; text-decoration:none; display:inline-flex; align-items:center; justify-content:center; min-height:38px; transition:color .2s ease; }
 .home-page .hero-bottom-inner a:hover,.home-page .hero-bottom-inner a:focus-visible { color:#f2c778; }
 .home-page .hero-bottom-inner a:focus-visible { outline:2px solid #f2c778; outline-offset:3px; }
+
+/* A profile without an approved portrait must use the full card width. */
+.family-law-page .senior-counsel-card-text-only { grid-template-columns: minmax(0, 1fr); }
+.family-law-page .senior-counsel-card > div { min-width: 0; }
