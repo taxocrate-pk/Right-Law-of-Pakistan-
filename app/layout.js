@@ -21,5 +21,5 @@ export const metadata = {
 export const viewport = { colorScheme: 'light', themeColor: '#f7f7f5', width: 'device-width', initialScale: 1 }
 
 export default function RootLayout({ children }) {
-  return <html lang="en-GB"><body><RightLawHeader />{children}{process.env.NODE_ENV === 'production' && <Analytics />}</body></html>
+  return <html lang="en-GB"><body className="rightlaw-unified-theme"><RightLawHeader />{children}{process.env.NODE_ENV === 'production' && <Analytics />}</body></html>
 }

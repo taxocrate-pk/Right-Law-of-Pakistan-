@@ -1,0 +1,114 @@
+[
+  {
+    "width": 1365,
+    "label": "Family Law",
+    "hoverOpen": true,
+    "insideStaysOpen": true,
+    "mouseLeaveCloses": true
+  },
+  {
+    "width": 1365,
+    "label": "Civil Certificates",
+    "hoverOpen": true,
+    "insideStaysOpen": true,
+    "mouseLeaveCloses": true
+  },
+  {
+    "width": 1365,
+    "label": "Civil Lawyers",
+    "hoverOpen": true,
+    "insideStaysOpen": true,
+    "mouseLeaveCloses": true
+  },
+  {
+    "width": 1365,
+    "label": "Property Law",
+    "hoverOpen": true,
+    "insideStaysOpen": true,
+    "mouseLeaveCloses": true
+  },
+  {
+    "width": 1365,
+    "label": "Intellectual Property",
+    "hoverOpen": true,
+    "insideStaysOpen": true,
+    "mouseLeaveCloses": true
+  },
+  {
+    "width": 1365,
+    "label": "Business Lawyers",
+    "hoverOpen": true,
+    "insideStaysOpen": true,
+    "mouseLeaveCloses": true
+  },
+  {
+    "width": 1365,
+    "clickedTriggerLeaveCloses": true
+  },
+  {
+    "width": 1365,
+    "keyboardFocusOpens": true,
+    "escapeCloses": true
+  },
+  {
+    "width": 1024,
+    "label": "Family Law",
+    "hoverOpen": true,
+    "insideStaysOpen": true,
+    "mouseLeaveCloses": true
+  },
+  {
+    "width": 1024,
+    "label": "Civil Certificates",
+    "hoverOpen": true,
+    "insideStaysOpen": true,
+    "mouseLeaveCloses": true
+  },
+  {
+    "width": 1024,
+    "label": "Civil Lawyers",
+    "hoverOpen": true,
+    "insideStaysOpen": true,
+    "mouseLeaveCloses": true
+  },
+  {
+    "width": 1024,
+    "label": "Property Law",
+    "hoverOpen": true,
+    "insideStaysOpen": true,
+    "mouseLeaveCloses": true
+  },
+  {
+    "width": 1024,
+    "label": "Intellectual Property",
+    "hoverOpen": true,
+    "insideStaysOpen": true,
+    "mouseLeaveCloses": true
+  },
+  {
+    "width": 1024,
+    "label": "Business Lawyers",
+    "hoverOpen": true,
+    "insideStaysOpen": true,
+    "mouseLeaveCloses": true
+  },
+  {
+    "width": 1024,
+    "clickedTriggerLeaveCloses": true
+  },
+  {
+    "width": 1024,
+    "keyboardFocusOpens": true,
+    "escapeCloses": true
+  },
+  {
+    "width": 390,
+    "mobileTapOpenAndLinkClose": true,
+    "overflow": false
+  },
+  {
+    "width": 360,
+    "mobileTapOpenAndLinkClose": true,
+    "overflow": false
+  }
+]
