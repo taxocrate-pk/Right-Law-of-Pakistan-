@@ -61,6 +61,7 @@ const navItems = [
       ['Marriage Registration In Karachi', '/marriage-registration-nadra-marriage-certificate-karachi/'],
       ['Computerized Death Certificate Guide', '/nadra-computerized-death-certificate-online-verification-check/'],
       ['B-Form NADRA — Information Guide', '/b-form-nadra-importance-of-b-form-in-pakistan/'],
+      ['Residence Verification Certificate (Free PDF)', '/union-council-residence-verification-certificate/'],
     ]}],
   },
   {
