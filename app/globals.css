@@ -1,6 +1,7 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
 @import 'shadcn/tailwind.css';
+@import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;600;700&display=swap');
 
 :root { --navy: #173b35; --navy-2: #28594f; --ink: #18332f; --gold: #c49a5a; --cream: #f7f3eb; --line: #dce5e1; --muted: #687874; --white: #fff; }
 * { box-sizing: border-box; }
