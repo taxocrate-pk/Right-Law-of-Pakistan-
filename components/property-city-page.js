@@ -24,7 +24,7 @@ export default function PropertyCityPage({ page }) {
         <div className="hero-actions"><Link href="/contact/" className="button button-gold">Consult A Property Lawyer</Link><a href={`tel:${page.phone || firm.phone}`} className="button button-outline-light">Call {page.phone || firm.phone}</a><a href={`https://wa.me/${(page.phone || firm.phone).replace(/\D/g,'')}`} className="text-link light-link">WhatsApp</a></div>
       </div></section>
       <article className="section family-article"><div className="container family-article-inner">
-        <Image className="property-content-image" src="/images/legal-consultation.png" width={1000} height={600} sizes="(max-width: 800px) 100vw, 940px" priority alt={`${page.serviceName} reviewing property documents in ${page.city}`} />
+        <Image className="property-content-image" src={`/images/${page.slug}.webp`} width={1600} height={700} sizes="(max-width: 800px) 100vw, 940px" priority alt={`${page.serviceName} title graphic with a stylised plot map`} style={{ width: '100%', height: 'auto' }} />
         <h2>{page.serviceName} for Property Disputes and Transactions</h2>
         <h3>{page.profile.name} — {page.profile.role}</h3>
         <div className={`senior-counsel-card${page.profile.image ? "" : " senior-counsel-card-text-only"}`}>
