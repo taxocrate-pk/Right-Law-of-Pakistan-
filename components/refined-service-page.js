@@ -21,8 +21,10 @@ function Comparison({ table }) {
 export default function RefinedServicePage({ page }) {
   const url = `https://rightlaw.pk/${page.slug}`
   const offices = page.offices.map(key=>serviceOffices[key])
-  const lawyers = page.lawyers ? [...page.lawyers] : [...counsel]
-  if (page.sobia && !page.lawyers) lawyers.push({name:'Sobia Mohsin',designation:'Advocate And Director Legal',image:'https://lawzana.com/storage/branches/9201/associates/26903/16746838381248.jpg',copy:'Family and corporate taxation lawyer associated with Right Law Associates. Consultation and local representation arrangements are confirmed individually.',href:'https://lawzana.com/lawyer/right-law-associates/karachi/sobia-mohsin-26903',label:'Professional Profile'})
+  const karachiPage = page.offices.some(k=>k==='dha'||k==='jauhar')
+  // S. M. Akhtar Rizvi and Sobia Mohsin practise in Karachi only (owner instruction, 29 Oct 2026)
+  const lawyers = page.lawyers ? [...page.lawyers] : counsel.filter(l=>karachiPage||l.name!=='S. M. Akhtar Rizvi')
+  if (page.sobia && !page.lawyers && karachiPage) lawyers.push({name:'Sobia Mohsin',designation:'Advocate And Director Legal',image:'https://lawzana.com/storage/branches/9201/associates/26903/16746838381248.jpg',copy:'Family and corporate taxation lawyer associated with Right Law Associates. Consultation and local representation arrangements are confirmed individually.',href:'https://lawzana.com/lawyer/right-law-associates/karachi/sobia-mohsin-26903',label:'Professional Profile'})
   const schema = {'@context':'https://schema.org','@graph':[
     {'@type':'Organization','@id':'https://rightlaw.pk/#organization',name:firm.legalName,url:'https://rightlaw.pk/',telephone:firm.phone},
     ...(page.informative ? [{'@type':'Article','@id':`${url}#article`,headline:page.title,url,description:page.description,publisher:{'@id':'https://rightlaw.pk/#organization'},image:`https://rightlaw.pk${page.image}`}]:[{'@type':'LegalService','@id':`${url}#service`,name:page.title,url,serviceType:page.offer,areaServed:page.cities,provider:{'@id':'https://rightlaw.pk/#organization'}}]),

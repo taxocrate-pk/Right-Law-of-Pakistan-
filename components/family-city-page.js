@@ -2,7 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Footer } from './legal-site'
 import { firm } from '../lib/legal-data'
-import { familyCityKeys, familyCityPages, reviewedBy, lastUpdated } from '../lib/family-city-data'
+import { familyCityKeys, familyCityPages, reviewers, lastUpdated } from '../lib/family-city-data'
 
 const digits = (phone) => phone.replace(/\D/g, '')
 
@@ -71,14 +71,14 @@ export default function FamilyCityPage({ pageKey }) {
           {page.links.map(([label, href]) => <li key={href}><Link href={href}>{label}</Link></li>)}
           {others.map(([label, href]) => <li key={href}><Link href={href}>{label}</Link></li>)}
         </ul>
-        <h2>Frequently Asked Questions: Family Lawyers in {page.city}</h2>
+        <h2>Family Lawyers in {page.city}: Frequently Asked Questions</h2>
         <div className="faq-list">{page.faqs.map(([q, a]) => <section className="faq-item active" key={q}><h3>{q}</h3><p>{a}</p></section>)}</div>
-        <h2>Book a Family Law Consultation in {page.city}</h2>
+        <h2>Family Lawyers in {page.city}: Book a Consultation</h2>
         <p>Send a short chronology, the Nikah Nama and any notices or court orders. We will tell you which court has jurisdiction, what to claim and what evidence to collect before anything is filed.</p>
         <div className="hero-actions"><Link href="/contact/" className="button button-gold">Contact Right Law Associates</Link>{page.offices.map((o) => <a key={o.name} href={`tel:+${digits(o.phone)}`} className="button button-dark">Call {o.phone}</a>)}</div>
         <section style={{ marginTop: 36 }}><h2>Sources</h2><ul>{page.sources.map(([label, href]) => <li key={href}><a href={href} target="_blank" rel="noopener noreferrer">{label}</a></li>)}</ul></section>
         <section style={{ marginTop: 24, padding: 20, background: '#eef4f1', fontSize: 14, lineHeight: 1.7 }}>
-          <p style={{ margin: 0 }}><strong>Reviewed by:</strong> {reviewedBy}</p>
+          <p style={{ margin: 0 }}><strong>Reviewed by:</strong> {reviewers[pageKey]}</p>
           <p style={{ margin: 0 }}><strong>Published by:</strong> Right Law Associates, RightLaw.pk</p>
           <p style={{ margin: 0 }}><strong>Last updated:</strong> {lastUpdated}</p>
           <p style={{ margin: '8px 0 0' }}>General legal information. Advice depends on the documents and facts of your case.</p>
