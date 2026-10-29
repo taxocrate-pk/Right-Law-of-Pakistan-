@@ -5,7 +5,7 @@ import KarachiShortCta from './karachi-short-cta'
 import { firm } from '../lib/legal-data'
 import { deathCertificatePage as page } from '../lib/death-certificate-page'
 
-const url = `https://rightlaw.pk/${page.slug}`
+const url = `https://rightlaw.pk/${page.slug}/`
 const lawyers = [
   { name: 'S. M. Akhtar Rizvi', designation: 'Advocate Supreme Court', image: '/images/syed-akhtar-rizvi.webp', copy: 'Senior Supreme Court advocate associated with our legal team. His senior litigation guidance is relevant where disputed civil records or connected inheritance proceedings require experienced counsel.', href: 'https://scbap.com/wp-content/uploads/2025/11/Directory-2025-26.pdf', label: 'SCBAP Directory (PDF)' },
   { name: 'Syed Mohsin Ali Shah', designation: 'Advocate High Court', image: 'https://www.advocates.com.pk/Mohsin-Ali-Shah.png', copy: 'Legal practice since 1985, with more than four decades of experience. Advises on civil documentation, succession, inheritance and the legal consequences of inconsistent family records.', href: 'https://lawzana.com/lawyer/right-law-associates/karachi/m-mohsin-ali-shah-26902', label: 'Professional Profile' },

@@ -118,6 +118,8 @@ function buildFaqs(page) {
 }
 
 export default function DnaRoutePage({ page, slug }) {
+  // Each guide page has its own banner (SEO DNA 2.07C rule C4); no image is shared between pages
+  const guideImage = `/images/guides/${slug}.webp`
   page = { ...page, title: page.title.replace(/\b[a-z]/g, letter => letter.toUpperCase()) }
   const dissolution = slug === 'dissolution-of-marriage-in-pakistan' ? dissolutionPage : null
   const isServicePage = page.category !== 'Firm'
@@ -143,7 +145,7 @@ export default function DnaRoutePage({ page, slug }) {
             {'@type':'LocalBusiness','@id':'https://rightlaw.pk/#localbusiness',name:firm.name,url:'https://rightlaw.pk/',telephone:firm.phone,areaServed:['Karachi','Islamabad','Rawalpindi','Lahore','Pakistan']}
           ]
         : [{'@type':'WebPage','@id':`https://rightlaw.pk/${slug}/#webpage`,name:page.title,url:`https://rightlaw.pk/${slug}/`,description:page.description,isPartOf:{'@id':'https://rightlaw.pk/#organization'}}]),
-      {'@type':'ImageObject','@id':`https://rightlaw.pk/${slug}/#primaryimage`,contentUrl:`https://rightlaw.pk${dissolution ? '/images/dissolution-of-marriage-services.svg' : page.image}`,name:`${page.title} — Right Law Associates`,caption:`${page.title} Legal Guidance And Document Review`,representativeOfPage:true},
+      {'@type':'ImageObject','@id':`https://rightlaw.pk/${slug}/#primaryimage`,contentUrl:`https://rightlaw.pk${dissolution ? '/images/dissolution-of-marriage-services.svg' : guideImage}`,name:`${page.title} — Right Law Associates`,caption:`${page.title} Legal Guidance And Document Review`,representativeOfPage:true},
       {'@type':'FAQPage',mainEntity:faqs.map(([question,answer])=>({'@type':'Question',name:question,acceptedAnswer:{'@type':'Answer',text:answer}}))},
       {'@type':'BreadcrumbList',itemListElement:[{'@type':'ListItem',position:1,name:'Home',item:'https://rightlaw.pk/'},{'@type':'ListItem',position:2,name:page.title,item:`https://rightlaw.pk/${slug}/`}]},
     ],
@@ -188,7 +190,7 @@ export default function DnaRoutePage({ page, slug }) {
 
       <KarachiShortCta />
 
-      <section style={{background:'#fff'}}><div className="container" style={{paddingTop:26}}><figure style={{margin:0}}><Image src={dissolution ? '/images/dissolution-of-marriage-services.svg' : page.image} title={`${page.title} — Right Law Associates`} alt={dissolution ? 'Right Law Associates dissolution of marriage consultation and case preparation illustration' : `${page.title} legal services and document review by Right Law Associates`} width={1600} height={900} priority unoptimized style={{width:'100%',height:'auto',maxHeight:520,objectFit:'cover',display:'block',borderRadius:4}} /><figcaption style={{fontSize:14,lineHeight:1.6,color:'#455d55',paddingTop:10}}>{page.title} — Legal Guidance And Document Review</figcaption></figure></div></section>
+      <section style={{background:'#fff'}}><div className="container" style={{paddingTop:26}}><figure style={{margin:0}}><Image src={dissolution ? '/images/dissolution-of-marriage-services.svg' : guideImage} title={`${page.title} — Right Law Associates`} alt={dissolution ? 'Right Law Associates dissolution of marriage consultation and case preparation illustration' : `${page.title} legal services and document review by Right Law Associates`} width={1200} height={520} priority unoptimized style={{width:'100%',height:'auto',maxHeight:520,objectFit:'cover',display:'block',borderRadius:4}} /><figcaption style={{fontSize:14,lineHeight:1.6,color:'#455d55',paddingTop:10}}>{page.title} — Legal Guidance And Document Review</figcaption></figure></div></section>
 
       {dissolution && <section style={{background:'#fff'}}><div className="container" style={{paddingTop:26}}>
         <h2>Karachi Consultation For Dissolution Of Marriage</h2>
@@ -279,7 +281,7 @@ export default function DnaRoutePage({ page, slug }) {
             <div style={{marginTop:40,padding:28,background:'#f7f3eb',borderLeft:'3px solid #c49a5a'}}><h2 style={{marginTop:0}}><b>Discuss {page.title} With A Lawyer</b></h2><p>Contact Right Law Associates with the city, a short summary of the matter and the key documents available.</p><Link href="/contact/" className="button button-dark">Contact Right Law Associates</Link></div>
           </article>
 
-          <aside style={{position:'sticky',top:170}}><Image src={page.image} title={`${page.title} — Consultation And Document Review`} alt={`${page.title} consultation and document review`} width={640} height={480} unoptimized style={{width:'100%',height:320,objectFit:'cover',display:'block'}} /><div style={{background:'#f7f3eb',padding:24,marginTop:18}}><p className="eyebrow">On This Page</p>{page.topics.map((topic)=><p key={topic} style={{borderBottom:'1px solid #dce5e1',paddingBottom:10,margin:'10px 0',fontSize:14}}>{topic}</p>)}</div></aside>
+          <aside style={{position:'sticky',top:170}}><div style={{background:'#f7f3eb',padding:24,borderTop:'4px solid #c49a5a'}}><p style={{fontSize:20,fontWeight:700,color:'#173b35',margin:'0 0 4px'}}>Topics Covered</p><p style={{fontSize:14,fontStyle:'italic',color:'#5b6f68',margin:'0 0 12px'}}>What this guide explains</p><ul style={{listStyle:'none',margin:0,padding:0}}>{page.topics.map((topic)=><li key={topic} style={{display:'flex',gap:10,borderBottom:'1px solid #e6dfd2',padding:'7px 0',fontSize:15,color:'#263f39'}}><span aria-hidden="true" style={{color:'#b18342',fontWeight:700}}>✓</span><span>{topic}</span></li>)}</ul></div></aside>
         </div>
       </section>
     </main>
