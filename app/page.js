@@ -1,12 +1,12 @@
 import LegalSite from '../components/legal-site'
 
 export const metadata = {
-  title: 'Family, Property, Tax & Corporate Lawyers in Pakistan | RightLaw.pk',
-  description: 'Right Law Associates provides family, property, tax, corporate and civil legal services in Karachi, Lahore, Islamabad and Rawalpindi, Pakistan.',
+  title: 'Family Lawyers in Pakistan | Property, Corporate & Tax Lawyers',
+  description: 'Family lawyers in Pakistan for divorce, Khula and custody, and property lawyers in Pakistan for title and inheritance disputes. Corporate and tax lawyers too.',
   alternates: { canonical: 'https://rightlaw.pk/' },
   openGraph: {
-    title: 'Family, Property, Tax & Corporate Lawyers in Pakistan | RightLaw.pk',
-    description: 'Experienced lawyers for family, property, tax, corporate and civil matters across Pakistan, with offices in Karachi, Lahore, Islamabad and Rawalpindi.',
+    title: 'Family Lawyers in Pakistan | Property, Corporate & Tax Lawyers',
+    description: 'Family lawyers in Pakistan for divorce, Khula and custody, and property lawyers in Pakistan for title and inheritance disputes. Corporate and tax lawyers too.',
     url: 'https://rightlaw.pk/',
     siteName: 'Right Law Associates',
     type: 'website',
