@@ -60,23 +60,25 @@ const categories = [
 ]
 
 const featured = [
-  ["Court Marriage In Islamabad And Rawalpindi", "/court-marriage-in-islamabad-and-rawalpindi", "Family Law"],
-  ["Court Marriage Services In Lahore", "/court-marriage-in-lahore-legal-union", "Family Law"],
-  ["NADRA B-Form Guide For Karachi, Islamabad And Lahore", "/b-form-nadra-importance-of-b-form-in-pakistan", "Civil Certificates"],
-  ["Family Lawyers In Lahore For Divorce, Khula And Family Cases", "/family-law-in-lahore-divorce-khula-court-marriage-online-nikah", "Family Law"],
-  ["NADRA Marriage Certificate Assistance In Karachi", "/marriage-registration-nadra-marriage-certificate-karachi", "Civil Certificates"],
+  ["Court Marriage In Islamabad And Rawalpindi", "/court-marriage-in-islamabad-and-rawalpindi/", "Family Law"],
+  ["Court Marriage Services In Lahore", "/court-marriage-in-lahore-legal-union/", "Family Law"],
+  ["NADRA B-Form Guide For Karachi, Islamabad And Lahore", "/b-form-nadra-importance-of-b-form-in-pakistan/", "Civil Certificates"],
+  ["Family Lawyers In Lahore For Divorce, Khula And Family Cases", "/family-law-in-lahore-divorce-khula-court-marriage-online-nikah/", "Family Law"],
+  ["NADRA Marriage Certificate Assistance In Karachi", "/marriage-registration-nadra-marriage-certificate-karachi/", "Civil Certificates"],
 
-  ['Misyar Marriage And Family Rights Review', '/misyar-marriage-nikah-misyar-marriages', 'Marriage Law'],
-  ['Mehar / Mahr And Dower Legal Advice', '/mehar-mahr-in-islam', 'Family Law'],
-  ['Family Lawyer Sobia Mohsin In Karachi', '/best-family-and-divorce-lawyer-and-lady-advocate-in-karachi-sobia-mohsin-shah-legal-expertise-in-family-law', 'Family Law'],
-  ['Nikah Khawan And Registrar In Karachi', '/nikah-khawan-qazi-and-nikah-registrar-in-karachi-pakistan', 'Marriage Law'],
-  ['NADRA Death Certificate And Verification', '/nadra-computerized-death-certificate-online-verification-check', 'Civil Certificates'],
+  ['Misyar Marriage And Family Rights Review', '/misyar-marriage-nikah-misyar-marriages/', 'Marriage Law'],
+  ['Mehar / Mahr And Dower Legal Advice', '/mehar-mahr-in-islam/', 'Family Law'],
+  ['Family Lawyer Sobia Mohsin In Karachi', '/best-family-and-divorce-lawyer-and-lady-advocate-in-karachi-sobia-mohsin-shah-legal-expertise-in-family-law/', 'Family Law'],
+  ['Nikah Khawan And Registrar In Karachi', '/nikah-khawan-qazi-and-nikah-registrar-in-karachi-pakistan/', 'Marriage Law'],
+  ['NADRA Death Certificate And Verification', '/nadra-computerized-death-certificate-online-verification-check/', 'Civil Certificates'],
   ['Dissolution of Marriage in Pakistan', '/dissolution-of-marriage-in-pakistan/', 'Family Law'],
   ['Family Law in Pakistan', '/family-law-in-pakistan/', 'Family Law'],
   ['Child Custody in Pakistan', '/child-custody/', 'Family Law'],
   ['Property Law in Pakistan', '/property-law-in-pakistan/', 'Property Law'],
   ['Succession Certificate in Pakistan', '/succession-certificate-in-pakistan-for-legal-heirs/', 'Succession'],
   ['Court Marriage in Pakistan', '/court-marriage-in-pakistan-legal-framework/', 'Marriage Law'],
+  ['Maintenance in Pakistan', '/maintenance-in-pakistan/', 'Family Law'],
+  ['Rental and Tenancy Law of Pakistan', '/rental-and-tenancy-law-of-pakistan/', 'Property Law'],
 ]
 
 export default function BlogPage() {
