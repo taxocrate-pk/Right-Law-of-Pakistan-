@@ -20,7 +20,7 @@
   "caption": "Lahore Family Lawyers: Case Documents, Court Advice And Representation",
   "alt": "Private legal meeting room with a family case folder and three chairs illustrating family lawyers consultation in Lahore",
   "imageDescription": "Illustrative family lawyers consultation room for Lahore family-law information, showing blank case documents and private seating rather than an actual photographed office.",
-  "sobia": true,
+  "sobia": false,
   "checklist": [
     "Nikah Nama And Identity Records",
     "Short Family And Case Chronology",
@@ -317,24 +317,8 @@
       "copy": "Handles Lahore family-court work from the Chauburji office, including Khula and dissolution suits, custody and guardianship applications, and maintenance, dower and dowry claims.",
       "href": "/contact/",
       "label": "Contact the Lahore Office"
-    },
-    {
-      "name": "Sobia Mohsin",
-      "designation": "Advocate and Director Legal, Head of Family Practice",
-      "image": "https://lawzana.com/storage/branches/9201/associates/26903/16746838381248.jpg",
-      "copy": "Leads the family-law practice of Right Law Associates and reviews instructions before the handling advocate is assigned.",
-      "href": "https://lawzana.com/lawyer/right-law-associates/karachi/sobia-mohsin-26903",
-      "label": "Professional Profile"
-    },
-    {
-      "name": "S. M. Akhtar Rizvi",
-      "designation": "Advocate Supreme Court",
-      "image": "/images/syed-akhtar-rizvi.webp",
-      "copy": "Senior counsel for appeals, revisions and constitutional petitions arising from family-court decisions, where the record shows such a remedy is maintainable.",
-      "href": "https://scbap.com/wp-content/uploads/2025/11/Directory-2025-26.pdf",
-      "label": "SCBAP Directory (PDF)"
     }
   ],
-  "reviewedBy": "Sobia Mohsin, Advocate and Director Legal, Right Law Associates",
+  "reviewedBy": "Muhammad Junaid Kahloon, Senior Advocate, Lahore",
   "lastUpdated": "29 October 2026"
 }
