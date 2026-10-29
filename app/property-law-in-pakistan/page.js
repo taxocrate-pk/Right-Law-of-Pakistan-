@@ -69,7 +69,7 @@ export default function PropertyLawPage() {
         <h2>Property Law Advice From Experienced Counsel</h2>
         <h3>Syed M. Akhtar Rizvi — Advocate Supreme Court Of Pakistan</h3>
         <div className="senior-counsel-card"><Image unoptimized width={92} height={108} className="senior-counsel-photo" src="/images/syed-akhtar-rizvi.webp" alt="Syed M. Akhtar Rizvi, Advocate Supreme Court of Pakistan" /><div><p>Senior trial and appellate counsel with more than four decades of legal practice, including complex property litigation, High Court appeals and Supreme Court proceedings where maintainable.</p><p className="senior-counsel-note">Property matters are assessed with the relevant Right Law Associates practice team. The required forum and counsel depend on the individual case.</p></div></div>
-        <Image className="property-content-image" src="/images/legal-consultation.png" width={1000} height={600} sizes="(max-width: 800px) 100vw, 940px" priority alt="Property document consultation at Right Law Associates" />
+        <Image className="property-content-image" src="/images/guides/property-law-in-pakistan.webp" width={1200} height={520} sizes="(max-width: 800px) 100vw, 940px" priority alt="Property document consultation at Right Law Associates" />
         {sections.map(([title, subtitle, copy]) => <section key={title}><h2>{title}</h2><h3>{subtitle}</h3><p>{copy}</p></section>)}
         <h2>Property Documents And The Questions They Answer</h2>
         <div className="property-table-wrap"><table><thead><tr><th>Record</th><th>Review Purpose</th><th>Further Check</th></tr></thead><tbody>

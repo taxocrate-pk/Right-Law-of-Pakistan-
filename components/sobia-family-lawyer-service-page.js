@@ -5,7 +5,7 @@ import KarachiShortCta from './karachi-short-cta'
 import { firm } from '../lib/legal-data'
 import { sobiaFamilyLawyerPage as page } from '../lib/sobia-family-lawyer-page'
 
-const url = `https://rightlaw.pk/${page.slug}`
+const url = `https://rightlaw.pk/${page.slug}/`
 const lawyers = [
   { name: 'Sobia Mohsin', designation: 'Advocate And Director Legal', image: 'https://lawzana.com/storage/branches/9201/associates/26903/16746838381248.jpg', copy: 'Family lawyer in Karachi handling consultations concerning divorce, khula, child custody and matrimonial documentation. Also works in corporate taxation. Clients can request a consultation with Sobia Mohsin through the office.', href: 'https://lawzana.com/lawyer/right-law-associates/karachi/sobia-mohsin-26903', label: 'Professional Profile' },
   { name: 'S. M. Akhtar Rizvi', designation: 'Advocate Supreme Court', image: '/images/syed-akhtar-rizvi.webp', copy: 'Senior Supreme Court advocate associated with our legal team. His litigation guidance is relevant to disputed marital status and connected family proceedings requiring experienced counsel.', href: 'https://scbap.com/wp-content/uploads/2025/11/Directory-2025-26.pdf', label: 'SCBAP Directory (PDF)' },

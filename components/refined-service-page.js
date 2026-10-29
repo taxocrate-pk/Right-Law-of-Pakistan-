@@ -21,7 +21,7 @@ function Comparison({ table }) {
   return <div role="region" aria-label={table.title} tabIndex={0} style={{overflowX:'auto',margin:'24px 0'}}><table style={{width:'100%',minWidth:520,borderCollapse:'collapse'}}><caption style={{textAlign:'left',fontWeight:700,paddingBottom:12}}>{titleCase(table.title)}</caption><thead><tr>{table.headings.map(h=><th key={h} scope="col" style={{textAlign:'left',border:'1px solid #d9e1de',padding:12}}>{titleCase(h)}</th>)}</tr></thead><tbody>{table.rows.map(row=><tr key={row[0]}>{row.map((c,i)=>i===0?<th key={i} scope="row" style={{textAlign:'left',border:'1px solid #d9e1de',padding:12}}>{c}</th>:<td key={i} style={{border:'1px solid #d9e1de',padding:12}}>{c}</td>)}</tr>)}</tbody></table></div>
 }
 export default function RefinedServicePage({ page }) {
-  const url = `https://rightlaw.pk/${page.slug}`
+  const url = `https://rightlaw.pk/${page.slug}/`
   const offices = page.offices.map(key=>serviceOffices[key])
   const karachiPage = page.offices.some(k=>k==='dha'||k==='jauhar')
   // S. M. Akhtar Rizvi and Sobia Mohsin practise in Karachi only (owner instruction, 29 Oct 2026)
