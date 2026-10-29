@@ -50,9 +50,12 @@ export default function FamilyCityPage({ pageKey }) {
         <h3>{page.offices.length > 1 ? `Two ${page.city} Offices` : located.length ? `Our ${page.city} Office` : `Appointments in ${page.city}`}</h3>
         {page.offices.map((o) => <p key={o.name}><strong>{o.name}:</strong> {o.address ? `${o.address}. ` : 'Appointments are arranged by phone; the meeting place is confirmed when you book. '}Call or WhatsApp <a href={`tel:+${digits(o.phone)}`}>{o.phone}</a>.</p>)}
         <h2>Lawyers Handling Family Cases in {page.city}</h2>
-        {page.lawyers.map((l) => <div key={l.name} className={`senior-counsel-card${l.image ? '' : ' senior-counsel-card-text-only'}`}>
-          {l.image && <Image unoptimized width={92} height={108} className="senior-counsel-photo" src={l.image} alt={`${l.name}, ${l.role}`} />}
+        {/* Lawyers with photos first, side by side; text-only profiles follow in their own row */}
+        {[page.lawyers.filter((l) => l.image), page.lawyers.filter((l) => !l.image)].filter((g) => g.length).map((group, gi) => <div key={gi} style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(340px, 100%), 1fr))', gap: 16, alignItems: 'stretch' }}>
+        {group.map((l) => <div key={l.name} className={`senior-counsel-card${l.image ? '' : ' senior-counsel-card-text-only'}`}>
+          {l.image && <Image unoptimized width={92} height={108} style={{ objectFit: 'cover' }} className="senior-counsel-photo" src={l.image} alt={`${l.name}, ${l.role}`} />}
           <div><h3>{l.name} — {l.role}</h3><p>{l.text}</p></div>
+        </div>)}
         </div>)}
         <p>Mohsin Ali Shah, Chairman, oversees the network and client dealing; his own legal practice dates from 1985. Courtroom representation in {page.city} is by the advocate named above for each matter.</p>
         {page.sections.map(([title, copy], i) => <section key={title} style={{ marginTop: 30 }}>
