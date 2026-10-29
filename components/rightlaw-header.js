@@ -13,7 +13,12 @@ const navItems = [
       { title: 'Family Law', links: [
         ['Child Custody & Guardianship', '/child-custody/'],
         ['Child Adoption', '/child-adoption-guardianship-in-pakistan/'],
+        ['Family Lawyers In Karachi', '/family-lawyers-in-karachi/'],
         ['Family Lawyers In Lahore', '/family-law-in-lahore-divorce-khula-court-marriage-online-nikah/'],
+        ['Family Lawyers In Islamabad', '/family-lawyers-in-islamabad/'],
+        ['Family Lawyers In Rawalpindi', '/family-lawyers-in-rawalpindi/'],
+        ['Family Lawyers In Faisalabad', '/family-lawyers-in-faisalabad/'],
+        ['Family Lawyers In Hyderabad', '/family-lawyers-in-hyderabad/'],
         ['Sobia Mohsin — Family Lawyer In Karachi', '/best-family-and-divorce-lawyer-and-lady-advocate-in-karachi-sobia-mohsin-shah-legal-expertise-in-family-law/'],
         ['Divorce Law', '/divorce-law/'],
         ['Talaq (Divorce) in Islam', '/divorce-talaq-in-islam-types-and-quranic-references/'],
