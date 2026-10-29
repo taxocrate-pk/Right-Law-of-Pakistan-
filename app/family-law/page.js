@@ -26,6 +26,7 @@ const services = [
   'Restitution of conjugal rights and related family litigation',
   'Nikah Nama, marriage registration and marital-status documentation',
   'Family law assistance for overseas Pakistanis',
+  'Inheritance and succession claims between family members',
 ]
 
 const faqs = [

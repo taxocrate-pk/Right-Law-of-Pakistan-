@@ -472,3 +472,8 @@ main h1 { font-size: var(--h1-size) !important; line-height: 1.15 !important; }
 main h2:not(aside *) { font-size: var(--h2-size) !important; line-height: 1.25 !important; }
 main h3:not(aside *) { font-size: var(--h3-size) !important; line-height: 1.35 !important; }
 main h4:not(aside *) { font-size: var(--h4-size) !important; line-height: 1.4 !important; }
+
+/* Four guide cards: 4 across, 2 x 2 on tablets, 1 per row on phones (never 3 + 1) */
+.guide-link-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 42px; }
+@media (max-width: 1100px) { .guide-link-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .guide-link-grid { grid-template-columns: 1fr; } }
