@@ -2,12 +2,12 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { ArrowUpRight, BriefcaseBusiness, Building2, ChevronDown, Gavel, HeartHandshake, Menu, MessageCircle, Phone, Scale, ShieldCheck, X } from 'lucide-react'
+import { ArrowUpRight, BriefcaseBusiness, Building2, ChevronDown, FileText, Gavel, HeartHandshake, Lightbulb, Menu, MessageCircle, Phone, Scale, ShieldAlert, ShieldCheck, Users, X } from 'lucide-react'
 import { articles, cities, faqs, firm, practiceAreas, practicePath, cityPath } from '../lib/legal-data'
 import { Logo as HeaderLogo } from './rightlaw-header'
 import KarachiShortCta from './karachi-short-cta'
 
-const icons = { family: HeartHandshake, scale: Scale, heart: HeartHandshake, building: Building2, briefcase: BriefcaseBusiness, gavel: Gavel }
+const icons = { family: HeartHandshake, scale: Scale, custody: Users, shield: ShieldAlert, idea: Lightbulb, file: FileText, building: Building2, briefcase: BriefcaseBusiness, gavel: Gavel }
 
 function Logo() {
   return <Link href="/" className="logo" aria-label="Right Law Associates home"><span className="logo-mark"><span>R</span></span><span><strong>RIGHT LAW</strong><small>ASSOCIATES</small></span></Link>
