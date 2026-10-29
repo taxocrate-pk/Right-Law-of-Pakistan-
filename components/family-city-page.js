@@ -71,9 +71,9 @@ export default function FamilyCityPage({ pageKey }) {
           {page.links.map(([label, href]) => <li key={href}><Link href={href}>{label}</Link></li>)}
           {others.map(([label, href]) => <li key={href}><Link href={href}>{label}</Link></li>)}
         </ul>
-        <h2>Frequently Asked Questions: Family Lawyers in {page.city}</h2>
+        <h2>Family Lawyers in {page.city}: Frequently Asked Questions</h2>
         <div className="faq-list">{page.faqs.map(([q, a]) => <section className="faq-item active" key={q}><h3>{q}</h3><p>{a}</p></section>)}</div>
-        <h2>Book a Family Law Consultation in {page.city}</h2>
+        <h2>Family Lawyers in {page.city}: Book a Consultation</h2>
         <p>Send a short chronology, the Nikah Nama and any notices or court orders. We will tell you which court has jurisdiction, what to claim and what evidence to collect before anything is filed.</p>
         <div className="hero-actions"><Link href="/contact/" className="button button-gold">Contact Right Law Associates</Link>{page.offices.map((o) => <a key={o.name} href={`tel:+${digits(o.phone)}`} className="button button-dark">Call {o.phone}</a>)}</div>
         <section style={{ marginTop: 36 }}><h2>Sources</h2><ul>{page.sources.map(([label, href]) => <li key={href}><a href={href} target="_blank" rel="noopener noreferrer">{label}</a></li>)}</ul></section>
