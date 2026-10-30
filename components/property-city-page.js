@@ -24,7 +24,7 @@ export default function PropertyCityPage({ page }) {
         <div className="hero-actions"><Link href="/contact/" className="button button-gold">Consult A Property Lawyer</Link><a href={`tel:${page.phone || firm.phone}`} className="button button-outline-light">Call {page.phone || firm.phone}</a><a href={`https://wa.me/${(page.phone || firm.phone).replace(/\D/g,'')}`} className="text-link light-link">WhatsApp</a></div>
       </div></section>
       <article className="section family-article"><div className="container family-article-inner">
-        <Image className="property-content-image" src={`/images/${page.slug}.webp`} width={1600} height={700} sizes="(max-width: 800px) 100vw, 940px" priority alt={`${page.serviceName} title graphic with a stylised plot map`} style={{ width: '100%', height: 'auto' }} />
+        <Image className="property-content-image" src={`/images/${page.slug}.webp`} width={1600} height={700} sizes="(max-width: 800px) 100vw, 940px" priority alt={page.bannerAlt || `${page.serviceName} title graphic`} style={{ width: '100%', height: 'auto' }} />
         <h2>{page.serviceName} for Property Disputes and Transactions</h2>
         {page.team ? <><h3>Karachi Property Lawyers on Our Team</h3><div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(300px, 100%), 1fr))', gap: 16, alignItems: 'stretch', marginBottom: 24 }}>{page.team.map((l) => <div key={l.name} className="senior-counsel-card"><Image unoptimized width={92} height={108} style={{ objectFit: 'cover' }} className="senior-counsel-photo" src={l.image} alt={`${l.name}, ${l.role}`} /><div><h3>{l.name} — {l.role}</h3><p>{l.text}</p></div></div>)}</div></> : <>
         <h3>{page.profile.name} — {page.profile.role}</h3>
