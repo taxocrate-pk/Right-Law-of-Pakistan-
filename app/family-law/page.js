@@ -137,7 +137,7 @@ export default function FamilyLawPage() {
               <h3>Relevant Family Lawyers for Karachi and Connected Proceedings</h3>
               <p><strong>Shankar Lal Kataria</strong> — Family Law Head, Karachi, for matrimonial and Family Court matters.</p>
               <p><strong>Mohsin Ali Mirani</strong> — Advocate handling connected civil and family litigation where the facts overlap.</p>
-              <p><strong>Zaheer Ashraf Qazi</strong> — Right Law team member for family-law coordination and client matters.</p>
+              <p><strong>Zaheer Ahmed Qazi</strong> — Right Law team member for family-law coordination and client matters.</p>
               <p><strong>Sobia Mohsin</strong> — Advocate for family and matrimonial matters, documentation and client advisory work.</p>
               <p className="senior-counsel-note">Verified portraits are not shown here unless an authorised repository source clearly identifies the correct lawyer. Senior or appellate counsel is assigned only where the nature and forum of the case require it.</p>
             </div>

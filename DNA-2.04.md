@@ -39,6 +39,6 @@ DNA 2.04 supersedes DNA 2.03. Carry forward all previously authorised DNA 2.03 r
 ## Lawyer Assignment For Matrimonial Service Pages
 
 - Routine Nikah, online marriage and matrimonial service pages must not use Mohsin Ali Shah or Akhtar Rizvi portraits. This exception supersedes the earlier mandatory Supreme Court/High Court profile pairing for those pages.
-- Use relevant local team profiles: Karachi — Shankar Lal Kataria, Mohsin Ali Mirani, Zaheer Ashraf Qazi, Sobia Mohsin; Islamabad/Rawalpindi — Kashif Mumtaz, Advocate High Court; Lahore — Junaid Kahloon.
+- Use relevant local team profiles: Karachi — Shankar Lal Kataria, Mohsin Ali Mirani, Zaheer Ahmed Qazi, Sobia Mohsin; Islamabad/Rawalpindi — Kashif Mumtaz, Advocate High Court; Lahore — Junaid Kahloon.
 - Use genuine identified portraits; do not substitute a guessed portrait.
 - Mohsin Ali Shah’s positioning is Chairman, senior adviser and team management/delegation, particularly corporate and taxation work. Senior profiles on property/family disputes and appeals must reflect the actual assignment. Akhtar Rizvi and Fayyaz are relevant for senior appellate representation.

@@ -210,7 +210,7 @@ export default function DnaRoutePage({ page, slug }) {
             {isServicePage && isFamilyLaw && <section style={{margin:'28px 0',padding:'24px 26px',background:'#eef4f1',borderLeft:'3px solid #173b35'}}>
               <h2>Family Law Team By Region</h2>
               <h3>Relevant Lawyers Without Guessed Portraits</h3>
-              <p><strong>Karachi:</strong> Shankar Lal Kataria for family and matrimonial matters; Mohsin Ali Mirani for connected civil and family litigation; Zaheer Ashraf Qazi for Right Law family-law coordination; and Sobia Mohsin for family, matrimonial and documentation matters.</p>
+              <p><strong>Karachi:</strong> Shankar Lal Kataria for family and matrimonial matters; Mohsin Ali Mirani for connected civil and family litigation; Zaheer Ahmed Qazi for Right Law family-law coordination; and Sobia Mohsin for family, matrimonial and documentation matters.</p>
               <p><strong>Islamabad And Rawalpindi:</strong> Kashif Mumtaz, Advocate High Court, for local family-law representation and coordination.</p>
               <p><strong>Lahore:</strong> Junaid Kahloon, Advocate High Court, for local family-law matters.</p>
               <p><strong>Senior And Appellate Matters:</strong> Akhtar Rizvi, Advocate Supreme Court, is referenced only where senior or appellate involvement is genuinely relevant. Fayyaz Khan, Advocate Supreme Court, may be relevant for higher or appellate matters in Lahore, Islamabad and Multan.</p>
@@ -224,7 +224,7 @@ export default function DnaRoutePage({ page, slug }) {
               <p>Where a verified portrait is not available in the authorised site assets, the lawyer profile remains text-only rather than using a guessed or mismatched image.</p>
             </section>}
 
-            {isServicePage && isRoutineMatrimonial && <section style={{margin:'28px 0',padding:'24px 26px',background:'#eef4f1',borderLeft:'3px solid #173b35'}}><h2>Marriage Service Legal Team</h2><h3>Local Lawyer Assignment Without Guessed Portraits</h3><p>Right Law Associates assigns marriage-service work through the relevant local team. Karachi assignments include Shankar Lal Kataria, Mohsin Ali Mirani, Zaheer Ashraf Qazi and Sobia Mohsin; Islamabad and Rawalpindi matters are assigned through Kashif Mumtaz, Advocate High Court; Lahore matters are assigned through Junaid Kahloon. Lawyer portraits are displayed only when a genuine identified image is available in the approved site assets.</p></section>}
+            {isServicePage && isRoutineMatrimonial && <section style={{margin:'28px 0',padding:'24px 26px',background:'#eef4f1',borderLeft:'3px solid #173b35'}}><h2>Marriage Service Legal Team</h2><h3>Local Lawyer Assignment Without Guessed Portraits</h3><p>Right Law Associates assigns marriage-service work through the relevant local team. Karachi assignments include Shankar Lal Kataria, Mohsin Ali Mirani, Zaheer Ahmed Qazi and Sobia Mohsin; Islamabad and Rawalpindi matters are assigned through Kashif Mumtaz, Advocate High Court; Lahore matters are assigned through Junaid Kahloon. Lawyer portraits are displayed only when a genuine identified image is available in the approved site assets.</p></section>}
 
             {(dissolution?.sections || mainServiceSections[slug] || []).map(([title, subtitle, copy]) => <section key={title}><h2>{title}</h2><h3>{subtitle}</h3><p>{copy}</p></section>)}
 
