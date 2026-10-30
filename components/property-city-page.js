@@ -26,11 +26,13 @@ export default function PropertyCityPage({ page }) {
       <article className="section family-article"><div className="container family-article-inner">
         <Image className="property-content-image" src={`/images/${page.slug}.webp`} width={1600} height={700} sizes="(max-width: 800px) 100vw, 940px" priority alt={`${page.serviceName} title graphic with a stylised plot map`} style={{ width: '100%', height: 'auto' }} />
         <h2>{page.serviceName} for Property Disputes and Transactions</h2>
+        {page.team ? <><h3>Karachi Property Lawyers on Our Team</h3><div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(300px, 100%), 1fr))', gap: 16, alignItems: 'stretch', marginBottom: 24 }}>{page.team.map((l) => <div key={l.name} className="senior-counsel-card"><Image unoptimized width={92} height={108} style={{ objectFit: 'cover' }} className="senior-counsel-photo" src={l.image} alt={`${l.name}, ${l.role}`} /><div><h3>{l.name} — {l.role}</h3><p>{l.text}</p></div></div>)}</div></> : <>
         <h3>{page.profile.name} — {page.profile.role}</h3>
         <div className={`senior-counsel-card${page.profile.image ? "" : " senior-counsel-card-text-only"}`}>
           {page.profile.image && <Image unoptimized width={92} height={108} className="senior-counsel-photo" src={page.profile.image} alt={`${page.profile.name}, ${page.profile.role}`} />}
           <div><p>{page.profile.text}</p><p className="senior-counsel-note">The appropriate lawyer and forum depend on the title record, property location, relief required and stage of proceedings.</p></div>
         </div>
+        </>}
         {page.sections.map(([title, copy]) => <section key={title}><h2>{title}</h2><h3>Document-Based Advice for {page.city} Property Matters</h3><p>{copy}</p></section>)}
         <section><h2>{page.serviceName} Across Key Localities</h2><h3>Local Property Coverage in {page.city}</h3><p>We assist clients with matters across {page.localities}. Locality alone does not determine the legal route; the property record, tenure, authority and court jurisdiction remain decisive.</p></section>
         {page.addresses?.length > 0 && <section><h2>Property Law Consultation Offices in {page.city}</h2><h3>Verified Office Locations</h3>{page.addresses.map(a => <p key={a}>{a}</p>)}</section>}
