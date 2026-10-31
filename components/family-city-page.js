@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import SectionImage from './section-image'
 import Image from 'next/image'
 import { Footer } from './legal-site'
 import { firm } from '../lib/legal-data'
@@ -60,6 +61,7 @@ export default function FamilyCityPage({ pageKey }) {
         <p>Mohsin Ali Shah, Chairman, oversees the network and client dealing; his own legal practice dates from 1985. Courtroom representation in {page.city} is by the advocate named above for each matter.</p>
         {page.sections.map(([title, copy], i) => <section key={title} style={{ marginTop: 30 }}>
           <h2>{title}</h2><p>{copy}</p>
+          {[1,3,5].includes(i) && <SectionImage slug={page.slug} index={[1,3,5].indexOf(i)} />}
           {i === 2 && <div className="property-table-wrap" role="region" aria-label={t.title} tabIndex={0}><table><caption style={{ textAlign: 'left', fontWeight: 700, paddingBottom: 10 }}>{t.title}</caption><thead><tr>{t.headings.map((h) => <th key={h} scope="col">{h}</th>)}</tr></thead><tbody>{t.rows.map((r) => <tr key={r[0]}>{r.map((c, j) => j === 0 ? <th key={j} scope="row">{c}</th> : <td key={j}>{c}</td>)}</tr>)}</tbody></table></div>}
         </section>)}
         <h2>Neighbourhoods Served by Our Family Lawyers in {page.city}</h2>

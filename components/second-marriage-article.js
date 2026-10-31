@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import SectionImage from './section-image'
 import { Footer } from './legal-site'
 
 const enSections = [
@@ -145,7 +146,7 @@ export default function SecondMarriageArticle({language='en'}){
    </section>
    <article style={styles.section}><div style={styles.container}>
     <aside style={styles.notice}><strong>{isUr?'قانونی انتباہ:':'Legal distinction:'}</strong> {isUr?'یہ نمونہ کسی یونین کونسل کا جاری کردہ اجازت نامہ نہیں۔ اصل اجازت متعلقہ ثالثی کونسل سے قانون کے مطابق حاصل کی جائے۔':'A downloadable specimen is not permission to remarry. Actual prior written authorization can only come from the competent Arbitration Council.'}</aside>
-    {sections.map(([head,p1,p2],i)=><section key={head} id={'section-'+(i+1)}><h2 style={styles.h2}>{head}</h2><p style={styles.p}>{p1}</p><p style={styles.p}>{p2}</p></section>)}
+    {sections.map(([head,p1,p2],i)=><section key={head} id={'section-'+(i+1)}><h2 style={styles.h2}>{head}</h2><p style={styles.p}>{p1}</p><p style={styles.p}>{p2}</p>{!isUr&&[1,3,5].includes(i)&&<SectionImage slug="second-marriage-permission-in-pakistan" index={[1,3,5].indexOf(i)}/>}</section>)}
     <section id="free-forms">
       <h2 style={styles.h2}>{isUr?'درخواست، اجازت نامہ اور تائیدی حلف نامہ — مفت نمونے':'Free PDF Downloads — Permission Specimen, Application and Affidavit'}</h2>
       <p style={styles.p}>{isUr?'دو الگ سادہ دستاویزات دستیاب ہیں، ایک درخواست اور ایک اجازت نامے کا نمونہ۔ نمبر، نام، شہر، تاریخ اور فیصلے کے خانے خالی ہیں، اور سرکاری مہر یا افسر کے دستخط موجود نہیں۔ نیچے دیے گئے براہ راست PDF لنکس سے اصل فائل کھولیں یا محفوظ کریں۔':'Open the specimen and the application separately. Both have blank Council, name, city and date fields, without a government seal or a real signature. Use the direct PDF links below to open or save the original sample files.'}</p>

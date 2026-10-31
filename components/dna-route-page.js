@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import SectionImage from './section-image'
 import Link from 'next/link'
 import { Footer } from './legal-site'
 import KarachiShortCta from './karachi-short-cta'
@@ -234,6 +235,7 @@ export default function DnaRoutePage({ page, slug }) {
             <p>The following issues should be reviewed separately where necessary:</p>
             <ul>{page.topics.map((topic)=><li key={topic}><strong>{topic}:</strong> documents, procedure, remedies, risk and the correct forum should be checked before action is taken.</li>)}</ul>
 
+            <SectionImage slug={slug} index={0} />
             <h2><b>Planning The Matter Before Filing Or Registration</b></h2>
             <p>Prepare a concise chronology, identify the desired outcome and separate confirmed facts from assumptions. This helps determine whether the matter requires litigation, an administrative application, registration work, a legal notice, negotiation or a combination of steps.</p>
 
@@ -247,6 +249,7 @@ export default function DnaRoutePage({ page, slug }) {
             <h3>Urgent Applications And Deadlines</h3>
             <p>Urgent cases may require interim relief such as an injunction, stay, interim custody, preservation direction or another temporary order. Deadlines, notice periods and sequence can materially affect the result.</p>
 
+            <SectionImage slug={slug} index={1} />
             <h2><b>Legal Route Comparison</b></h2>
             <div style={{overflowX:'auto'}}><table style={{width:'100%',borderCollapse:'collapse',margin:'18px 0 30px'}}><thead><tr><th style={head}>Route</th><th style={head}>When It May Apply</th><th style={head}>Check First</th></tr></thead><tbody>
               <tr><td style={cell}>Court Proceeding</td><td style={cell}>Rights are disputed or an enforceable judicial order is required.</td><td style={cell}>Jurisdiction, limitation, parties, pleadings and evidence.</td></tr>
@@ -259,6 +262,7 @@ export default function DnaRoutePage({ page, slug }) {
             <h3>Legal Team And Regional Coordination</h3>
             <p>Right Law Associates works with clients in Karachi, Islamabad, Rawalpindi, Lahore and other parts of Pakistan through the relevant legal team. Overseas Pakistanis can provide initial documents electronically where the matter permits remote coordination.</p>
 
+            <SectionImage slug={slug} index={2} />
             <h2><b>Our Legal Review Process</b></h2>
             <div style={{overflowX:'auto'}}><table style={{width:'100%',borderCollapse:'collapse',margin:'18px 0 30px'}}><thead><tr><th style={head}>Stage</th><th style={head}>Focus</th><th style={head}>Output</th></tr></thead><tbody>
               <tr><td style={cell}>Initial Review</td><td style={cell}>Facts, chronology, documents and immediate risk.</td><td style={cell}>Issue list and missing-document checklist.</td></tr>
