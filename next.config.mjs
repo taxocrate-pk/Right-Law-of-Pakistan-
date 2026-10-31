@@ -3,6 +3,19 @@ const nextConfig = {
   // Indexed WordPress URLs, the sitemap, menus and most canonicals end in a slash;
   // without this, every one of them 308-redirected to the slash-less form.
   trailingSlash: true,
+  // Indexed WordPress URLs that returned 404 after the Next.js move (GSC, Oct 2026):
+  // send each to the closest live page so its rankings carry over.
+  async redirects() {
+    return [
+      { source: '/misyar-marriage-nikah-misyar-facts-about-misyar-marriages-2/', destination: '/misyar-marriage-nikah-misyar-marriages/', permanent: true },
+      { source: '/nadra-b-form-in-pakistan/', destination: '/b-form-nadra-importance-of-b-form-in-pakistan/', permanent: true },
+      { source: '/nikah-nama-urdu-english-available-in-karachi/', destination: '/nikah-nama/', permanent: true },
+      { source: '/nadra-divorce-certificate-service-in-pakistan/', destination: '/divorce-registration-certificate/', permanent: true },
+      { source: '/nadra-succession-certificate-online-verification-fees/', destination: '/succession-certificate-in-pakistan-for-legal-heirs/', permanent: true },
+      { source: '/divorce-or-talaq-in-islam-types-of-talaq-divorce/', destination: '/divorce-talaq-in-islam-types-and-quranic-references/', permanent: true },
+      { source: '/best-female-family-divorce-khula-lawyers-in-karachi-islamabad-lahore/', destination: '/best-family-and-divorce-lawyer-and-lady-advocate-in-karachi-sobia-mohsin-shah-legal-expertise-in-family-law/', permanent: true },
+    ]
+  },
   async headers() {
     return [{
       source: '/:path*',
