@@ -1,9 +1,20 @@
 import Link from 'next/link'
+import SectionImage from './section-image'
 import Image from 'next/image'
 import { Footer } from './legal-site'
 import { firm } from '../lib/legal-data'
 import { propertyCityKeys, propertyCityPages, propertyFaqs } from '../lib/property-city-data'
 
+const propertyH3 = [
+  (c) => `Title Records and Registry Checks in ${c}`,
+  (c) => `Possession, Mutation and Transfer Questions in ${c}`,
+  (c) => `Court Forums for ${c} Property Disputes`,
+  (c) => `Evidence ${c} Property Lawyers Ask For`,
+  (c) => `Overseas Owners With Property in ${c}`,
+  (c) => `Costs, Timelines and Next Steps in ${c}`,
+  (c) => `Settlement Options Before Litigation in ${c}`,
+  (c) => `Society, Authority and Revenue Records in ${c}`,
+]
 export default function PropertyCityPage({ page }) {
   const url = `https://rightlaw.pk/${page.slug}/`
   const faqs = propertyFaqs(page)
@@ -33,7 +44,7 @@ export default function PropertyCityPage({ page }) {
           <div><p>{page.profile.text}</p><p className="senior-counsel-note">The appropriate lawyer and forum depend on the title record, property location, relief required and stage of proceedings.</p></div>
         </div>
         </>}
-        {page.sections.map(([title, copy]) => <section key={title}><h2>{title}</h2><h3>Document-Based Advice for {page.city} Property Matters</h3><p>{copy}</p></section>)}
+        {page.sections.map(([title, copy], i) => <section key={title}><h2>{title}</h2><h3>{propertyH3[i % propertyH3.length](page.city)}</h3><p>{copy}</p>{[1,3,5].includes(i)&&<SectionImage slug={page.slug} index={[1,3,5].indexOf(i)}/>}</section>)}
         <section><h2>{page.serviceName} Across Key Localities</h2><h3>Local Property Coverage in {page.city}</h3><p>We assist clients with matters across {page.localities}. Locality alone does not determine the legal route; the property record, tenure, authority and court jurisdiction remain decisive.</p></section>
         {page.addresses?.length > 0 && <section><h2>Property Law Consultation Offices in {page.city}</h2><h3>Verified Office Locations</h3>{page.addresses.map(a => <p key={a}>{a}</p>)}</section>}
         <h2>Property Documents We Commonly Review</h2>
