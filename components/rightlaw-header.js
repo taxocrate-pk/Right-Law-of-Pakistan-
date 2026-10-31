@@ -104,7 +104,7 @@ export function Logo() {
       <Image src="/images/right-law-logo.webp" alt="Right Law Associates logo" width={56} height={56} priority unoptimized className="h-11 w-11 shrink-0 object-contain sm:h-14 sm:w-14" />
       <span className="leading-none">
         <strong className="block whitespace-nowrap font-serif text-[18px] font-bold tracking-[0.015em] text-[#050505] sm:text-[21px]">RIGHT LAW</strong>
-        <small className="mt-1 block whitespace-nowrap text-[8px] font-bold tracking-[0.34em] text-[#c49a5a] sm:text-[9px]">A S S O C I A T E S</small>
+        <small className="mt-1 block whitespace-nowrap text-[8px] font-bold tracking-[0.34em] text-[#83602c] sm:text-[9px]">A S S O C I A T E S</small>
       </span>
     </Link>
   )
