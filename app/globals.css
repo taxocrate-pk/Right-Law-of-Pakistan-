@@ -3,7 +3,7 @@
 @import 'shadcn/tailwind.css';
 @import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;600;700&display=swap');
 
-:root { --navy: #173b35; --navy-2: #28594f; --ink: #18332f; --gold: #c49a5a; --cream: #f7f3eb; --line: #dce5e1; --muted: #687874; --white: #fff; }
+:root { --navy: #173b35; --navy-2: #28594f; --ink: #18332f; --gold: #c49a5a; --cream: #f7f3eb; --line: #dce5e1; --muted: #55635e; --white: #fff; }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body { margin: 0; background: var(--cream); color: var(--ink); font-family: Arial, Helvetica, sans-serif; }
@@ -477,3 +477,6 @@ main h4:not(aside *) { font-size: var(--h4-size) !important; line-height: 1.4 !i
 .guide-link-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 42px; }
 @media (max-width: 1100px) { .guide-link-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 600px) { .guide-link-grid { grid-template-columns: 1fr; } }
+/* Footer links: 24px+ touch targets (Lighthouse target-size) */
+.rightlaw-compact-footer .footer-links nav { gap: 2px; }
+.rightlaw-compact-footer .footer-links nav a { display: block; padding: 5px 0; min-height: 24px; }
