@@ -77,7 +77,7 @@ export default function SobiaFamilyLawyerServicePage() {
     <KarachiShortCta />
 
     <section className="section" style={{background:'#fff'}}><div className="container dna-content-grid"><article className="route-article">
-      <section><h2>Advocate Sobia Mohsin — Lady Family Lawyer in Karachi for Khula, Divorce and Custody</h2>{page.intro.map(p=><p key={p.slice(0,24)}>{p}</p>)}</section>
+      <section><h2>Advocate Sobia Mohsin — Khula, Divorce and Custody Advice for Women in Karachi</h2>{page.intro.map(p=><p key={p.slice(0,24)}>{p}</p>)}</section>
 
       <section><h2>Our Karachi Family Law Team</h2><h3>Two Advocates You Can Meet</h3><div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(min(220px,100%),1fr))',gap:20}}>{lawyers.map(l=><article key={l.name} style={{border:'1px solid #d9e1de',borderRadius:16,padding:20}}><figure style={{margin:0}}><Image unoptimized src={l.image} title={`${l.name} — ${l.designation}`} alt={`${l.name}, ${l.designation}`} width={112} height={140} style={{width:112,height:140,objectFit:'cover',objectPosition:'top center',display:'block',marginBottom:16,background:'#fff'}}/><figcaption style={{fontSize:13,lineHeight:1.5,color:'#455d55',marginBottom:12}}>{l.name}, {l.designation}</figcaption></figure><h4 style={{margin:'0 0 6px'}}>{l.name} — {l.designation}</h4><p>{l.copy}</p></article>)}</div></section>
 
