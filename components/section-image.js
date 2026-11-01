@@ -5,7 +5,8 @@ import sectionImages from '../lib/section-images'
 // relevant H2 sections (1 image up to 1,000 words, 2 up to 2,000, 3 above). Renders nothing
 // when the page has no image for this position.
 export default function SectionImage({ slug, index }) {
-  const key = `/${String(slug || '').replace(/^\/|\/$/g, '')}/`
+  const s = String(slug || '').replace(/^\/|\/$/g, '')
+  const key = s ? `/${s}/` : '/'
   const img = (sectionImages[key] || [])[index]
   if (!img) return null
   return (
