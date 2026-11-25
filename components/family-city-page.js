@@ -49,7 +49,7 @@ export default function FamilyCityPage({ pageKey }) {
         <figure style={{ margin: '0 0 28px' }}><Image src={page.image} width={1600} height={700} sizes="(max-width: 800px) 100vw, 940px" priority alt={page.alt} style={{ width: '100%', height: 'auto', display: 'block' }} /></figure>
         <h2>Where to Meet Our Family Lawyers in {page.city}</h2>
         <h3>{page.offices.length > 1 ? `Two ${page.city} Offices` : located.length ? `Our ${page.city} Office` : `Appointments in ${page.city}`}</h3>
-        {page.offices.map((o) => <p key={o.name}><strong>{o.name}:</strong> {o.address ? `${o.address}. ` : 'Appointments are arranged by phone; the meeting place is confirmed when you book. '}Call or WhatsApp <a href={`tel:+${digits(o.phone)}`}>{o.phone}</a>.</p>)}
+        {page.offices.map((o) => <p key={o.name}><strong>{o.name}:</strong> {o.address ? `${o.address}. ` : 'Appointments are arranged by phone; the meeting place is confirmed when you book. '}Call or WhatsApp <a href={`https://wa.me/${digits(o.phone)}`}>{o.phone}</a>.</p>)}
         <h2>Lawyers Handling Family Cases in {page.city}</h2>
         {/* Lawyers with photos first, side by side; text-only profiles follow in their own row */}
         {[page.lawyers.filter((l) => l.image), page.lawyers.filter((l) => !l.image)].filter((g) => g.length).map((group, gi) => <div key={gi} style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(340px, 100%), 1fr))', gap: 16, alignItems: 'stretch' }}>
@@ -80,7 +80,7 @@ export default function FamilyCityPage({ pageKey }) {
         <div className="faq-list">{page.faqs.map(([q, a]) => <section className="faq-item active" key={q}><h3>{q}</h3><p>{a}</p></section>)}</div>
         <h2>Speak to Experienced Family Lawyers in {page.city} About Your Case</h2>
         <p>Send a short chronology, the Nikah Nama and any notices or court orders. We will tell you which court has jurisdiction, what to claim and what evidence to collect before anything is filed.</p>
-        <div className="hero-actions"><Link href="/contact/" className="button button-gold">Contact Right Law Associates</Link>{page.offices.map((o) => <a key={o.name} href={`tel:+${digits(o.phone)}`} className="button button-dark">Call {o.phone}</a>)}</div>
+        <div className="hero-actions"><Link href="/contact/" className="button button-gold">Contact Right Law Associates</Link>{page.offices.map((o) => <a key={o.name} href={`https://wa.me/${digits(o.phone)}`} className="button button-dark">Call {o.phone}</a>)}</div>
         <section style={{ marginTop: 36 }}><h2>Sources</h2><ul>{page.sources.map(([label, href]) => <li key={href}><a href={href} target="_blank" rel="noopener noreferrer">{label}</a></li>)}</ul></section>
         <section style={{ marginTop: 24, padding: 20, background: '#eef4f1', fontSize: 14, lineHeight: 1.7 }}>
           <p style={{ margin: 0 }}><strong>Reviewed by:</strong> {reviewers[pageKey]}</p>
