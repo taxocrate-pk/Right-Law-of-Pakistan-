@@ -177,7 +177,7 @@ export default function DnaRoutePage({ page, slug }) {
       <section style={{background:'#173b35',color:'#fff',padding:'72px 0 54px'}}>
         <div className="container">
           <p className="eyebrow gold">{page.category}</p>
-          <h1 style={{fontFamily:'Arial, Helvetica, sans-serif',fontSize:'clamp(38px,5vw,62px)',lineHeight:1.05,maxWidth:900,margin:'0 0 18px'}}>{page.title}</h1>
+          <h1 style={{fontFamily:'Arial, Helvetica, sans-serif',fontSize:'clamp(38px,5vw,62px)',lineHeight:1.05,maxWidth:900,margin:'0 0 18px'}}>{page.h1 || page.title}</h1>
           <h2 style={{fontFamily:'Arial, Helvetica, sans-serif',fontSize:'clamp(24px,3vw,34px)',lineHeight:1.2,maxWidth:900,margin:'0 0 10px',color:'#fff'}}>Legal Guidance, Procedure, Documents And Representation</h2>
           <h3 style={{fontFamily:'Arial, Helvetica, sans-serif',fontSize:'clamp(18px,2.2vw,24px)',lineHeight:1.3,maxWidth:900,margin:'0 0 18px',color:'#e7efec'}}>Right Law Associates — Practical Legal Support Across Pakistan</h3>
           <p style={{maxWidth:820,lineHeight:1.75,color:'#fff',fontSize:17}}>{dissolution ? dissolution.hero : isServicePage ? `Right Law Associates offers consultation, document review, drafting and legal representation for ${page.title.toLowerCase()}. Discuss your circumstances with our lawyers so we can assess the appropriate legal work, documents and forum for your matter.` : page.description}</p>
@@ -239,12 +239,12 @@ export default function DnaRoutePage({ page, slug }) {
             <h2><b>Planning The Matter Before Filing Or Registration</b></h2>
             <p>Prepare a concise chronology, identify the desired outcome and separate confirmed facts from assumptions. This helps determine whether the matter requires litigation, an administrative application, registration work, a legal notice, negotiation or a combination of steps.</p>
 
-            <h2><b>Documents And Evidence</b></h2>
+            <h2><b>{page.h2Overrides?.['Documents And Evidence'] || 'Documents And Evidence'}</b></h2>
             <p>Relevant records may include CNIC copies, certificates, agreements, notices, court orders, registration records, correspondence, financial documents and other evidence. Originals or reliable copies should be reviewed before pleadings, applications or formal advice are prepared.</p>
             <h3>Record Discrepancies Before Filing</h3>
             <p>Where a record contains an error, inconsistency or outdated entry, identify it before filing. Correcting the underlying record can sometimes be as important as the main legal proceeding.</p>
 
-            <h2><b>Procedure, Jurisdiction And Timing</b></h2>
+            <h2><b>{page.h2Overrides?.['Procedure, Jurisdiction And Timing'] || 'Procedure, Jurisdiction And Timing'}</b></h2>
             <p>The correct court, tribunal, authority or registration office depends on the subject matter and facts connecting the dispute to a place. Filing in the wrong forum can cause delay, additional expense or dismissal. Jurisdiction, limitation and the relief required should be checked first.</p>
             <h3>Urgent Applications And Deadlines</h3>
             <p>Urgent cases may require interim relief such as an injunction, stay, interim custody, preservation direction or another temporary order. Deadlines, notice periods and sequence can materially affect the result.</p>

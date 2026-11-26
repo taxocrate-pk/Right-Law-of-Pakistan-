@@ -12,11 +12,11 @@ export async function generateMetadata({ params }) {
   if (!page) return {}
 
   return {
-    title: page.title,
+    title: page.metaTitle || page.title,
     description: page.description,
     alternates: { canonical: `https://rightlaw.pk/${slug}/` },
     openGraph: {
-      title: page.title,
+      title: page.metaTitle || page.title,
       description: page.description,
       url: `https://rightlaw.pk/${slug}/`,
       siteName: 'Right Law Associates',
